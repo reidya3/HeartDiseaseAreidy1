@@ -84,7 +84,7 @@
         
 
 \title{Heart Disease Prediction Task}
-\date{Nov 06, 2022}
+\date{Nov 07, 2022}
 \release{}
 \author{Anthony Reidy}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -101,7 +101,7 @@
 
 
 \sphinxAtStartPar
-Heart disease, alternatively known as cardiovascular disease, encases various conditions that impact the heart and is the primary basis of death worldwide over the span of the past few decades. Approximately 10,000 people die in Ireland from Cardiovascular Disease each year, accounting for 36\% of deaths per annum {[}{]}. That’s despite the fact that 80\% of all heart disease is deemed preventable. This investigations aims to explore a \sphinxhref{https://www.kaggle.com/code/mushfirat/heartdisease-eda-prediction/notebook}{kaggle dataset} and build a model that can predict the likelihood of a patient having heart disease. More specifically, with this dataset, we would like to see if we can develop a good model to predict if a person has heart disease and what \sphinxstyleemphasis{factors} can be attributed to heart disease most directly. We will be tackling this question with the usage of different regression techniques and algorithms.
+Heart disease, alternatively known as cardiovascular disease, encases various conditions that impact the heart and is the primary basis of death worldwide over the span of the past few decades. Approximately 10,000 people die in Ireland from Cardiovascular Disease each year, accounting for 36\% of deaths per annum {[}\hyperlink{cite.References:id3}{\sphinxstyleemphasis{Worrying statistics about heart disease}, 2020}{]}. That’s despite the fact that 80\% of all heart disease is deemed preventable. This investigations aims to explore a \sphinxhref{https://www.kaggle.com/code/mushfirat/heartdisease-eda-prediction/notebook}{kaggle dataset} and build a model that can predict the likelihood of a patient having heart disease. More specifically, with this dataset, we would like to see if we can develop a good model to predict if a person has heart disease and what \sphinxstyleemphasis{factors} can be attributed to heart disease most directly. We will be tackling this question with the usage of different regression techniques and algorithms.
 
 \begin{DUlineblock}{0em}
 \item[] \sphinxstylestrong{\Large Description of Dataset}
@@ -975,13 +975,13 @@ Outliers are extreme values. Outliers can skew the distribution but these are ex
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZob{}\PYGZsq{}whiskers\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bddb450\PYGZgt{},
-  \PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bddb790\PYGZgt{}],
- \PYGZsq{}caps\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bddbad0\PYGZgt{},
-  \PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bddbe10\PYGZgt{}],
- \PYGZsq{}boxes\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bddb150\PYGZgt{}],
- \PYGZsq{}medians\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bde61d0\PYGZgt{}],
- \PYGZsq{}fliers\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7fb08bde6510\PYGZgt{}],
+\PYGZob{}\PYGZsq{}whiskers\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7f681586d130\PYGZgt{},
+  \PYGZlt{}matplotlib.lines.Line2D at 0x7f681579d100\PYGZgt{}],
+ \PYGZsq{}caps\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7f68157f6460\PYGZgt{},
+  \PYGZlt{}matplotlib.lines.Line2D at 0x7f681575d460\PYGZgt{}],
+ \PYGZsq{}boxes\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7f6815835eb0\PYGZgt{}],
+ \PYGZsq{}medians\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7f6813023d00\PYGZgt{}],
+ \PYGZsq{}fliers\PYGZsq{}: [\PYGZlt{}matplotlib.lines.Line2D at 0x7f68109ae490\PYGZgt{}],
  \PYGZsq{}means\PYGZsq{}: []\PYGZcb{}
 \end{sphinxVerbatim}
 
@@ -1029,7 +1029,7 @@ Again, both aproaches will be evaluated in our model evaluation.
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}AxesSubplot:\PYGZgt{}
+\PYGZlt{}AxesSubplot: \PYGZgt{}
 \end{sphinxVerbatim}
 
 \noindent\sphinxincludegraphics{{Initial_Data_Exploration_44_1}.png}
@@ -1179,8 +1179,8 @@ Jolliffe relaxes this criterium and suggest to retain eigenvalues greater than 0
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Kasier criterion optimal component number: 1, explained variance: 0.44862010192451435
-Jolliffe criterion optimal component number: 2 , explained variance: 0.5825444541168425
+Kasier criterion optimal component number: 1, explained variance: 0.4486201019244787
+Jolliffe criterion optimal component number: 2 , explained variance: 0.5825444541168093
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -1294,6 +1294,61 @@ underweight vs normal weight vs overweight vs obese
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{ImportError}\PYG{g+gWhitespace}{                               }Traceback (most recent call last)
+\PYG{n}{Cell} \PYG{n}{In} \PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{n}{line} \PYG{l+m+mi}{3}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{1} \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{cluster} \PYG{k+kn}{import} \PYG{n}{KMeans}\PYG{p}{,} \PYG{n}{MiniBatchKMeans}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{2} \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{metrics} \PYG{k+kn}{import} \PYG{n}{silhouette\PYGZus{}score}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{3} \PYG{k+kn}{from} \PYG{n+nn}{pyclustertend} \PYG{k+kn}{import} \PYG{n}{ivat}
+
+\PYG{n}{File} \PYG{o}{\PYGZti{}}\PYG{o}{/}\PYG{n}{optum}\PYG{o}{/}\PYG{n}{repos}\PYG{o}{/}\PYG{n}{HeartDiseaseAreidy1}\PYG{o}{/}\PYG{n}{venv}\PYG{o}{/}\PYG{n}{lib}\PYG{o}{/}\PYG{n}{python3}\PYG{l+m+mf}{.8}\PYG{o}{/}\PYG{n}{site}\PYG{o}{\PYGZhy{}}\PYG{n}{packages}\PYG{o}{/}\PYG{n}{pyclustertend}\PYG{o}{/}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{o}{.}\PYG{n}{py}\PYG{p}{:}\PYG{l+m+mi}{6}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{1} \PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{hopkins} \PYG{k+kn}{import} \PYG{n}{hopkins}  \PYG{c+c1}{\PYGZsh{} noqa: F401}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{2} \PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{metric} \PYG{k+kn}{import} \PYG{p}{(}  \PYG{c+c1}{\PYGZsh{} noqa: F401}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}     \PYG{n}{assess\PYGZus{}tendency\PYGZus{}by\PYGZus{}mean\PYGZus{}metric\PYGZus{}score}\PYG{p}{,}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{4}     \PYG{n}{assess\PYGZus{}tendency\PYGZus{}by\PYGZus{}metric}\PYG{p}{,}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{5} \PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{6} \PYG{k+kn}{from} \PYG{n+nn}{.}\PYG{n+nn}{visual\PYGZus{}assessment\PYGZus{}of\PYGZus{}tendency} \PYG{k+kn}{import} \PYG{p}{(}  \PYG{c+c1}{\PYGZsh{} noqa: F401}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{7}     \PYG{n}{vat}\PYG{p}{,}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{8}     \PYG{n}{compute\PYGZus{}ordered\PYGZus{}dissimilarity\PYGZus{}matrix}\PYG{p}{,}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{9}     \PYG{n}{ivat}\PYG{p}{,}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{10}     \PYG{n}{compute\PYGZus{}ivat\PYGZus{}ordered\PYGZus{}dissimilarity\PYGZus{}matrix}\PYG{p}{,}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{11} \PYG{p}{)}
+
+\PYG{n}{File} \PYG{o}{\PYGZti{}}\PYG{o}{/}\PYG{n}{optum}\PYG{o}{/}\PYG{n}{repos}\PYG{o}{/}\PYG{n}{HeartDiseaseAreidy1}\PYG{o}{/}\PYG{n}{venv}\PYG{o}{/}\PYG{n}{lib}\PYG{o}{/}\PYG{n}{python3}\PYG{l+m+mf}{.8}\PYG{o}{/}\PYG{n}{site}\PYG{o}{\PYGZhy{}}\PYG{n}{packages}\PYG{o}{/}\PYG{n}{pyclustertend}\PYG{o}{/}\PYG{n}{visual\PYGZus{}assessment\PYGZus{}of\PYGZus{}tendency}\PYG{o}{.}\PYG{n}{py}\PYG{p}{:}\PYG{l+m+mi}{6}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{4} \PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{5} \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{metrics} \PYG{k+kn}{import} \PYG{n}{pairwise\PYGZus{}distances}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{6} \PYG{k+kn}{from} \PYG{n+nn}{numba} \PYG{k+kn}{import} \PYG{n}{njit}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{9} \PYG{k}{def} \PYG{n+nf}{vat}\PYG{p}{(}\PYG{n}{data}\PYG{p}{:} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ndarray}\PYG{p}{,} \PYG{n}{return\PYGZus{}odm}\PYG{p}{:} \PYG{n+nb}{bool} \PYG{o}{=} \PYG{k+kc}{False}\PYG{p}{,} \PYG{n}{figure\PYGZus{}size}\PYG{p}{:} \PYG{n}{Tuple} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{10}     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}VAT means Visual assessment of tendency. basically, it allow to asses cluster tendency}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{11}\PYG{l+s+sd}{     through a map based on the dissimilarity matrix.}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{12}\PYG{l+s+sd}{ }
+\PYG{l+s+sd}{   (...)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{32}\PYG{l+s+sd}{ }
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{33}\PYG{l+s+sd}{     \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{n}{File} \PYG{o}{\PYGZti{}}\PYG{o}{/}\PYG{n}{optum}\PYG{o}{/}\PYG{n}{repos}\PYG{o}{/}\PYG{n}{HeartDiseaseAreidy1}\PYG{o}{/}\PYG{n}{venv}\PYG{o}{/}\PYG{n}{lib}\PYG{o}{/}\PYG{n}{python3}\PYG{l+m+mf}{.8}\PYG{o}{/}\PYG{n}{site}\PYG{o}{\PYGZhy{}}\PYG{n}{packages}\PYG{o}{/}\PYG{n}{numba}\PYG{o}{/}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{o}{.}\PYG{n}{py}\PYG{p}{:}\PYG{l+m+mi}{198}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{195}     \PYG{k}{return} \PYG{k+kc}{False}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{197} \PYG{n}{\PYGZus{}ensure\PYGZus{}llvm}\PYG{p}{(}\PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{198} \PYG{n}{\PYGZus{}ensure\PYGZus{}critical\PYGZus{}deps}\PYG{p}{(}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{200} \PYG{c+c1}{\PYGZsh{} we know llvmlite is working as the above tests passed, import it now as SVML}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{201} \PYG{c+c1}{\PYGZsh{} needs to mutate runtime options (sets the `\PYGZhy{}vector\PYGZhy{}library`).}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{202} \PYG{k+kn}{import} \PYG{n+nn}{llvmlite}
+
+\PYG{n+nn}{File \PYGZti{}/optum/repos/HeartDiseaseAreidy1/venv/lib/python3.8/site\PYGZhy{}packages/numba/\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}.py:138,} in \PYG{n+ni}{\PYGZus{}ensure\PYGZus{}critical\PYGZus{}deps}\PYG{n+nt}{()}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{136}     \PYG{k}{raise} \PYG{n+ne}{ImportError}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Numba needs NumPy 1.17 or greater}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{137} \PYG{k}{elif} \PYG{n}{numpy\PYGZus{}version} \PYG{o}{\PYGZgt{}} \PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{)}\PYG{p}{:}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{138}     \PYG{k}{raise} \PYG{n+ne}{ImportError}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Numba needs NumPy 1.20 or less}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{140} \PYG{k}{try}\PYG{p}{:}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{141}     \PYG{k+kn}{import} \PYG{n+nn}{scipy}
+
+\PYG{n+ne}{ImportError}: Numba needs NumPy 1.20 or less
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
 
@@ -1329,7 +1384,7 @@ Hopkins’s statistic  of randomness
 \subsection{Hopkins statistics}
 \label{\detokenize{Clustering_Analysis:hopkins-statistics}}
 \sphinxAtStartPar
-Hopkins statistics {[}\hyperlink{cite.References:id7}{Banerjee and Dave, 2004}{]} tests the spatial randomness of a dataset i.e. it measures the probability that a given dataset aligns with a uniform distribution. It is based on the difference between the distance from a real point to its nearest neighbour, U, and the distance from a uniformly generated point within the data space to the nearest real data point, W.
+Hopkins statistics {[}\hyperlink{cite.References:id8}{Banerjee and Dave, 2004}{]} tests the spatial randomness of a dataset i.e. it measures the probability that a given dataset aligns with a uniform distribution. It is based on the difference between the distance from a real point to its nearest neighbour, U, and the distance from a uniformly generated point within the data space to the nearest real data point, W.
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -1401,13 +1456,13 @@ If the value of the Hopkins statistic(H) is close to 1 (above 0.5), we reject \(
 
 \end{sphinxuseclass}
 \sphinxAtStartPar
-For both datasets, we reject \(H_{0}\) and can conclude that the datasets have a significant tendency to cluster.
+For both datasets, we reject \(H_{0}\) and can conclude that the dataset has a significant tendency to cluster.
 
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{2D}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{s hopkins statistic }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{hopkins}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{2D}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{s hopkins statistic }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{hopkins}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -1415,53 +1470,12 @@ For both datasets, we reject \(H_{0}\) and can conclude that the datasets have a
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
-\PYG{n+ne}{ValueError}\PYG{g+gWhitespace}{                                }Traceback (most recent call last)
-\PYG{o}{/}\PYG{n}{var}\PYG{o}{/}\PYG{n}{folders}\PYG{o}{/}\PYG{l+m+mi}{0}\PYG{n}{f}\PYG{o}{/}\PYG{n}{wgt07yjn5gnfhmk719tfc2gm1vjz80}\PYG{o}{/}\PYG{n}{T}\PYG{o}{/}\PYG{n}{ipykernel\PYGZus{}81731}\PYG{o}{/}\PYG{l+m+mf}{103584931.}\PYG{n}{py} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{2D}\PYG{l+s+s2}{\PYGZsq{}}\PYG{l+s+s2}{s hopkins statistic }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{hopkins}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-
-\PYG{n+nn}{/var/folders/0f/wgt07yjn5gnfhmk719tfc2gm1vjz80/T/ipykernel\PYGZus{}81731/1089192470.py} in \PYG{n+ni}{hopkins}\PYG{n+nt}{(X)}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{7}     \PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{8}     \PYG{n}{m} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{0.1} \PYG{o}{*} \PYG{n}{n}\PYG{p}{)}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{9}     \PYG{n}{nbrs} \PYG{o}{=} \PYG{n}{NearestNeighbors}\PYG{p}{(}\PYG{n}{n\PYGZus{}neighbors}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{values}\PYG{p}{)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{10} 
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{11}     \PYG{n}{rand\PYGZus{}X} \PYG{o}{=} \PYG{n}{sample}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,} \PYG{n}{m}\PYG{p}{)}
-
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/neighbors/\PYGZus{}unsupervised.py} in \PYG{n+ni}{fit}\PYG{n+nt}{(self, X, y)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{164}             \PYG{n}{The} \PYG{n}{fitted} \PYG{n}{nearest} \PYG{n}{neighbors} \PYG{n}{estimator}\PYG{o}{.}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{165}         \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{166}\PYG{l+s+s2}{         return self.\PYGZus{}fit(X)}
-
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/neighbors/\PYGZus{}base.py} in \PYG{n+ni}{\PYGZus{}fit}\PYG{n+nt}{(self, X, y)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{433}\PYG{l+s+s2}{         else:}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{434}\PYG{l+s+s2}{             if not isinstance(X, (KDTree, BallTree, NeighborsBase)):}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{435}\PYG{l+s+s2}{                 X = self.\PYGZus{}validate\PYGZus{}data(X, accept\PYGZus{}sparse=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{csr}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{436}\PYG{l+s+s2}{ }
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{437}\PYG{l+s+s2}{         self.\PYGZus{}check\PYGZus{}algorithm\PYGZus{}metric()}
-
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/base.py} in \PYG{n+ni}{\PYGZus{}validate\PYGZus{}data}\PYG{n+nt}{(self, X, y, reset, validate\PYGZus{}separately, **check\PYGZus{}params)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{564}\PYG{l+s+s2}{             raise ValueError(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Validation should be done on X, y or both.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{565}\PYG{l+s+s2}{         elif not no\PYGZus{}val\PYGZus{}X and no\PYGZus{}val\PYGZus{}y:}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{566}\PYG{l+s+s2}{             X = check\PYGZus{}array(X, **check\PYGZus{}params)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{567}\PYG{l+s+s2}{             out = X}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{568}\PYG{l+s+s2}{         elif no\PYGZus{}val\PYGZus{}X and not no\PYGZus{}val\PYGZus{}y:}
-
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/utils/validation.py} in \PYG{n+ni}{check\PYGZus{}array}\PYG{n+nt}{(array, accept\PYGZus{}sparse, accept\PYGZus{}large\PYGZus{}sparse, dtype, order, copy, force\PYGZus{}all\PYGZus{}finite, ensure\PYGZus{}2d, allow\PYGZus{}nd, ensure\PYGZus{}min\PYGZus{}samples, ensure\PYGZus{}min\PYGZus{}features, estimator)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{744}\PYG{l+s+s2}{                     array = array.astype(dtype, casting=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{unsafe}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{, copy=False)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{745}\PYG{l+s+s2}{                 else:}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{746}\PYG{l+s+s2}{                     array = np.asarray(array, order=order, dtype=dtype)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{747}\PYG{l+s+s2}{             except ComplexWarning as complex\PYGZus{}warning:}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{748}\PYG{l+s+s2}{                 raise ValueError(}
-
-\PYG{n+ne}{ValueError}: could not convert string to float: \PYGZsq{}Yes\PYGZsq{}
+2D\PYGZsq{}s hopkins statistic 0.9914319273681726
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-\sphinxAtStartPar
-From the result of implementing IVAT, it is observed that both datsets seem to be inconclusive. However, as this algorithm is just meant to help us decide if we should go ahead with the cluster analysis or not, we will go ahead with the K\sphinxhyphen{}means cluster analysis as both Hopkins statistic results were significant.
-
 
 \section{K\sphinxhyphen{}Means}
 \label{\detokenize{Clustering_Analysis:k-means}}
@@ -1541,7 +1555,7 @@ We plot these values in an attempt to find an ‘elbow’ within the curve.
 \PYG{n}{Sum\PYGZus{}of\PYGZus{}squared\PYGZus{}distances} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
 \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{:}
     \PYG{n}{km\PYGZus{}2d} \PYG{o}{=} \PYG{n}{MiniBatchKMeans}\PYG{p}{(}\PYG{n}{n\PYGZus{}clusters}\PYG{o}{=}\PYG{n}{k}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
-    \PYG{n}{km\PYGZus{}2d} \PYG{o}{=} \PYG{n}{km\PYGZus{}2d}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{km\PYGZus{}2d} \PYG{o}{=} \PYG{n}{km\PYGZus{}2d}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}
     \PYG{n}{Sum\PYGZus{}of\PYGZus{}squared\PYGZus{}distances}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{km\PYGZus{}2d}\PYG{o}{.}\PYG{n}{inertia\PYGZus{}}\PYG{p}{)}
 \PYG{n}{plt}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{)}\PYG{p}{,} \PYG{n}{Sum\PYGZus{}of\PYGZus{}squared\PYGZus{}distances}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{bx\PYGZhy{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{n}{plt}\PYG{o}{.}\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{No of Clusters}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
@@ -1554,7 +1568,7 @@ We plot these values in an attempt to find an ‘elbow’ within the curve.
 \begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{Clustering_Analysis_16_0}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_15_0}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1600,7 +1614,7 @@ We evaluate using silhouette plots. These plots display how close each point in 
 \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in}  \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{:}
     \PYG{n}{km} \PYG{o}{=} \PYG{n}{MiniBatchKMeans}\PYG{p}{(}\PYG{n}{n\PYGZus{}clusters}\PYG{o}{=}\PYG{n}{k}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}
     \PYG{n}{visualizer} \PYG{o}{=} \PYG{n}{SilhouetteVisualizer}\PYG{p}{(}\PYG{n}{km}\PYG{p}{,} \PYG{n}{colors}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{yellowbrick}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-    \PYG{n}{visualizer}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{visualizer}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}
     \PYG{n}{visualizer}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
 
@@ -1608,11 +1622,11 @@ We evaluate using silhouette plots. These plots display how close each point in 
 \begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{Clustering_Analysis_20_0}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_19_0}.png}
 
-\noindent\sphinxincludegraphics{{Clustering_Analysis_20_1}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_19_1}.png}
 
-\noindent\sphinxincludegraphics{{Clustering_Analysis_20_2}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_19_2}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1636,7 +1650,7 @@ Healthy vs Unhealthy
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{km\PYGZus{}2d} \PYG{o}{=} \PYG{n}{KMeans}\PYG{p}{(}\PYG{n}{n\PYGZus{}clusters}\PYG{o}{=}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{km\PYGZus{}2d} \PYG{o}{=} \PYG{n}{KMeans}\PYG{p}{(}\PYG{n}{n\PYGZus{}clusters}\PYG{o}{=}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{n}{random\PYGZus{}state}\PYG{o}{=}\PYG{l+m+mi}{42}\PYG{p}{)}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{o}{.}\PYG{n}{iloc}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{p}{)}
 \PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{clusters}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{km\PYGZus{}2d}\PYG{o}{.}\PYG{n}{labels\PYGZus{}} \PYG{o}{+} \PYG{l+m+mi}{1}
 \PYG{n}{f}\PYG{p}{,} \PYG{p}{(}\PYG{n}{ax1}\PYG{p}{,} \PYG{n}{ax2}\PYG{p}{)} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{sharey}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
 \PYG{n}{sns}\PYG{o}{.}\PYG{n}{scatterplot}\PYG{p}{(}\PYG{n}{x}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{component\PYGZus{}1}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{component\PYGZus{}2}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{data}\PYG{o}{=}\PYG{n}{dim\PYGZus{}reduced\PYGZus{}2d}\PYG{p}{,} \PYG{n}{hue}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{clusters}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{ax}\PYG{o}{=}\PYG{n}{ax1}\PYG{p}{)}
@@ -1657,7 +1671,7 @@ HeartDisease
 1              16315.0   1832.0   7538.0    1688.0
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Clustering_Analysis_23_1}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_22_1}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1688,7 +1702,7 @@ Overweight    50829.0  11545.0   8885.0  43493.0
 Obese         42922.0  15898.0  13639.0  32336.0
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Clustering_Analysis_25_1}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_24_1}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1745,19 +1759,13 @@ Besides the majority of overweight and obese patients falling in clusters 1 and 
 \begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{Clustering_Analysis_28_0}.png}
+\noindent\sphinxincludegraphics{{Clustering_Analysis_27_0}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
 \sphinxAtStartPar
-The healthy participants seem to be evenly spread among the two clusters. Both types of unhealthy participants have a tendency to appear in cluster 1. K\sphinxhyphen{}means seems to be reasonable able to cluster unhealthy patients, with 83\% of unhealthy patients being clustered in the same group. However, k\sphinxhyphen{}means is unable to model the distinction between healthy and unhealthy individuals.
-
-\sphinxAtStartPar
-Ahn, Wood and Worthy seem to exhibit a clear preference for one cluster over another. Otherwise, participants in the other studies are reasonably evenly spread across the two clusters.
-
-\sphinxAtStartPar
-Healthy participants appear not to have a tendency to group in any cluster. For example, amphetamines users tend to group in clusters 2 and 3 and 4 whilst heroin users tend to be located in clusters 2 ,3 and 5. Interestingly, even with a more significant number of cluster’s, k\sphinxhyphen{}means groups the majority of unhealthy individuals in the same cluster (ie.e no distinction between opioid and stimulant dependents).
+The healthy participants seem to be evenly spread among the two clusters. Unhealthy participants have a tendency to appear in cluster 1 and 4. K\sphinxhyphen{}means seems to be reasonable able to cluster alcoholic  patients.
 
 \sphinxAtStartPar
 Finally, we decide to append the clusters to our standardized dataset. Our feature selection method later on, will tell us if they were of use or not.
@@ -1902,6 +1910,7 @@ Depending on the distribution of sick to healthy patients those two classifiers 
 \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{svm} \PYG{k+kn}{import} \PYG{n}{SVC}
 \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{metrics} \PYG{k+kn}{import} \PYG{n}{plot\PYGZus{}confusion\PYGZus{}matrix}
 
+\PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{model\PYGZus{}selection} \PYG{k+kn}{import} \PYG{n}{GridSearchCV}
 \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{metrics} \PYG{k+kn}{import} \PYG{n}{confusion\PYGZus{}matrix}
 \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{metrics} \PYG{k+kn}{import} \PYG{n}{ConfusionMatrixDisplay}
 \PYG{k+kn}{from} \PYG{n+nn}{sklearn}\PYG{n+nn}{.}\PYG{n+nn}{feature\PYGZus{}selection} \PYG{k+kn}{import} \PYG{n}{mutual\PYGZus{}info\PYGZus{}regression}\PYG{p}{,} \PYG{n}{mutual\PYGZus{}info\PYGZus{}classif}
@@ -1959,6 +1968,19 @@ Depending on the distribution of sick to healthy patients those two classifiers 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
 
 \end{sphinxuseclass}
+
+\subsection{Code Type Hints}
+\label{\detokenize{Model_evaluation:code-type-hints}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{typing} \PYG{k+kn}{import} \PYG{n}{List}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
@@ -1988,7 +2010,7 @@ Depending on the distribution of sick to healthy patients those two classifiers 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Ratio of classes in training set:}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{value\PYGZus{}counts}\PYG{p}{(}\PYG{n}{normalize}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
 \PYG{n+nb}{print}\PYG{p}{(}\PYG{p}{)}
-\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Ratio of classes in training set:}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{y\PYGZus{}test}\PYG{o}{.}\PYG{n}{value\PYGZus{}counts}\PYG{p}{(}\PYG{n}{normalize}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Ratio of classes in test set:}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{y\PYGZus{}test}\PYG{o}{.}\PYG{n}{value\PYGZus{}counts}\PYG{p}{(}\PYG{n}{normalize}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
       
 \end{sphinxVerbatim}
 
@@ -2002,10 +2024,44 @@ Ratio of classes in training set:
 1.0    0.085594
 Name: HeartDisease, dtype: float64
 
-Ratio of classes in training set:
+Ratio of classes in test set:
 0.0    0.914398
 1.0    0.085602
 Name: HeartDisease, dtype: float64
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+We balance the test dataset, to ensure accuracy is a fair measure of model performance.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{test\PYGZus{}df} \PYG{o}{=} \PYG{n}{X\PYGZus{}test}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{HeartDisease}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{y\PYGZus{}test}
+\PYG{n}{class\PYGZus{}0} \PYG{o}{=} \PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{HeartDisease}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{class\PYGZus{}1} \PYG{o}{=} \PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{HeartDisease}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{]}
+
+\PYG{n}{class\PYGZus{}1} \PYG{o}{=} \PYG{n}{class\PYGZus{}1}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{class\PYGZus{}0}\PYG{p}{)}\PYG{p}{,}\PYG{n}{replace}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+\PYG{n}{test\PYGZus{}df} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{concat}\PYG{p}{(}\PYG{p}{[}\PYG{n}{class\PYGZus{}0}\PYG{p}{,} \PYG{n}{class\PYGZus{}1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Data in Test:}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{test\PYGZus{}df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{HeartDisease}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{value\PYGZus{}counts}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{X\PYGZus{}test} \PYG{o}{=} \PYG{n}{test\PYGZus{}df}\PYG{o}{.}\PYG{n}{drop}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{HeartDisease}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}\PYG{n}{axis}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{columns}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{y\PYGZus{}test} \PYG{o}{=} \PYG{n}{test\PYGZus{}df}\PYG{o}{.}\PYG{n}{HeartDisease}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{float32}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Data in Test:
+0.0    58484
+1.0    58484
+Name: HeartDisease, dtype: int64
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -2248,6 +2304,11 @@ We train the models on a portion of the data that is under\sphinxhyphen{}sampled
 We evaluate the model performance on another portion of the data that was not resampled, and thus contains the original class distribution.
 \end{sphinxadmonition}
 
+\begin{sphinxadmonition}{note}{Note:}
+\sphinxAtStartPar
+In addition a verbose output of the models performance will be generated.
+\end{sphinxadmonition}
+
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
 \begin{sphinxuseclass}{cell_input}
@@ -2339,7 +2400,7 @@ We evaluate the model performance on another portion of the data that was not re
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
     
     \PYG{c+c1}{\PYGZsh{} resample the train set only}
-    \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{undersampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{undersampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+    \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{undersampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{undersampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
     
     \PYG{c+c1}{\PYGZsh{} train model and evaluate performance}
     
@@ -2362,42 +2423,42 @@ No UnderSampling
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_15_1}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_20_1}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.9157898028424459]
+Algorithm with the highest accuracy: [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6830757130155256]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6833829351601921]
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6830757130155256]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7359577899388909]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7267806132960342]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6833829351601921]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.224438   0.242557  0.233146  5475.000000   0.582046    0
-                           No Heart Disease  0.928552   0.921534  0.925030  58484.000000  0.582046    0
-                           accuracy          0.863412   0.863412  0.863412  0.863412      0.582046    0
-                           macro avg         0.576495   0.582046  0.579088  63959.000000  0.582046    0
-                           weighted avg      0.868278   0.863412  0.865803  63959.000000  0.582046    0
-Gradient Boost Classifier  Heart Disease     0.551091   0.087671  0.151276  5475.000000   0.540493    0
-                           No Heart Disease  0.920825   0.993314  0.955697  58484.000000  0.540493    0
-                           accuracy          0.915790   0.915790  0.915790  0.915790      0.540493    0
-                           macro avg         0.735958   0.540493  0.553487  63959.000000  0.540493    0
-                           weighted avg      0.889175   0.915790  0.886837  63959.000000  0.540493    0
-Logistic Regression        Heart Disease     0.533333   0.109589  0.181818  5475.000000   0.550306    0
-                           No Heart Disease  0.922415   0.991023  0.955489  58484.000000  0.550306    0
-                           accuracy          0.915571   0.915571  0.915571  0.915571      0.550306    0
-                           macro avg         0.727874   0.550306  0.568654  63959.000000  0.550306    0
-                           weighted avg      0.889109   0.915571  0.889261  63959.000000  0.550306    0
-Naive Bayes                Heart Disease     0.256661   0.503196  0.339935  5475.000000   0.683383    0
-                           No Heart Disease  0.948896   0.863570  0.904224  58484.000000  0.683383    0
-                           accuracy          0.832721   0.832721  0.832721  0.832721      0.683383    0
-                           macro avg         0.602779   0.683383  0.622079  63959.000000  0.683383    0
-                           weighted avg      0.889640   0.832721  0.855920  63959.000000  0.683383    0
-Random Forest Classifier   Heart Disease     0.380066   0.104475  0.163897  5475.000000   0.544261    0
-                           No Heart Disease  0.921494   0.984047  0.951744  58484.000000  0.544261    0
-                           accuracy          0.908754   0.908754  0.908754  0.908754      0.544261    0
-                           macro avg         0.650780   0.544261  0.557820  63959.000000  0.544261    0
-                           weighted avg      0.875147   0.908754  0.884303  63959.000000  0.544261    0
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6830757130155256]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.755842   0.243913  0.368810  58484.000000   0.582561    0
+                           No Heart Disease  0.549223   0.921209  0.688164  58484.000000   0.582561    0
+                           accuracy          0.582561   0.582561  0.582561  0.582561       0.582561    0
+                           macro avg         0.652532   0.582561  0.528487  116968.000000  0.582561    0
+                           weighted avg      0.652532   0.582561  0.528487  116968.000000  0.582561    0
+Gradient Boost Classifier  Heart Disease     0.930328   0.089272  0.162912  58484.000000   0.541293    0
+                           No Heart Disease  0.521687   0.993314  0.684091  58484.000000   0.541293    0
+                           accuracy          0.541293   0.541293  0.541293  0.541293       0.541293    0
+                           macro avg         0.726008   0.541293  0.423501  116968.000000  0.541293    0
+                           weighted avg      0.726008   0.541293  0.423501  116968.000000  0.541293    0
+Logistic Regression        Heart Disease     0.925999   0.112544  0.200695  58484.000000   0.551775    0
+                           No Heart Disease  0.527562   0.991006  0.688566  58484.000000   0.551775    0
+                           accuracy          0.551775   0.551775  0.551775  0.551775       0.551775    0
+                           macro avg         0.726781   0.551775  0.444631  116968.000000  0.551775    0
+                           weighted avg      0.726781   0.551775  0.444631  116968.000000  0.551775    0
+Naive Bayes                Heart Disease     0.786498   0.502582  0.613274  58484.000000   0.683076    0
+                           No Heart Disease  0.634517   0.863570  0.731532  58484.000000   0.683076    0
+                           accuracy          0.683076   0.683076  0.683076  0.683076       0.683076    0
+                           macro avg         0.710507   0.683076  0.672403  116968.000000  0.683076    0
+                           weighted avg      0.710507   0.683076  0.672403  116968.000000  0.683076    0
+Random Forest Classifier   Heart Disease     0.867007   0.101771  0.182160  58484.000000   0.543080    0
+                           No Heart Disease  0.522883   0.984389  0.682983  58484.000000   0.543080    0
+                           accuracy          0.543080   0.543080  0.543080  0.543080       0.543080    0
+                           macro avg         0.694945   0.543080  0.432572  116968.000000  0.543080    0
+                           weighted avg      0.694945   0.543080  0.432572  116968.000000  0.543080    0
 Name: dummy, dtype: int64
 UnderSampling Methods
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
@@ -2406,149 +2467,388 @@ random
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_15_3}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_20_3}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.777842055066527]
+Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7631488954243896]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7636522622274398]
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7631488954243896]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.5987409474695906]
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.764231781066334]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7636522622274399]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.163305   0.672877  0.262824  5475.000000   0.675069    0
-                           No Heart Disease  0.956739   0.677262  0.793100  58484.000000  0.675069    0
-                           accuracy          0.676887   0.676887  0.676887  0.676887      0.675069    0
-                           macro avg         0.560022   0.675069  0.527962  63959.000000  0.675069    0
-                           weighted avg      0.888820   0.676887  0.747707  63959.000000  0.675069    0
-Gradient Boost Classifier  Heart Disease     0.217049   0.796164  0.341107  5475.000000   0.763652    0
-                           No Heart Disease  0.974565   0.731140  0.835483  58484.000000  0.763652    0
-                           accuracy          0.736706   0.736706  0.736706  0.736706      0.763652    0
-                           macro avg         0.595807   0.763652  0.588295  63959.000000  0.763652    0
-                           weighted avg      0.909720   0.736706  0.793163  63959.000000  0.763652    0
-Logistic Regression        Heart Disease     0.224622   0.776804  0.348478  5475.000000   0.762889    0
-                           No Heart Disease  0.972860   0.748974  0.846361  58484.000000  0.762889    0
-                           accuracy          0.751356   0.751356  0.751356  0.751356      0.762889    0
-                           macro avg         0.598741   0.762889  0.597420  63959.000000  0.762889    0
-                           weighted avg      0.908809   0.751356  0.803742  63959.000000  0.762889    0
-Naive Bayes                Heart Disease     0.223082   0.642557  0.331184  5475.000000   0.716532    0
-                           No Heart Disease  0.959389   0.790507  0.866799  58484.000000  0.716532    0
-                           accuracy          0.777842   0.777842  0.777842  0.777842      0.716532    0
-                           macro avg         0.591235   0.716532  0.598991  63959.000000  0.716532    0
-                           weighted avg      0.896360   0.777842  0.820949  63959.000000  0.716532    0
-Random Forest Classifier   Heart Disease     0.205081   0.779909  0.324764  5475.000000   0.748454    0
-                           No Heart Disease  0.972066   0.717000  0.825274  58484.000000  0.748454    0
-                           accuracy          0.722385   0.722385  0.722385  0.722385      0.748454    0
-                           macro avg         0.588574   0.748454  0.575019  63959.000000  0.748454    0
-                           weighted avg      0.906411   0.722385  0.782430  63959.000000  0.748454    0
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7631488954243896]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.675041   0.670782  0.672905  58484.000000   0.673936    0
+                           No Heart Disease  0.672846   0.677091  0.674962  58484.000000   0.673936    0
+                           accuracy          0.673936   0.673936  0.673936  0.673936       0.673936    0
+                           macro avg         0.673943   0.673936  0.673933  116968.000000  0.673936    0
+                           weighted avg      0.673943   0.673936  0.673933  116968.000000  0.673936    0
+Gradient Boost Classifier  Heart Disease     0.747316   0.795158  0.770495  58484.000000   0.763149    0
+                           No Heart Disease  0.781147   0.731140  0.755317  58484.000000   0.763149    0
+                           accuracy          0.763149   0.763149  0.763149  0.763149       0.763149    0
+                           macro avg         0.764232   0.763149  0.762906  116968.000000  0.763149    0
+                           weighted avg      0.764232   0.763149  0.762906  116968.000000  0.763149    0
+Logistic Regression        Heart Disease     0.755569   0.775956  0.765627  58484.000000   0.762465    0
+                           No Heart Disease  0.769743   0.748974  0.759217  58484.000000   0.762465    0
+                           accuracy          0.762465   0.762465  0.762465  0.762465       0.762465    0
+                           macro avg         0.762656   0.762465  0.762422  116968.000000  0.762465    0
+                           weighted avg      0.762656   0.762465  0.762422  116968.000000  0.762465    0
+Naive Bayes                Heart Disease     0.753837   0.641543  0.693172  58484.000000   0.716025    0
+                           No Heart Disease  0.688017   0.790507  0.735710  58484.000000   0.716025    0
+                           accuracy          0.716025   0.716025  0.716025  0.716025       0.716025    0
+                           macro avg         0.720927   0.716025  0.714441  116968.000000  0.716025    0
+                           weighted avg      0.720927   0.716025  0.714441  116968.000000  0.716025    0
+Random Forest Classifier   Heart Disease     0.733705   0.782419  0.757280  58484.000000   0.749222    0
+                           No Heart Disease  0.766946   0.716025  0.740611  58484.000000   0.749222    0
+                           accuracy          0.749222   0.749222  0.749222  0.749222       0.749222    0
+                           macro avg         0.750325   0.749222  0.748945  116968.000000  0.749222    0
+                           weighted avg      0.750325   0.749222  0.748945  116968.000000  0.749222    0
 Name: dummy, dtype: int64
 
 tomek
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
+\noindent\sphinxincludegraphics{{Model_evaluation_20_5}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Algorithm with the highest accuracy: [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6872905410026674]
+Algorithm with the highest macro recall:
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6872905410026674]
+Algorithm with the highest macro precision:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.727595334051979]
+Algorithm with the highest AUC:
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6872905410026673]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.759531   0.271168  0.399652  58484.000000   0.592658    0
+                           No Heart Disease  0.556396   0.914147  0.691755  58484.000000   0.592658    0
+                           accuracy          0.592658   0.592658  0.592658  0.592658       0.592658    0
+                           macro avg         0.657963   0.592658  0.545704  116968.000000  0.592658    0
+                           weighted avg      0.657963   0.592658  0.545704  116968.000000  0.592658    0
+Gradient Boost Classifier  Heart Disease     0.926230   0.117861  0.209113  58484.000000   0.554237    0
+                           No Heart Disease  0.528961   0.990613  0.689661  58484.000000   0.554237    0
+                           accuracy          0.554237   0.554237  0.554237  0.554237       0.554237    0
+                           macro avg         0.727595   0.554237  0.449387  116968.000000  0.554237    0
+                           weighted avg      0.727595   0.554237  0.449387  116968.000000  0.554237    0
+Logistic Regression        Heart Disease     0.919224   0.137764  0.239617  58484.000000   0.562829    0
+                           No Heart Disease  0.533959   0.987894  0.693227  58484.000000   0.562829    0
+                           accuracy          0.562829   0.562829  0.562829  0.562829       0.562829    0
+                           macro avg         0.726592   0.562829  0.466422  116968.000000  0.562829    0
+                           weighted avg      0.726592   0.562829  0.466422  116968.000000  0.562829    0
+Naive Bayes                Heart Disease     0.784928   0.515953  0.622634  58484.000000   0.687291    0
+                           No Heart Disease  0.639491   0.858628  0.733032  58484.000000   0.687291    0
+                           accuracy          0.687291   0.687291  0.687291  0.687291       0.687291    0
+                           macro avg         0.712209   0.687291  0.677833  116968.000000  0.687291    0
+                           weighted avg      0.712209   0.687291  0.677833  116968.000000  0.687291    0
+Random Forest Classifier   Heart Disease     0.864348   0.140654  0.241938  58484.000000   0.559290    0
+                           No Heart Disease  0.532271   0.977926  0.689342  58484.000000   0.559290    0
+                           accuracy          0.559290   0.559290  0.559290  0.559290       0.559290    0
+                           macro avg         0.698309   0.559290  0.465640  116968.000000  0.559290    0
+                           weighted avg      0.698309   0.559290  0.465640  116968.000000  0.559290    0
+Name: dummy, dtype: int64
+
+oss
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{Model_evaluation_20_7}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Algorithm with the highest accuracy: [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6873418370836468]
+Algorithm with the highest macro recall:
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6873418370836468]
+Algorithm with the highest macro precision:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7273676129597939]
+Algorithm with the highest AUC:
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6873418370836468]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.757849   0.268689  0.396723  58484.000000   0.591418    0
+                           No Heart Disease  0.555558   0.914147  0.691107  58484.000000   0.591418    0
+                           accuracy          0.591418   0.591418  0.591418  0.591418       0.591418    0
+                           macro avg         0.656703   0.591418  0.543915  116968.000000  0.591418    0
+                           weighted avg      0.656703   0.591418  0.543915  116968.000000  0.591418    0
+Gradient Boost Classifier  Heart Disease     0.926036   0.116887  0.207573  58484.000000   0.553775    0
+                           No Heart Disease  0.528699   0.990664  0.689451  58484.000000   0.553775    0
+                           accuracy          0.553775   0.553775  0.553775  0.553775       0.553775    0
+                           macro avg         0.727368   0.553775  0.448512  116968.000000  0.553775    0
+                           weighted avg      0.727368   0.553775  0.448512  116968.000000  0.553775    0
+Logistic Regression        Heart Disease     0.919752   0.137183  0.238755  58484.000000   0.562607    0
+                           No Heart Disease  0.533826   0.988031  0.693149  58484.000000   0.562607    0
+                           accuracy          0.562607   0.562607  0.562607  0.562607       0.562607    0
+                           macro avg         0.726789   0.562607  0.465952  116968.000000  0.562607    0
+                           weighted avg      0.726789   0.562607  0.465952  116968.000000  0.562607    0
+Naive Bayes                Heart Disease     0.784917   0.516107  0.622742  58484.000000   0.687342    0
+                           No Heart Disease  0.639550   0.858577  0.733053  58484.000000   0.687342    0
+                           accuracy          0.687342   0.687342  0.687342  0.687342       0.687342    0
+                           macro avg         0.712234   0.687342  0.677897  116968.000000  0.687342    0
+                           weighted avg      0.712234   0.687342  0.677897  116968.000000  0.687342    0
+Random Forest Classifier   Heart Disease     0.865964   0.140517  0.241798  58484.000000   0.559384    0
+                           No Heart Disease  0.532314   0.978250  0.689459  58484.000000   0.559384    0
+                           accuracy          0.559384   0.559384  0.559384  0.559384       0.559384    0
+                           macro avg         0.699139   0.559384  0.465629  116968.000000  0.559384    0
+                           weighted avg      0.699139   0.559384  0.465629  116968.000000  0.559384    0
+Name: dummy, dtype: int64
+
+nm1
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{Model_evaluation_20_9}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Algorithm with the highest accuracy: [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.5924697353122221]
+Algorithm with the highest macro recall:
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.5924697353122221]
+Algorithm with the highest macro precision:
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.6157181896300579]
+Algorithm with the highest AUC:
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.5924697353122221]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.521012   0.867656  0.651069  58484.000000   0.534992    0
+                           No Heart Disease  0.604557   0.202329  0.303189  58484.000000   0.534992    0
+                           accuracy          0.534992   0.534992  0.534992  0.534992       0.534992    0
+                           macro avg         0.562785   0.534992  0.477129  116968.000000  0.534992    0
+                           weighted avg      0.562785   0.534992  0.477129  116968.000000  0.534992    0
+Gradient Boost Classifier  Heart Disease     0.547404   0.847360  0.665128  58484.000000   0.573379    0
+                           No Heart Disease  0.662329   0.299398  0.412383  58484.000000   0.573379    0
+                           accuracy          0.573379   0.573379  0.573379  0.573379       0.573379    0
+                           macro avg         0.604866   0.573379  0.538755  116968.000000  0.573379    0
+                           weighted avg      0.604866   0.573379  0.538755  116968.000000  0.573379    0
+Logistic Regression        Heart Disease     0.563850   0.816582  0.667081  58484.000000   0.592470    0
+                           No Heart Disease  0.667586   0.368357  0.474756  58484.000000   0.592470    0
+                           accuracy          0.592470   0.592470  0.592470  0.592470       0.592470    0
+                           macro avg         0.615718   0.592470  0.570918  116968.000000  0.592470    0
+                           weighted avg      0.615718   0.592470  0.570918  116968.000000  0.592470    0
+Naive Bayes                Heart Disease     0.555351   0.716504  0.625718  58484.000000   0.571413    0
+                           No Heart Disease  0.600607   0.426322  0.498675  58484.000000   0.571413    0
+                           accuracy          0.571413   0.571413  0.571413  0.571413       0.571413    0
+                           macro avg         0.577979   0.571413  0.562196  116968.000000  0.571413    0
+                           weighted avg      0.577979   0.571413  0.562196  116968.000000  0.571413    0
+Random Forest Classifier   Heart Disease     0.522977   0.875863  0.654909  58484.000000   0.538481    0
+                           No Heart Disease  0.618317   0.201098  0.303490  58484.000000   0.538481    0
+                           accuracy          0.538481   0.538481  0.538481  0.538481       0.538481    0
+                           macro avg         0.570647   0.538481  0.479199  116968.000000  0.538481    0
+                           weighted avg      0.570647   0.538481  0.479199  116968.000000  0.538481    0
+Name: dummy, dtype: int64
+
+nm2
+\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
+\end{sphinxVerbatim}
+
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 \PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
-\PYG{n+ne}{KeyboardInterrupt}\PYG{g+gWhitespace}{                         }Traceback (most recent call last)
-\PYG{o}{/}\PYG{n}{var}\PYG{o}{/}\PYG{n}{folders}\PYG{o}{/}\PYG{l+m+mi}{0}\PYG{n}{f}\PYG{o}{/}\PYG{n}{wgt07yjn5gnfhmk719tfc2gm1vjz80}\PYG{o}{/}\PYG{n}{T}\PYG{o}{/}\PYG{n}{ipykernel\PYGZus{}77434}\PYG{o}{/}\PYG{l+m+mf}{219296026.}\PYG{n}{py} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{16} 
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{17}     \PYG{c+c1}{\PYGZsh{} resample the train set only}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{18}     \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{undersampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{undersampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{19} 
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{20}     \PYG{c+c1}{\PYGZsh{} train model and evaluate performance}
+\PYG{n+ne}{MemoryError}\PYG{g+gWhitespace}{                               }Traceback (most recent call last)
+\PYG{n}{Cell} \PYG{n}{In} \PYG{p}{[}\PYG{l+m+mi}{11}\PYG{p}{]}\PYG{p}{,} \PYG{n}{line} \PYG{l+m+mi}{18}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{15} \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{17} \PYG{c+c1}{\PYGZsh{} resample the train set only}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{18} \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{undersampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{undersampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{20} \PYG{c+c1}{\PYGZsh{} train model and evaluate performance}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{21} 
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{22} \PYG{c+c1}{\PYGZsh{} Note the performance returned is using the}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{23} \PYG{c+c1}{\PYGZsh{} test set, which was not under\PYGZhy{}sampled}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{25} \PYG{n}{run\PYGZus{}exps}\PYG{p}{(}\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{X\PYGZus{}test}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{)}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/imblearn/base.py} in \PYG{n+ni}{fit\PYGZus{}resample}\PYG{n+nt}{(self, X, y)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{81}         \PYG{p}{)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{82} 
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{83}         \PYG{n}{output} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{84} 
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{85}         \PYG{n}{y\PYGZus{}} \PYG{o}{=} \PYG{p}{(}
+\PYG{n+nn}{File \PYGZti{}/optum/repos/HeartDiseaseAreidy1/venv/lib/python3.8/site\PYGZhy{}packages/imblearn/base.py:83,} in \PYG{n+ni}{SamplerMixin.fit\PYGZus{}resample}\PYG{n+nt}{(self, X, y)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{77} \PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{binarize\PYGZus{}y} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}check\PYGZus{}X\PYGZus{}y}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{79} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{sampling\PYGZus{}strategy\PYGZus{}} \PYG{o}{=} \PYG{n}{check\PYGZus{}sampling\PYGZus{}strategy}\PYG{p}{(}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{80}     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{sampling\PYGZus{}strategy}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}sampling\PYGZus{}type}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{81} \PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{83} \PYG{n}{output} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{85} \PYG{n}{y\PYGZus{}} \PYG{o}{=} \PYG{p}{(}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{86}     \PYG{n}{label\PYGZus{}binarize}\PYG{p}{(}\PYG{n}{output}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{classes}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{unique}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{)} \PYG{k}{if} \PYG{n}{binarize\PYGZus{}y} \PYG{k}{else} \PYG{n}{output}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{87} \PYG{p}{)}
+\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{89} \PYG{n}{X\PYGZus{}}\PYG{p}{,} \PYG{n}{y\PYGZus{}} \PYG{o}{=} \PYG{n}{arrays\PYGZus{}transformer}\PYG{o}{.}\PYG{n}{transform}\PYG{p}{(}\PYG{n}{output}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{y\PYGZus{}}\PYG{p}{)}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/imblearn/under\PYGZus{}sampling/\PYGZus{}prototype\PYGZus{}selection/\PYGZus{}tomek\PYGZus{}links.py} in \PYG{n+ni}{\PYGZus{}fit\PYGZus{}resample}\PYG{n+nt}{(self, X, y)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{127}         \PYG{n}{nn} \PYG{o}{=} \PYG{n}{NearestNeighbors}\PYG{p}{(}\PYG{n}{n\PYGZus{}neighbors}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{n\PYGZus{}jobs}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{n\PYGZus{}jobs}\PYG{p}{)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{128}         \PYG{n}{nn}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{129}         \PYG{n}{nns} \PYG{o}{=} \PYG{n}{nn}\PYG{o}{.}\PYG{n}{kneighbors}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{return\PYGZus{}distance}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{130} 
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{131}         \PYG{n}{links} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{is\PYGZus{}tomek}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{n}{nns}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{sampling\PYGZus{}strategy\PYGZus{}}\PYG{p}{)}
+\PYG{n+nn}{File \PYGZti{}/optum/repos/HeartDiseaseAreidy1/venv/lib/python3.8/site\PYGZhy{}packages/imblearn/under\PYGZus{}sampling/\PYGZus{}prototype\PYGZus{}selection/\PYGZus{}nearmiss.py:233,} in \PYG{n+ni}{NearMiss.\PYGZus{}fit\PYGZus{}resample}\PYG{n+nt}{(self, X, y)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{224}     \PYG{n}{index\PYGZus{}target\PYGZus{}class} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}selection\PYGZus{}dist\PYGZus{}based}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{225}         \PYG{n}{X}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{226}         \PYG{n}{y}\PYG{p}{,}
+   \PYG{p}{(}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{230}         \PYG{n}{sel\PYGZus{}strategy}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{nearest}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{231}     \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{232} \PYG{k}{elif} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{version} \PYG{o}{==} \PYG{l+m+mi}{2}\PYG{p}{:}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{233}     \PYG{n}{dist\PYGZus{}vec}\PYG{p}{,} \PYG{n}{idx\PYGZus{}vec} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{nn\PYGZus{}}\PYG{o}{.}\PYG{n}{kneighbors}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{234}         \PYG{n}{X\PYGZus{}class}\PYG{p}{,} \PYG{n}{n\PYGZus{}neighbors}\PYG{o}{=}\PYG{n}{target\PYGZus{}stats}\PYG{p}{[}\PYG{n}{class\PYGZus{}minority}\PYG{p}{]}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{235}     \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{236}     \PYG{n}{index\PYGZus{}target\PYGZus{}class} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}selection\PYGZus{}dist\PYGZus{}based}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{237}         \PYG{n}{X}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{238}         \PYG{n}{y}\PYG{p}{,}
+   \PYG{p}{(}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{242}         \PYG{n}{sel\PYGZus{}strategy}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{nearest}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{243}     \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{244} \PYG{k}{elif} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{version} \PYG{o}{==} \PYG{l+m+mi}{3}\PYG{p}{:}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/neighbors/\PYGZus{}base.py} in \PYG{n+ni}{kneighbors}\PYG{n+nt}{(self, X, n\PYGZus{}neighbors, return\PYGZus{}distance)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{757}                     \PYG{n}{metric}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{effective\PYGZus{}metric\PYGZus{}}\PYG{p}{,}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{758}                     \PYG{n}{n\PYGZus{}jobs}\PYG{o}{=}\PYG{n}{n\PYGZus{}jobs}\PYG{p}{,}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{759}                     \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwds}\PYG{p}{,}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{760}                 \PYG{p}{)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{761}             \PYG{p}{)}
+\PYG{n+nn}{File \PYGZti{}/optum/repos/HeartDiseaseAreidy1/venv/lib/python3.8/site\PYGZhy{}packages/sklearn/neighbors/\PYGZus{}base.py:763,} in \PYG{n+ni}{KNeighborsMixin.kneighbors}\PYG{n+nt}{(self, X, n\PYGZus{}neighbors, return\PYGZus{}distance)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{756} \PYG{n}{use\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reductions} \PYG{o}{=} \PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{757}     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}method} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{brute}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{758}     \PYG{o+ow}{and} \PYG{n}{PairwiseDistancesArgKmin}\PYG{o}{.}\PYG{n}{is\PYGZus{}usable\PYGZus{}for}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{759}         \PYG{n}{X} \PYG{k}{if} \PYG{n}{X} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None} \PYG{k}{else} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}X}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}X}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{effective\PYGZus{}metric\PYGZus{}}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{760}     \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{761} \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{762} \PYG{k}{if} \PYG{n}{use\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reductions}\PYG{p}{:}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{763}     \PYG{n}{results} \PYG{o}{=} \PYG{n}{PairwiseDistancesArgKmin}\PYG{o}{.}\PYG{n}{compute}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{764}         \PYG{n}{X}\PYG{o}{=}\PYG{n}{X}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{765}         \PYG{n}{Y}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}X}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{766}         \PYG{n}{k}\PYG{o}{=}\PYG{n}{n\PYGZus{}neighbors}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{767}         \PYG{n}{metric}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{effective\PYGZus{}metric\PYGZus{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{768}         \PYG{n}{metric\PYGZus{}kwargs}\PYG{o}{=}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{effective\PYGZus{}metric\PYGZus{}params\PYGZus{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{769}         \PYG{n}{strategy}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{auto}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{770}         \PYG{n}{return\PYGZus{}distance}\PYG{o}{=}\PYG{n}{return\PYGZus{}distance}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{771}     \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{773} \PYG{k}{elif} \PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{774}     \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{\PYGZus{}fit\PYGZus{}method} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{brute}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{and} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{metric} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{precomputed}\PYG{l+s+s2}{\PYGZdq{}} \PYG{o+ow}{and} \PYG{n}{issparse}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{775} \PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{776}     \PYG{n}{results} \PYG{o}{=} \PYG{n}{\PYGZus{}kneighbors\PYGZus{}from\PYGZus{}graph}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{777}         \PYG{n}{X}\PYG{p}{,} \PYG{n}{n\PYGZus{}neighbors}\PYG{o}{=}\PYG{n}{n\PYGZus{}neighbors}\PYG{p}{,} \PYG{n}{return\PYGZus{}distance}\PYG{o}{=}\PYG{n}{return\PYGZus{}distance}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{778}     \PYG{p}{)}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/metrics/pairwise.py} in \PYG{n+ni}{pairwise\PYGZus{}distances\PYGZus{}chunked}\PYG{n+nt}{(X, Y, reduce\PYGZus{}func, metric, n\PYGZus{}jobs, working\PYGZus{}memory, **kwds)}
-\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1724}         \PYG{k}{if} \PYG{n}{reduce\PYGZus{}func} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
-\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1725}             \PYG{n}{chunk\PYGZus{}size} \PYG{o}{=} \PYG{n}{D\PYGZus{}chunk}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
-\PYG{n+ne}{\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1726}             \PYG{n}{D\PYGZus{}chunk} \PYG{o}{=} \PYG{n}{reduce\PYGZus{}func}\PYG{p}{(}\PYG{n}{D\PYGZus{}chunk}\PYG{p}{,} \PYG{n}{sl}\PYG{o}{.}\PYG{n}{start}\PYG{p}{)}
-\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1727}             \PYG{n}{\PYGZus{}check\PYGZus{}chunk\PYGZus{}size}\PYG{p}{(}\PYG{n}{D\PYGZus{}chunk}\PYG{p}{,} \PYG{n}{chunk\PYGZus{}size}\PYG{p}{)}
-\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1728}         \PYG{k}{yield} \PYG{n}{D\PYGZus{}chunk}
+\PYG{n+nn}{File sklearn/metrics/\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.pyx:679,} in \PYG{n+ni}{sklearn.metrics.\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.PairwiseDistancesArgKmin.compute}\PYG{n+nt}{()}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/sklearn/neighbors/\PYGZus{}base.py} in \PYG{n+ni}{\PYGZus{}kneighbors\PYGZus{}reduce\PYGZus{}func}\PYG{n+nt}{(self, dist, start, n\PYGZus{}neighbors, return\PYGZus{}distance)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{632}         \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{633}\PYG{l+s+sd}{         sample\PYGZus{}range = np.arange(dist.shape[0])[:, None]}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{634}\PYG{l+s+sd}{         neigh\PYGZus{}ind = np.argpartition(dist, n\PYGZus{}neighbors \PYGZhy{} 1, axis=1)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{635}\PYG{l+s+sd}{         neigh\PYGZus{}ind = neigh\PYGZus{}ind[:, :n\PYGZus{}neighbors]}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{636}\PYG{l+s+sd}{         \PYGZsh{} argpartition doesn\PYGZsq{}t guarantee sorted order, so we sort again}
+\PYG{n+nn}{File sklearn/metrics/\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.pyx:1060,} in \PYG{n+ni}{sklearn.metrics.\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.FastEuclideanPairwiseDistancesArgKmin.\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{n+nt}{()}
 
-\PYG{n+nn}{\PYGZlt{}\PYGZus{}\PYGZus{}array\PYGZus{}function\PYGZus{}\PYGZus{} internals\PYGZgt{}} in \PYG{n+ni}{argpartition}\PYG{n+nt}{(*args, **kwargs)}
+\PYG{n+nn}{File sklearn/metrics/\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.pyx:737,} in \PYG{n+ni}{sklearn.metrics.\PYGZus{}pairwise\PYGZus{}distances\PYGZus{}reduction.PairwiseDistancesArgKmin.\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{n+nt}{()}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/numpy/core/fromnumeric.py} in \PYG{n+ni}{argpartition}\PYG{n+nt}{(a, kth, axis, kind, order)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{837}\PYG{l+s+sd}{ }
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{838}\PYG{l+s+sd}{     \PYGZdq{}\PYGZdq{}\PYGZdq{}}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{839}     \PYG{k}{return} \PYG{n}{\PYGZus{}wrapfunc}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{argpartition}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{kth}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{n}{axis}\PYG{p}{,} \PYG{n}{kind}\PYG{o}{=}\PYG{n}{kind}\PYG{p}{,} \PYG{n}{order}\PYG{o}{=}\PYG{n}{order}\PYG{p}{)}
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{840} 
-\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{841} 
+\PYG{n+nn}{File \PYGZti{}/optum/repos/HeartDiseaseAreidy1/venv/lib/python3.8/site\PYGZhy{}packages/numpy/core/numeric.py:343,} in \PYG{n+ni}{full}\PYG{n+nt}{(shape, fill\PYGZus{}value, dtype, order, like)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{341}     \PYG{n}{fill\PYGZus{}value} \PYG{o}{=} \PYG{n}{asarray}\PYG{p}{(}\PYG{n}{fill\PYGZus{}value}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{342}     \PYG{n}{dtype} \PYG{o}{=} \PYG{n}{fill\PYGZus{}value}\PYG{o}{.}\PYG{n}{dtype}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{343} \PYG{n}{a} \PYG{o}{=} \PYG{n}{empty}\PYG{p}{(}\PYG{n}{shape}\PYG{p}{,} \PYG{n}{dtype}\PYG{p}{,} \PYG{n}{order}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{344} \PYG{n}{multiarray}\PYG{o}{.}\PYG{n}{copyto}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{fill\PYGZus{}value}\PYG{p}{,} \PYG{n}{casting}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{unsafe}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{345} \PYG{k}{return} \PYG{n}{a}
 
-\PYG{n+nn}{\PYGZti{}/Library/CloudStorage/OneDrive\PYGZhy{}UHG/repos/learn\PYGZhy{}hub/Anthony/heart\PYGZus{}disease\PYGZus{}task/venv/lib/python3.7/site\PYGZhy{}packages/numpy/core/fromnumeric.py} in \PYG{n+ni}{\PYGZus{}wrapfunc}\PYG{n+nt}{(obj, method, *args, **kwds)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{55} 
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{56}     \PYG{k}{try}\PYG{p}{:}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{57}         \PYG{k}{return} \PYG{n}{bound}\PYG{p}{(}\PYG{o}{*}\PYG{n}{args}\PYG{p}{,} \PYG{o}{*}\PYG{o}{*}\PYG{n}{kwds}\PYG{p}{)}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{58}     \PYG{k}{except} \PYG{n+ne}{TypeError}\PYG{p}{:}
-\PYG{g+gWhitespace}{     }\PYG{l+m+mi}{59}         \PYG{c+c1}{\PYGZsh{} A TypeError occurs if the object does have such a method in its}
-
-\PYG{n+ne}{KeyboardInterrupt}: 
+\PYG{n+ne}{MemoryError}: Unable to allocate 38.2 GiB for an array with shape (233938, 21898) and data type int64
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{accuracy}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Naive Bayes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.45100767679294546}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{recall}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Logistic Regression }\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.5912552564819664}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{precision}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Logistic Regression }\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.5313939861738548}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{AUC}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Logistic Regression }\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.5912552564819664}\PYG{p}{]}
-        
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{accuracy}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Gradient Boost Classifier}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.9157428977938992}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{recall}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Naive Bayes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.687578840593017}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{precision}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Gradient Boost Classifier}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.7293058306944802}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{AUC}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Naive Bayes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.6875788405930171}\PYG{p}{]}
-        
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{accuracy}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Gradient Boost Classifier}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.9158679779233572}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{recall}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Naive Bayes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.6871222195884508}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{macro} \PYG{n}{precision}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Gradient Boost Classifier}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.7313563006184678}\PYG{p}{]}
-\PYG{n}{Algorithm} \PYG{k}{with} \PYG{n}{the} \PYG{n}{highest} \PYG{n}{AUC}\PYG{p}{:}
-        \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Naive Bayes}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{l+m+mf}{0.6871222195884508}\PYG{p}{]}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-
-\end{sphinxuseclass}
 \sphinxAtStartPar
-As we can see in the verbose model output, we achieved the follwoig
+As we can see in the verbose model output,our best setting occurred with the \sphinxcode{\sphinxupquote{Random}} undersampling strategy. Across most tracked metrics, we see a significant improvement in model performance compared with no undersupplying techniques.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Base} (no under sampling techniques) \sphinxstylestrong{winners} for tracked metrics:
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Value
+\\
+\hline
+\sphinxAtStartPar
+Accuracy
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\sphinxAtStartPar
+Macro Recall
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\sphinxAtStartPar
+Macro precision
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.726
+\\
+\hline
+\sphinxAtStartPar
+AUC
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Random under sampling technique winners} for tracked metrics:
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Value
+\\
+\hline
+\sphinxAtStartPar
+Accuracy
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.764
+\\
+\hline
+\sphinxAtStartPar
+Macro Recall
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.763
+\\
+\hline
+\sphinxAtStartPar
+Macro precision
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.765
+\\
+\hline
+\sphinxAtStartPar
+AUC
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.763
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
 
 
 \section{Oversampling}
@@ -2677,7 +2977,7 @@ We evaluate the model performance on another portion of the data that was not re
     \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
     
     \PYG{c+c1}{\PYGZsh{} resample the train set only}
-    \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{oversampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{oversampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+    \PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{oversampler\PYGZus{}dict}\PYG{p}{[}\PYG{n}{oversampler}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
     
     \PYG{c+c1}{\PYGZsh{} train model and evaluate performance}
     
@@ -2700,42 +3000,42 @@ No OverSampling
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_1}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_1}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.9157898028424459]
+Algorithm with the highest accuracy: [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6834689829697012]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6833829351601921]
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6834689829697012]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7359577899388909]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7264522097814119]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.6833829351601921]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.223938   0.243653  0.233380  5475.000000   0.582303    0
-                           No Heart Disease  0.928606   0.920953  0.924763  58484.000000  0.582303    0
-                           accuracy          0.862975   0.862975  0.862975  0.862975      0.582303    0
-                           macro avg         0.576272   0.582303  0.579072  63959.000000  0.582303    0
-                           weighted avg      0.868285   0.862975  0.865580  63959.000000  0.582303    0
-Gradient Boost Classifier  Heart Disease     0.551091   0.087671  0.151276  5475.000000   0.540493    0
-                           No Heart Disease  0.920825   0.993314  0.955697  58484.000000  0.540493    0
-                           accuracy          0.915790   0.915790  0.915790  0.915790      0.540493    0
-                           macro avg         0.735958   0.540493  0.553487  63959.000000  0.540493    0
-                           weighted avg      0.889175   0.915790  0.886837  63959.000000  0.540493    0
-Logistic Regression        Heart Disease     0.532860   0.109589  0.181791  5475.000000   0.550298    0
-                           No Heart Disease  0.922413   0.991006  0.955480  58484.000000  0.550298    0
-                           accuracy          0.915555   0.915555  0.915555  0.915555      0.550298    0
-                           macro avg         0.727637   0.550298  0.568635  63959.000000  0.550298    0
-                           weighted avg      0.889067   0.915555  0.889251  63959.000000  0.550298    0
-Naive Bayes                Heart Disease     0.256661   0.503196  0.339935  5475.000000   0.683383    0
-                           No Heart Disease  0.948896   0.863570  0.904224  58484.000000  0.683383    0
-                           accuracy          0.832721   0.832721  0.832721  0.832721      0.683383    0
-                           macro avg         0.602779   0.683383  0.622079  63959.000000  0.683383    0
-                           weighted avg      0.889640   0.832721  0.855920  63959.000000  0.683383    0
-Random Forest Classifier   Heart Disease     0.375333   0.102831  0.161434  5475.000000   0.543405    0
-                           No Heart Disease  0.921356   0.983979  0.951638  58484.000000  0.543405    0
-                           accuracy          0.908551   0.908551  0.908551  0.908551      0.543405    0
-                           macro avg         0.648345   0.543405  0.556536  63959.000000  0.543405    0
-                           weighted avg      0.874616   0.908551  0.883996  63959.000000  0.543405    0
+        [\PYGZsq{}Naive Bayes\PYGZsq{}, 0.683468982969701]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.759235   0.247760  0.373603  58484.000000   0.584596    0
+                           No Heart Disease  0.550545   0.921432  0.689263  58484.000000   0.584596    0
+                           accuracy          0.584596   0.584596  0.584596  0.584596       0.584596    0
+                           macro avg         0.654890   0.584596  0.531433  116968.000000  0.584596    0
+                           weighted avg      0.654890   0.584596  0.531433  116968.000000  0.584596    0
+Gradient Boost Classifier  Heart Disease     0.929941   0.088742  0.162023  58484.000000   0.541028    0
+                           No Heart Disease  0.521542   0.993314  0.683966  58484.000000   0.541028    0
+                           accuracy          0.541028   0.541028  0.541028  0.541028       0.541028    0
+                           macro avg         0.725741   0.541028  0.422995  116968.000000  0.541028    0
+                           weighted avg      0.725741   0.541028  0.422995  116968.000000  0.541028    0
+Logistic Regression        Heart Disease     0.925548   0.111808  0.199515  58484.000000   0.551407    0
+                           No Heart Disease  0.527356   0.991006  0.688390  58484.000000   0.551407    0
+                           accuracy          0.551407   0.551407  0.551407  0.551407       0.551407    0
+                           macro avg         0.726452   0.551407  0.443953  116968.000000  0.551407    0
+                           weighted avg      0.726452   0.551407  0.443953  116968.000000  0.551407    0
+Naive Bayes                Heart Disease     0.786760   0.503368  0.613939  58484.000000   0.683469    0
+                           No Heart Disease  0.634884   0.863570  0.731776  58484.000000   0.683469    0
+                           accuracy          0.683469   0.683469  0.683469  0.683469       0.683469    0
+                           macro avg         0.710822   0.683469  0.672858  116968.000000  0.683469    0
+                           weighted avg      0.710822   0.683469  0.672858  116968.000000  0.683469    0
+Random Forest Classifier   Heart Disease     0.873803   0.107619  0.191636  58484.000000   0.546038    0
+                           No Heart Disease  0.524530   0.984457  0.684402  58484.000000   0.546038    0
+                           accuracy          0.546038   0.546038  0.546038  0.546038       0.546038    0
+                           macro avg         0.699166   0.546038  0.438019  116968.000000  0.546038    0
+                           weighted avg      0.699166   0.546038  0.438019  116968.000000  0.546038    0
 Name: dummy, dtype: int64
 
 OverSampling Methods
@@ -2744,219 +3044,348 @@ random
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_3}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_3}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.8951203114495223]
+Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7643971000615553]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7644372640341237]
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7643971000615553]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.625360074756374]
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7655902916773867]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7644372640341237]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.218871   0.227945  0.223316  5475.000000   0.575894    0
-                           No Heart Disease  0.927442   0.923842  0.925639  58484.000000  0.575894    0
-                           accuracy          0.864272   0.864272  0.864272  0.864272      0.575894    0
-                           macro avg         0.573156   0.575894  0.574477  63959.000000  0.575894    0
-                           weighted avg      0.866787   0.864272  0.865519  63959.000000  0.575894    0
-Gradient Boost Classifier  Heart Disease     0.217277   0.797991  0.341555  5475.000000   0.764437    0
-                           No Heart Disease  0.974778   0.730884  0.835394  58484.000000  0.764437    0
-                           accuracy          0.736628   0.736628  0.736628  0.736628      0.764437    0
-                           macro avg         0.596027   0.764437  0.588474  63959.000000  0.764437    0
-                           weighted avg      0.909935   0.736628  0.793120  63959.000000  0.764437    0
-Logistic Regression        Heart Disease     0.224819   0.776621  0.348696  5475.000000   0.762969    0
-                           No Heart Disease  0.972850   0.749316  0.846576  58484.000000  0.762969    0
-                           accuracy          0.751653   0.751653  0.751653  0.751653      0.762969    0
-                           macro avg         0.598834   0.762969  0.597636  63959.000000  0.762969    0
-                           weighted avg      0.908817   0.751653  0.803957  63959.000000  0.762969    0
-Naive Bayes                Heart Disease     0.223181   0.647489  0.331944  5475.000000   0.718254    0
-                           No Heart Disease  0.959854   0.789019  0.866093  58484.000000  0.718254    0
-                           accuracy          0.776904   0.776904  0.776904  0.776904      0.718254    0
-                           macro avg         0.591517   0.718254  0.599019  63959.000000  0.718254    0
-                           weighted avg      0.896794   0.776904  0.820369  63959.000000  0.718254    0
-Random Forest Classifier   Heart Disease     0.322692   0.204932  0.250670  5475.000000   0.582332    0
-                           No Heart Disease  0.928028   0.959733  0.943614  58484.000000  0.582332    0
-                           accuracy          0.895120   0.895120  0.895120  0.895120      0.582332    0
-                           macro avg         0.625360   0.582332  0.597142  63959.000000  0.582332    0
-                           weighted avg      0.876210   0.895120  0.884297  63959.000000  0.582332    0
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7643971000615553]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.754408   0.231892  0.354743  58484.000000   0.578201    0
+                           No Heart Disease  0.546201   0.924509  0.686699  58484.000000   0.578201    0
+                           accuracy          0.578201   0.578201  0.578201  0.578201       0.578201    0
+                           macro avg         0.650305   0.578201  0.520721  116968.000000  0.578201    0
+                           weighted avg      0.650305   0.578201  0.520721  116968.000000  0.578201    0
+Gradient Boost Classifier  Heart Disease     0.747789   0.797911  0.772037  58484.000000   0.764397    0
+                           No Heart Disease  0.783392   0.730884  0.756227  58484.000000   0.764397    0
+                           accuracy          0.764397   0.764397  0.764397  0.764397       0.764397    0
+                           macro avg         0.765590   0.764397  0.764132  116968.000000  0.764397    0
+                           weighted avg      0.765590   0.764397  0.764132  116968.000000  0.764397    0
+Logistic Regression        Heart Disease     0.755979   0.776623  0.766162  58484.000000   0.762969    0
+                           No Heart Disease  0.770352   0.749316  0.759688  58484.000000   0.762969    0
+                           accuracy          0.762969   0.762969  0.762969  0.762969       0.762969    0
+                           macro avg         0.763166   0.762969  0.762925  116968.000000  0.762969    0
+                           weighted avg      0.763166   0.762969  0.762925  116968.000000  0.762969    0
+Naive Bayes                Heart Disease     0.754154   0.647203  0.696597  58484.000000   0.718111    0
+                           No Heart Disease  0.691021   0.789019  0.736776  58484.000000   0.718111    0
+                           accuracy          0.718111   0.718111  0.718111  0.718111       0.718111    0
+                           macro avg         0.722588   0.718111  0.716686  116968.000000  0.718111    0
+                           weighted avg      0.722588   0.718111  0.716686  116968.000000  0.718111    0
+Random Forest Classifier   Heart Disease     0.836629   0.204723  0.328951  58484.000000   0.582373    0
+                           No Heart Disease  0.546928   0.960023  0.696856  58484.000000   0.582373    0
+                           accuracy          0.582373   0.582373  0.582373  0.582373       0.582373    0
+                           macro avg         0.691779   0.582373  0.512903  116968.000000  0.582373    0
+                           weighted avg      0.691779   0.582373  0.512903  116968.000000  0.582373    0
 Name: dummy, dtype: int64
 
 smote
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_5}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_5}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.8920245782454385]
+Algorithm with the highest accuracy: [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7382190000683948]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7382036799511805]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7382190000683948]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.6204770738858411]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7385097659900086]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7382036799511805]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.220809   0.260091  0.238846  5475.000000   0.587085    0
-                           No Heart Disease  0.929560   0.914079  0.921755  58484.000000  0.587085    0
-                           accuracy          0.858097   0.858097  0.858097  0.858097      0.587085    0
-                           macro avg         0.575185   0.587085  0.580300  63959.000000  0.587085    0
-                           weighted avg      0.868890   0.858097  0.863296  63959.000000  0.587085    0
-Gradient Boost Classifier  Heart Disease     0.292123   0.487671  0.365378  5475.000000   0.688521    0
-                           No Heart Disease  0.948832   0.889371  0.918140  58484.000000  0.688521    0
-                           accuracy          0.854985   0.854985  0.854985  0.854985      0.688521    0
-                           macro avg         0.620477   0.688521  0.641759  63959.000000  0.688521    0
-                           weighted avg      0.892616   0.854985  0.870822  63959.000000  0.688521    0
-Logistic Regression        Heart Disease     0.216397   0.720731  0.332855  5475.000000   0.738204    0
-                           No Heart Disease  0.966560   0.755677  0.848207  58484.000000  0.738204    0
-                           accuracy          0.752685   0.752685  0.752685  0.752685      0.738204    0
-                           macro avg         0.591479   0.738204  0.590531  63959.000000  0.738204    0
-                           weighted avg      0.902345   0.752685  0.804092  63959.000000  0.738204    0
-Naive Bayes                Heart Disease     0.153681   0.798721  0.257766  5475.000000   0.693475    0
-                           No Heart Disease  0.968961   0.588229  0.732051  58484.000000  0.693475    0
-                           accuracy          0.606248   0.606248  0.606248  0.606248      0.693475    0
-                           macro avg         0.561321   0.693475  0.494908  63959.000000  0.693475    0
-                           weighted avg      0.899172   0.606248  0.691451  63959.000000  0.693475    0
-Random Forest Classifier   Heart Disease     0.301526   0.198539  0.239427  5475.000000   0.577742    0
-                           No Heart Disease  0.927296   0.956945  0.941887  58484.000000  0.577742    0
-                           accuracy          0.892025   0.892025  0.892025  0.892025      0.577742    0
-                           macro avg         0.614411   0.577742  0.590657  63959.000000  0.577742    0
-                           weighted avg      0.873729   0.892025  0.881755  63959.000000  0.577742    0
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7382190000683948]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.751677   0.260601  0.387024  58484.000000   0.587255    0
+                           No Heart Disease  0.552776   0.913908  0.688882  58484.000000   0.587255    0
+                           accuracy          0.587255   0.587255  0.587255  0.587255       0.587255    0
+                           macro avg         0.652226   0.587255  0.537953  116968.000000  0.587255    0
+                           weighted avg      0.652226   0.587255  0.537953  116968.000000  0.587255    0
+Gradient Boost Classifier  Heart Disease     0.815185   0.487963  0.610491  58484.000000   0.688667    0
+                           No Heart Disease  0.634627   0.889371  0.740708  58484.000000   0.688667    0
+                           accuracy          0.688667   0.688667  0.688667  0.688667       0.688667    0
+                           macro avg         0.724906   0.688667  0.675599  116968.000000  0.688667    0
+                           weighted avg      0.724906   0.688667  0.675599  116968.000000  0.688667    0
+Logistic Regression        Heart Disease     0.746837   0.720761  0.733568  58484.000000   0.738219    0
+                           No Heart Disease  0.730182   0.755677  0.742711  58484.000000   0.738219    0
+                           accuracy          0.738219   0.738219  0.738219  0.738219       0.738219    0
+                           macro avg         0.738510   0.738219  0.738139  116968.000000  0.738219    0
+                           weighted avg      0.738510   0.738219  0.738139  116968.000000  0.738219    0
+Naive Bayes                Heart Disease     0.660142   0.799826  0.723302  58484.000000   0.694027    0
+                           No Heart Disease  0.746102   0.588229  0.657826  58484.000000   0.694027    0
+                           accuracy          0.694027   0.694027  0.694027  0.694027       0.694027    0
+                           macro avg         0.703122   0.694027  0.690564  116968.000000  0.694027    0
+                           weighted avg      0.703122   0.694027  0.690564  116968.000000  0.694027    0
+Random Forest Classifier   Heart Disease     0.825140   0.204620  0.327921  58484.000000   0.580629    0
+                           No Heart Disease  0.546021   0.956638  0.695226  58484.000000   0.580629    0
+                           accuracy          0.580629   0.580629  0.580629  0.580629       0.580629    0
+                           macro avg         0.685580   0.580629  0.511574  116968.000000  0.580629    0
+                           weighted avg      0.685580   0.580629  0.511574  116968.000000  0.580629    0
 Name: dummy, dtype: int64
 
 adasyn
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_7}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_7}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.8920089432292563]
+Algorithm with the highest accuracy: [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7316018056220505]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7313252830497449]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7316018056220505]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.6193063466262022]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7318664957489149]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7313252830497449]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.223033   0.262466  0.241148  5475.000000   0.588435    0
-                           No Heart Disease  0.929793   0.914404  0.922034  58484.000000  0.588435    0
-                           accuracy          0.858597   0.858597  0.858597  0.858597      0.588435    0
-                           macro avg         0.576413   0.588435  0.581591  63959.000000  0.588435    0
-                           weighted avg      0.869294   0.858597  0.863749  63959.000000  0.588435    0
-Gradient Boost Classifier  Heart Disease     0.291242   0.470137  0.359673  5475.000000   0.681515    0
-                           No Heart Disease  0.947370   0.892894  0.919326  58484.000000  0.681515    0
-                           accuracy          0.856705   0.856705  0.856705  0.856705      0.681515    0
-                           macro avg         0.619306   0.681515  0.639499  63959.000000  0.681515    0
-                           weighted avg      0.891205   0.856705  0.871419  63959.000000  0.681515    0
-Logistic Regression        Heart Disease     0.210001   0.714155  0.324562  5475.000000   0.731325    0
-                           No Heart Disease  0.965483   0.748495  0.843254  58484.000000  0.731325    0
-                           accuracy          0.745556   0.745556  0.745556  0.745556      0.731325    0
-                           macro avg         0.587742   0.731325  0.583908  63959.000000  0.731325    0
-                           weighted avg      0.900812   0.745556  0.798853  63959.000000  0.731325    0
-Naive Bayes                Heart Disease     0.145136   0.809132  0.246125  5475.000000   0.681488    0
-                           No Heart Disease  0.968746   0.553844  0.704765  58484.000000  0.681488    0
-                           accuracy          0.575697   0.575697  0.575697  0.575697      0.681488    0
-                           macro avg         0.556941   0.681488  0.475445  63959.000000  0.681488    0
-                           weighted avg      0.898244   0.575697  0.665505  63959.000000  0.681488    0
-Random Forest Classifier   Heart Disease     0.297626   0.192329  0.233662  5475.000000   0.574919    0
-                           No Heart Disease  0.926814   0.957510  0.941912  58484.000000  0.574919    0
-                           accuracy          0.892009   0.892009  0.892009  0.892009      0.574919    0
-                           macro avg         0.612220   0.574919  0.587787  63959.000000  0.574919    0
-                           weighted avg      0.872954   0.892009  0.881284  63959.000000  0.574919    0
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7316018056220505]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.749184   0.258943  0.384864  58484.000000   0.586126    0
+                           No Heart Disease  0.552060   0.913310  0.688156  58484.000000   0.586126    0
+                           accuracy          0.586126   0.586126  0.586126  0.586126       0.586126    0
+                           macro avg         0.650622   0.586126  0.536510  116968.000000  0.586126    0
+                           weighted avg      0.650622   0.586126  0.536510  116968.000000  0.586126    0
+Gradient Boost Classifier  Heart Disease     0.814696   0.470898  0.596827  58484.000000   0.681896    0
+                           No Heart Disease  0.627916   0.892894  0.737321  58484.000000   0.681896    0
+                           accuracy          0.681896   0.681896  0.681896  0.681896       0.681896    0
+                           macro avg         0.721306   0.681896  0.667074  116968.000000  0.681896    0
+                           weighted avg      0.721306   0.681896  0.667074  116968.000000  0.681896    0
+Logistic Regression        Heart Disease     0.739701   0.714708  0.726990  58484.000000   0.731602    0
+                           No Heart Disease  0.724032   0.748495  0.736061  58484.000000   0.731602    0
+                           accuracy          0.731602   0.731602  0.731602  0.731602       0.731602    0
+                           macro avg         0.731866   0.731602  0.731525  116968.000000  0.731602    0
+                           weighted avg      0.731866   0.731602  0.731525  116968.000000  0.731602    0
+Naive Bayes                Heart Disease     0.644858   0.810119  0.718103  58484.000000   0.681981    0
+                           No Heart Disease  0.744689   0.553844  0.635242  58484.000000   0.681981    0
+                           accuracy          0.681981   0.681981  0.681981  0.681981       0.681981    0
+                           macro avg         0.694774   0.681981  0.676673  116968.000000  0.681981    0
+                           weighted avg      0.694774   0.681981  0.676673  116968.000000  0.681981    0
+Random Forest Classifier   Heart Disease     0.825471   0.199268  0.321038  58484.000000   0.578568    0
+                           No Heart Disease  0.544677   0.957869  0.694460  58484.000000   0.578568    0
+                           accuracy          0.578568   0.578568  0.578568  0.578568       0.578568    0
+                           macro avg         0.685074   0.578568  0.507749  116968.000000  0.578568    0
+                           weighted avg      0.685074   0.578568  0.507749  116968.000000  0.578568    0
 Name: dummy, dtype: int64
 
 border1
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_9}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_9}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.8934786347503869]
+Algorithm with the highest accuracy: [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7352523767184187]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7351688039252979]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7352523767184187]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.6200922423261308]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7369188698917095]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7351688039252979]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.217154   0.254795  0.234473  5475.000000   0.584403    0
-                           No Heart Disease  0.929087   0.914011  0.921487  58484.000000  0.584403    0
-                           accuracy          0.857581   0.857581  0.857581  0.857581      0.584403    0
-                           macro avg         0.573121   0.584403  0.577980  63959.000000  0.584403    0
-                           weighted avg      0.868144   0.857581  0.862677  63959.000000  0.584403    0
-Gradient Boost Classifier  Heart Disease     0.287149   0.522374  0.370586  5475.000000   0.700487    0
-                           No Heart Disease  0.951573   0.878599  0.913631  58484.000000  0.700487    0
-                           accuracy          0.848106   0.848106  0.848106  0.848106      0.700487    0
-                           macro avg         0.619361   0.700487  0.642109  63959.000000  0.700487    0
-                           weighted avg      0.894697   0.848106  0.867146  63959.000000  0.700487    0
-Logistic Regression        Heart Disease     0.225544   0.693151  0.340343  5475.000000   0.735169    0
-                           No Heart Disease  0.964356   0.777187  0.860714  58484.000000  0.735169    0
-                           accuracy          0.769993   0.769993  0.769993  0.769993      0.735169    0
-                           macro avg         0.594950   0.735169  0.600529  63959.000000  0.735169    0
-                           weighted avg      0.901113   0.769993  0.816169  63959.000000  0.735169    0
-Naive Bayes                Heart Disease     0.164702   0.781005  0.272036  5475.000000   0.705101    0
-                           No Heart Disease  0.968445   0.629198  0.762803  58484.000000  0.705101    0
-                           accuracy          0.642193   0.642193  0.642193  0.642193      0.705101    0
-                           macro avg         0.566574   0.705101  0.517420  63959.000000  0.705101    0
-                           weighted avg      0.899643   0.642193  0.720793  63959.000000  0.705101    0
-Random Forest Classifier   Heart Disease     0.312395   0.203470  0.246433  5475.000000   0.580772    0
-                           No Heart Disease  0.927790   0.958074  0.942689  58484.000000  0.580772    0
-                           accuracy          0.893479   0.893479  0.893479  0.893479      0.580772    0
-                           macro avg         0.620092   0.580772  0.594561  63959.000000  0.580772    0
-                           weighted avg      0.875111   0.893479  0.883088  63959.000000  0.580772    0
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7352523767184187]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.752669   0.261576  0.388230  58484.000000   0.587810    0
+                           No Heart Disease  0.553139   0.914045  0.689203  58484.000000   0.587810    0
+                           accuracy          0.587810   0.587810  0.587810  0.587810       0.587810    0
+                           macro avg         0.652904   0.587810  0.538716  116968.000000  0.587810    0
+                           weighted avg      0.652904   0.587810  0.538716  116968.000000  0.587810    0
+Gradient Boost Classifier  Heart Disease     0.811691   0.523288  0.636337  58484.000000   0.700944    0
+                           No Heart Disease  0.648264   0.878599  0.746058  58484.000000   0.700944    0
+                           accuracy          0.700944   0.700944  0.700944  0.700944       0.700944    0
+                           macro avg         0.729978   0.700944  0.691198  116968.000000  0.700944    0
+                           weighted avg      0.729978   0.700944  0.691198  116968.000000  0.700944    0
+Logistic Regression        Heart Disease     0.756789   0.693318  0.723664  58484.000000   0.735252    0
+                           No Heart Disease  0.717049   0.777187  0.745908  58484.000000   0.735252    0
+                           accuracy          0.735252   0.735252  0.735252  0.735252       0.735252    0
+                           macro avg         0.736919   0.735252  0.734786  116968.000000  0.735252    0
+                           weighted avg      0.736919   0.735252  0.734786  116968.000000  0.735252    0
+Naive Bayes                Heart Disease     0.678349   0.782009  0.726500  58484.000000   0.705603    0
+                           No Heart Disease  0.742689   0.629198  0.681249  58484.000000   0.705603    0
+                           accuracy          0.705603   0.705603  0.705603  0.705603       0.705603    0
+                           macro avg         0.710519   0.705603  0.703875  116968.000000  0.705603    0
+                           weighted avg      0.710519   0.705603  0.703875  116968.000000  0.705603    0
+Random Forest Classifier   Heart Disease     0.831626   0.204039  0.327681  58484.000000   0.581364    0
+                           No Heart Disease  0.546371   0.958690  0.696052  58484.000000   0.581364    0
+                           accuracy          0.581364   0.581364  0.581364  0.581364       0.581364    0
+                           macro avg         0.688998   0.581364  0.511866  116968.000000  0.581364    0
+                           weighted avg      0.688998   0.581364  0.511866  116968.000000  0.581364    0
 Name: dummy, dtype: int64
 
 border2
 \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_20_11}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_24_11}.png}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-Algorithm with the highest accuracy: [\PYGZsq{}Random Forest Classifier\PYGZsq{}, 0.8956362669835364]
+Algorithm with the highest accuracy: [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7136481772792559]
 Algorithm with the highest macro recall:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7133874620198195]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7136481772792558]
 Algorithm with the highest macro precision:
-        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.6324596168451473]
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7225457457487992]
 Algorithm with the highest AUC:
-        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7133874620198194]
-model                      index             precision  recall    f1\PYGZhy{}score  support       auc     
-Decision Tree Classifier   Heart Disease     0.210330   0.246941  0.227170  5475.000000   0.580074    0
-                           No Heart Disease  0.928334   0.913207  0.920709  58484.000000  0.580074    0
-                           accuracy          0.856173   0.856173  0.856173  0.856173      0.580074    0
-                           macro avg         0.569332   0.580074  0.573939  63959.000000  0.580074    0
-                           weighted avg      0.866872   0.856173  0.861340  63959.000000  0.580074    0
-Gradient Boost Classifier  Heart Disease     0.321763   0.408037  0.359800  5475.000000   0.663759    0
-                           No Heart Disease  0.943156   0.919482  0.931169  58484.000000  0.663759    0
-                           accuracy          0.875702   0.875702  0.875702  0.875702      0.663759    0
-                           macro avg         0.632460   0.663759  0.645485  63959.000000  0.663759    0
-                           weighted avg      0.889964   0.875702  0.882259  63959.000000  0.663759    0
-Logistic Regression        Heart Disease     0.235463   0.613151  0.340259  5475.000000   0.713387    0
-                           No Heart Disease  0.957386   0.813624  0.879670  58484.000000  0.713387    0
-                           accuracy          0.796463   0.796463  0.796463  0.796463      0.713387    0
-                           macro avg         0.596425   0.713387  0.609965  63959.000000  0.713387    0
-                           weighted avg      0.895588   0.796463  0.833496  63959.000000  0.713387    0
-Naive Bayes                Heart Disease     0.131047   0.788676  0.224750  5475.000000   0.649553    0
-                           No Heart Disease  0.962688   0.510430  0.667136  58484.000000  0.649553    0
-                           accuracy          0.534249   0.534249  0.534249  0.534249      0.649553    0
-                           macro avg         0.546868   0.649553  0.445943  63959.000000  0.649553    0
-                           weighted avg      0.891498   0.534249  0.629267  63959.000000  0.649553    0
-Random Forest Classifier   Heart Disease     0.319059   0.193242  0.240701  5475.000000   0.577317    0
-                           No Heart Disease  0.927164   0.961391  0.943967  58484.000000  0.577317    0
-                           accuracy          0.895636   0.895636  0.895636  0.895636      0.577317    0
-                           macro avg         0.623112   0.577317  0.592334  63959.000000  0.577317    0
-                           weighted avg      0.875109   0.895636  0.883767  63959.000000  0.577317    0
+        [\PYGZsq{}Logistic Regression \PYGZsq{}, 0.7136481772792559]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.743002   0.250085  0.374215  58484.000000   0.581792    0
+                           No Heart Disease  0.549171   0.913498  0.685960  58484.000000   0.581792    0
+                           accuracy          0.581792   0.581792  0.581792  0.581792       0.581792    0
+                           macro avg         0.646087   0.581792  0.530088  116968.000000  0.581792    0
+                           weighted avg      0.646087   0.581792  0.530088  116968.000000  0.581792    0
+Gradient Boost Classifier  Heart Disease     0.835545   0.409086  0.549255  58484.000000   0.664284    0
+                           No Heart Disease  0.608769   0.919482  0.732540  58484.000000   0.664284    0
+                           accuracy          0.664284   0.664284  0.664284  0.664284       0.664284    0
+                           macro avg         0.722157   0.664284  0.640897  116968.000000  0.664284    0
+                           weighted avg      0.722157   0.664284  0.640897  116968.000000  0.664284    0
+Logistic Regression        Heart Disease     0.767044   0.613672  0.681840  58484.000000   0.713648    0
+                           No Heart Disease  0.678047   0.813624  0.739674  58484.000000   0.713648    0
+                           accuracy          0.713648   0.713648  0.713648  0.713648       0.713648    0
+                           macro avg         0.722546   0.713648  0.710757  116968.000000  0.713648    0
+                           weighted avg      0.722546   0.713648  0.710757  116968.000000  0.713648    0
+Naive Bayes                Heart Disease     0.617076   0.788934  0.692502  58484.000000   0.649682    0
+                           No Heart Disease  0.707460   0.510430  0.593008  58484.000000   0.649682    0
+                           accuracy          0.649682   0.649682  0.649682  0.649682       0.649682    0
+                           macro avg         0.662268   0.649682  0.642755  116968.000000  0.649682    0
+                           weighted avg      0.662268   0.649682  0.642755  116968.000000  0.649682    0
+Random Forest Classifier   Heart Disease     0.830228   0.188975  0.307872  58484.000000   0.575166    0
+                           No Heart Disease  0.542410   0.961357  0.693524  58484.000000   0.575166    0
+                           accuracy          0.575166   0.575166  0.575166  0.575166       0.575166    0
+                           macro avg         0.686319   0.575166  0.500698  116968.000000  0.575166    0
+                           weighted avg      0.686319   0.575166  0.500698  116968.000000  0.575166    0
 Name: dummy, dtype: int64
-
-svm
-\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\sphinxAtStartPar
+As we can see in the verbose model output,our best setting occurred with the \sphinxcode{\sphinxupquote{Random}} over sampling strategy. Across most tracked metrics, we see a significant improvement in model performance compared with no oversampling techniques.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Base} (no under sampling techniques) \sphinxstylestrong{winners} for tracked metrics:
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Value
+\\
+\hline
+\sphinxAtStartPar
+Accuracy
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\sphinxAtStartPar
+Macro Recall
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\sphinxAtStartPar
+Macro precision
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.726
+\\
+\hline
+\sphinxAtStartPar
+AUC
+&
+\sphinxAtStartPar
+Naive Bayes
+&
+\sphinxAtStartPar
+0.684
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Random over sampling technique winners} for tracked metrics:
+
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Metric
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Value
+\\
+\hline
+\sphinxAtStartPar
+Accuracy
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.764
+\\
+\hline
+\sphinxAtStartPar
+Macro Recall
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.764
+\\
+\hline
+\sphinxAtStartPar
+Macro precision
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.765
+\\
+\hline
+\sphinxAtStartPar
+AUC
+&
+\sphinxAtStartPar
+Gradient Boost Classifier
+&
+\sphinxAtStartPar
+0.764
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
+\sphinxAtStartPar
+From now on, we choose the Gradient Boost Classifier with random oversampling as our base model. We will now try to improve the performance of the model by using the feature selection. Although random undersampling achieves similar accuracy as random oversampling, we achieve marginally better auc, precision and recall scores.
+
 
 \section{Feature Selection}
 \label{\detokenize{Model_evaluation:feature-selection}}
@@ -3003,10 +3432,6 @@ Find the information gain or mutual information of the independent variable with
 
 \end{itemize}
 
-\item {} 
-\sphinxAtStartPar
-Permutation Based Feature Importance: ill randomly shuffle each feature and compute the change in the model’s performance
-
 \end{itemize}
 
 
@@ -3022,7 +3447,7 @@ We decide to get the top 5 features that contribute most to the first principal 
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k}{def} \PYG{n+nf}{pca\PYGZus{}most\PYGZus{}important\PYGZus{}features}\PYG{p}{(}\PYG{n}{df}\PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{Dataframe}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n+nb}{list}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{]}\PYG{p}{:}
+\PYG{k}{def} \PYG{n+nf}{pca\PYGZus{}most\PYGZus{}important\PYGZus{}features}\PYG{p}{(}\PYG{n}{df}\PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n}{List}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{]}\PYG{p}{:}
     \PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
 \PYG{l+s+sd}{    Retrieve the top 10 features that contribute most }
 \PYG{l+s+sd}{        variation to the top 2 principal components}
@@ -3052,12 +3477,142 @@ We decide to get the top 5 features that contribute most to the first principal 
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{pca\PYGZus{}df} \PYG{o}{=} \PYG{n}{pca\PYGZus{}most\PYGZus{}important\PYGZus{}features}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{pca\PYGZus{}features} \PYG{o}{=} \PYG{n}{pca\PYGZus{}most\PYGZus{}important\PYGZus{}features}\PYG{p}{(}\PYG{n}{heart\PYGZus{}disease\PYGZus{}dataset\PYGZus{}standardized}\PYG{p}{)}
+\PYG{n}{pca\PYGZus{}features}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[\PYGZsq{}BMI\PYGZsq{},
+ \PYGZsq{}PhysicalHealth\PYGZsq{},
+ \PYGZsq{}MentalHealth\PYGZsq{},
+ \PYGZsq{}AgeCategory\PYGZsq{},
+ \PYGZsq{}GenHealth\PYGZsq{},
+ \PYGZsq{}SleepTime\PYGZsq{},
+ \PYGZsq{}BMI\PYGZus{}Bin\PYGZsq{},
+ \PYGZsq{}LOG\PYGZus{}BMI\PYGZsq{}]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{oversampler\PYGZus{}dict}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{random}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{run\PYGZus{}exps}\PYG{p}{(}\PYG{n}{X\PYGZus{}resampled}\PYG{p}{[}\PYG{n}{pca\PYGZus{}features}\PYG{p}{]}\PYG{p}{,} \PYG{n}{X\PYGZus{}test}\PYG{p}{[}\PYG{n}{pca\PYGZus{}features}\PYG{p}{]}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{)}
+    
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{Model_evaluation_31_0}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7457253265850489]
+Algorithm with the highest macro recall:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7457253265850489]
+Algorithm with the highest macro precision:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7491858337247853]
+Algorithm with the highest AUC:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7457253265850489]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.691025   0.260003  0.377840  58484.000000   0.571874    0
+                           No Heart Disease  0.544265   0.883746  0.673653  58484.000000   0.571874    0
+                           accuracy          0.571874   0.571874  0.571874  0.571874       0.571874    0
+                           macro avg         0.617645   0.571874  0.525747  116968.000000  0.571874    0
+                           weighted avg      0.617645   0.571874  0.525747  116968.000000  0.571874    0
+Gradient Boost Classifier  Heart Disease     0.719821   0.804647  0.759874  58484.000000   0.745725    0
+                           No Heart Disease  0.778551   0.686803  0.729805  58484.000000   0.745725    0
+                           accuracy          0.745725   0.745725  0.745725  0.745725       0.745725    0
+                           macro avg         0.749186   0.745725  0.744839  116968.000000  0.745725    0
+                           weighted avg      0.749186   0.745725  0.744839  116968.000000  0.745725    0
+Logistic Regression        Heart Disease     0.725791   0.780607  0.752202  58484.000000   0.742844    0
+                           No Heart Disease  0.762683   0.705082  0.732752  58484.000000   0.742844    0
+                           accuracy          0.742844   0.742844  0.742844  0.742844       0.742844    0
+                           macro avg         0.744237   0.742844  0.742477  116968.000000  0.742844    0
+                           weighted avg      0.744237   0.742844  0.742477  116968.000000  0.742844    0
+Naive Bayes                Heart Disease     0.737251   0.614014  0.670013  58484.000000   0.697593    0
+                           No Heart Disease  0.669294   0.781171  0.720918  58484.000000   0.697593    0
+                           accuracy          0.697593   0.697593  0.697593  0.697593       0.697593    0
+                           macro avg         0.703272   0.697593  0.695465  116968.000000  0.697593    0
+                           weighted avg      0.703272   0.697593  0.695465  116968.000000  0.697593    0
+Random Forest Classifier   Heart Disease     0.710323   0.240373  0.359195  58484.000000   0.571173    0
+                           No Heart Disease  0.542834   0.901973  0.677768  58484.000000   0.571173    0
+                           accuracy          0.571173   0.571173  0.571173  0.571173       0.571173    0
+                           macro avg         0.626579   0.571173  0.518481  116968.000000  0.571173    0
+                           weighted avg      0.626579   0.571173  0.518481  116968.000000  0.571173    0
+Name: dummy, dtype: int64
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+               index  precision    recall  f1\PYGZhy{}score        support  \PYGZbs{}
+0   No Heart Disease   0.762683  0.705082  0.732752   58484.000000   
+1      Heart Disease   0.725791  0.780607  0.752202   58484.000000   
+2           accuracy   0.742844  0.742844  0.742844       0.742844   
+3          macro avg   0.744237  0.742844  0.742477  116968.000000   
+4       weighted avg   0.744237  0.742844  0.742477  116968.000000   
+5   No Heart Disease   0.778551  0.686803  0.729805   58484.000000   
+6      Heart Disease   0.719821  0.804647  0.759874   58484.000000   
+7           accuracy   0.745725  0.745725  0.745725       0.745725   
+8          macro avg   0.749186  0.745725  0.744839  116968.000000   
+9       weighted avg   0.749186  0.745725  0.744839  116968.000000   
+10  No Heart Disease   0.544265  0.883746  0.673653   58484.000000   
+11     Heart Disease   0.691025  0.260003  0.377840   58484.000000   
+12          accuracy   0.571874  0.571874  0.571874       0.571874   
+13         macro avg   0.617645  0.571874  0.525747  116968.000000   
+14      weighted avg   0.617645  0.571874  0.525747  116968.000000   
+15  No Heart Disease   0.542834  0.901973  0.677768   58484.000000   
+16     Heart Disease   0.710323  0.240373  0.359195   58484.000000   
+17          accuracy   0.571173  0.571173  0.571173       0.571173   
+18         macro avg   0.626579  0.571173  0.518481  116968.000000   
+19      weighted avg   0.626579  0.571173  0.518481  116968.000000   
+20  No Heart Disease   0.669294  0.781171  0.720918   58484.000000   
+21     Heart Disease   0.737251  0.614014  0.670013   58484.000000   
+22          accuracy   0.697593  0.697593  0.697593       0.697593   
+23         macro avg   0.703272  0.697593  0.695465  116968.000000   
+24      weighted avg   0.703272  0.697593  0.695465  116968.000000   
+
+                        model       auc dummy  
+0        Logistic Regression   0.742844  None  
+1        Logistic Regression   0.742844  None  
+2        Logistic Regression   0.742844  None  
+3        Logistic Regression   0.742844  None  
+4        Logistic Regression   0.742844  None  
+5   Gradient Boost Classifier  0.745725  None  
+6   Gradient Boost Classifier  0.745725  None  
+7   Gradient Boost Classifier  0.745725  None  
+8   Gradient Boost Classifier  0.745725  None  
+9   Gradient Boost Classifier  0.745725  None  
+10   Decision Tree Classifier  0.571874  None  
+11   Decision Tree Classifier  0.571874  None  
+12   Decision Tree Classifier  0.571874  None  
+13   Decision Tree Classifier  0.571874  None  
+14   Decision Tree Classifier  0.571874  None  
+15   Random Forest Classifier  0.571173  None  
+16   Random Forest Classifier  0.571173  None  
+17   Random Forest Classifier  0.571173  None  
+18   Random Forest Classifier  0.571173  None  
+19   Random Forest Classifier  0.571173  None  
+20                Naive Bayes  0.697593  None  
+21                Naive Bayes  0.697593  None  
+22                Naive Bayes  0.697593  None  
+23                Naive Bayes  0.697593  None  
+24                Naive Bayes  0.697593  None  
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+We note a marginal decrease in model performance when using the top 5 features from the 2 principal components. This is likely due to the fact that the top 5 features from the 2 principal components are not the most important features in the dataset.
+
 
 \subsection{Filter Methods}
 \label{\detokenize{Model_evaluation:filter-methods}}
@@ -3067,10 +3622,6 @@ A simple filter method:
 \item {} 
 \sphinxAtStartPar
 \sphinxcode{\sphinxupquote{Identify input features having high correlation with target variable}}: We want to keep features with only a high correlation with the target variable. This implies that the input feature has a high influence in predicting the target variable. We set the threshold to the absolute value of 0.2. We keep input features only if the correlation of the input feature with the target variable is greater than 0.2. Our analysis reveled most variables have little if all correlation to our target variable
-
-\item {} 
-\sphinxAtStartPar
-\sphinxcode{\sphinxupquote{Identify input features that have a low correlation with other independent variables}}
 
 \item {} 
 \sphinxAtStartPar
@@ -3098,20 +3649,22 @@ A simple filter method:
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{high\PYGZus{}corr\PYGZus{}features} \PYG{o}{=} \PYG{n}{idenity\PYGZus{}high\PYGZus{}corr\PYGZus{}features}\PYG{p}{(}\PYG{n}{heart\PYGZus{}disease\PYGZus{}dataset\PYGZus{}standardized}\PYG{p}{)}
+\PYG{n}{high\PYGZus{}corr\PYGZus{}features}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
 \begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
-\PYG{n+ne}{NameError}\PYG{g+gWhitespace}{                                 }Traceback (most recent call last)
-\PYG{o}{\PYGZlt{}}\PYG{n}{ipython}\PYG{o}{\PYGZhy{}}\PYG{n+nb}{input}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{149}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{n}{df01e1de439}\PYG{o}{\PYGZgt{}} \PYG{o+ow}{in} \PYG{o}{\PYGZlt{}}\PYG{n}{module}\PYG{o}{\PYGZgt{}}
-\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1} \PYG{k}{def} \PYG{n+nf}{idenity\PYGZus{}high\PYGZus{}corr\PYGZus{}features}\PYG{p}{(}\PYG{n}{df}\PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{)} \PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZgt{}} \PYG{n}{List}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{]}\PYG{p}{:}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{2}     \PYG{n}{importances} \PYG{o}{=} \PYG{n}{df}\PYG{o}{.}\PYG{n}{drop}\PYG{p}{(}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}         \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{HeartDisease}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{apply}\PYG{p}{(}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{4}             \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{x}\PYG{o}{.}\PYG{n}{corr}\PYG{p}{(}\PYG{n}{df}\PYG{o}{.}\PYG{n}{HeartDisease}\PYG{p}{)}\PYG{p}{)}
-\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{5} 
-
-\PYG{n+ne}{NameError}: name \PYGZsq{}List\PYGZsq{} is not defined
+[\PYGZsq{}MentalHealth\PYGZsq{}, \PYGZsq{}DiffWalking\PYGZsq{}, \PYGZsq{}PhysicalActivity\PYGZsq{}]
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -3133,23 +3686,247 @@ A simple filter method:
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZlt{}matplotlib.axes.\PYGZus{}subplots.AxesSubplot at 0x7faf3596b710\PYGZgt{}
+\PYGZlt{}matplotlib.axes.\PYGZus{}subplots.AxesSubplot at 0x7f932dce9090\PYGZgt{}
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{Model_evaluation_27_1}.png}
+\noindent\sphinxincludegraphics{{Model_evaluation_36_1}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{top\PYGZus{}10\PYGZus{}mi} \PYG{o}{=} \PYG{n}{mi}\PYG{o}{.}\PYG{n}{sort\PYGZus{}values}\PYG{p}{(}\PYG{n}{ascending}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{10}\PYG{p}{]}\PYG{o}{.}\PYG{n}{index}\PYG{o}{.}\PYG{n}{tolist}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{top\PYGZus{}10\PYGZus{}mi}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[\PYGZsq{}PhysicalActivity\PYGZsq{},
+ \PYGZsq{}GenHealth\PYGZsq{},
+ \PYGZsq{}White\PYGZsq{},
+ \PYGZsq{}AgeCategory\PYGZsq{},
+ \PYGZsq{}Race\PYGZus{}freq\PYGZsq{},
+ \PYGZsq{}PhysicalHealth\PYGZsq{},
+ \PYGZsq{}Female\PYGZsq{},
+ \PYGZsq{}BMI\PYGZus{}Bin\PYGZsq{},
+ \PYGZsq{}Male\PYGZsq{},
+ \PYGZsq{}DiffWalking\PYGZsq{}]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+We choose to pick the top 10 features, ranked by mutual information, along with the high correlation features to use in our model.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{filter\PYGZus{}features} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{top\PYGZus{}10\PYGZus{}mi}\PYG{p}{)} \PYG{o}{|} \PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{high\PYGZus{}corr\PYGZus{}features}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{filter\PYGZus{}features}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[\PYGZsq{}Male\PYGZsq{},
+ \PYGZsq{}GenHealth\PYGZsq{},
+ \PYGZsq{}BMI\PYGZus{}Bin\PYGZsq{},
+ \PYGZsq{}PhysicalActivity\PYGZsq{},
+ \PYGZsq{}Race\PYGZus{}freq\PYGZsq{},
+ \PYGZsq{}PhysicalHealth\PYGZsq{},
+ \PYGZsq{}Female\PYGZsq{},
+ \PYGZsq{}White\PYGZsq{},
+ \PYGZsq{}DiffWalking\PYGZsq{},
+ \PYGZsq{}AgeCategory\PYGZsq{},
+ \PYGZsq{}MentalHealth\PYGZsq{}]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{oversampler\PYGZus{}dict}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{random}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{run\PYGZus{}exps}\PYG{p}{(}\PYG{n}{X\PYGZus{}resampled}\PYG{p}{[}\PYG{n}{filter\PYGZus{}features}\PYG{p}{]}\PYG{p}{,} \PYG{n}{X\PYGZus{}test}\PYG{p}{[}\PYG{n}{filter\PYGZus{}features}\PYG{p}{]}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}test}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{Model_evaluation_40_0}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Algorithm with the highest accuracy: [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7571301552561385]
+Algorithm with the highest macro recall:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7571301552561385]
+Algorithm with the highest macro precision:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7590911327902984]
+Algorithm with the highest AUC:
+        [\PYGZsq{}Gradient Boost Classifier\PYGZsq{}, 0.7571301552561385]
+model                      index             precision  recall    f1\PYGZhy{}score  support        auc     
+Decision Tree Classifier   Heart Disease     0.715839   0.541310  0.616460  58484.000000   0.663216    0
+                           No Heart Disease  0.631222   0.785121  0.699810  58484.000000   0.663216    0
+                           accuracy          0.663216   0.663216  0.663216  0.663216       0.663216    0
+                           macro avg         0.673531   0.663216  0.658135  116968.000000  0.663216    0
+                           weighted avg      0.673531   0.663216  0.658135  116968.000000  0.663216    0
+Gradient Boost Classifier  Heart Disease     0.736551   0.800629  0.767254  58484.000000   0.757130    0
+                           No Heart Disease  0.781632   0.713631  0.746085  58484.000000   0.757130    0
+                           accuracy          0.757130   0.757130  0.757130  0.757130       0.757130    0
+                           macro avg         0.759091   0.757130  0.756670  116968.000000  0.757130    0
+                           weighted avg      0.759091   0.757130  0.756670  116968.000000  0.757130    0
+Logistic Regression        Heart Disease     0.738478   0.785223  0.761134  58484.000000   0.753574    0
+                           No Heart Disease  0.770709   0.721924  0.745519  58484.000000   0.753574    0
+                           accuracy          0.753574   0.753574  0.753574  0.753574       0.753574    0
+                           macro avg         0.754594   0.753574  0.753327  116968.000000  0.753574    0
+                           weighted avg      0.754594   0.753574  0.753327  116968.000000  0.753574    0
+Naive Bayes                Heart Disease     0.750320   0.621281  0.679731  58484.000000   0.707270    0
+                           No Heart Disease  0.676855   0.793260  0.730449  58484.000000   0.707270    0
+                           accuracy          0.707270   0.707270  0.707270  0.707270       0.707270    0
+                           macro avg         0.713588   0.707270  0.705090  116968.000000  0.707270    0
+                           weighted avg      0.713588   0.707270  0.705090  116968.000000  0.707270    0
+Random Forest Classifier   Heart Disease     0.724543   0.547124  0.623457  58484.000000   0.669559    0
+                           No Heart Disease  0.636206   0.791994  0.705604  58484.000000   0.669559    0
+                           accuracy          0.669559   0.669559  0.669559  0.669559       0.669559    0
+                           macro avg         0.680375   0.669559  0.664530  116968.000000  0.669559    0
+                           weighted avg      0.680375   0.669559  0.664530  116968.000000  0.669559    0
+Name: dummy, dtype: int64
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+               index  precision    recall  f1\PYGZhy{}score        support  \PYGZbs{}
+0   No Heart Disease   0.770709  0.721924  0.745519   58484.000000   
+1      Heart Disease   0.738478  0.785223  0.761134   58484.000000   
+2           accuracy   0.753574  0.753574  0.753574       0.753574   
+3          macro avg   0.754594  0.753574  0.753327  116968.000000   
+4       weighted avg   0.754594  0.753574  0.753327  116968.000000   
+5   No Heart Disease   0.781632  0.713631  0.746085   58484.000000   
+6      Heart Disease   0.736551  0.800629  0.767254   58484.000000   
+7           accuracy   0.757130  0.757130  0.757130       0.757130   
+8          macro avg   0.759091  0.757130  0.756670  116968.000000   
+9       weighted avg   0.759091  0.757130  0.756670  116968.000000   
+10  No Heart Disease   0.631222  0.785121  0.699810   58484.000000   
+11     Heart Disease   0.715839  0.541310  0.616460   58484.000000   
+12          accuracy   0.663216  0.663216  0.663216       0.663216   
+13         macro avg   0.673531  0.663216  0.658135  116968.000000   
+14      weighted avg   0.673531  0.663216  0.658135  116968.000000   
+15  No Heart Disease   0.636206  0.791994  0.705604   58484.000000   
+16     Heart Disease   0.724543  0.547124  0.623457   58484.000000   
+17          accuracy   0.669559  0.669559  0.669559       0.669559   
+18         macro avg   0.680375  0.669559  0.664530  116968.000000   
+19      weighted avg   0.680375  0.669559  0.664530  116968.000000   
+20  No Heart Disease   0.676855  0.793260  0.730449   58484.000000   
+21     Heart Disease   0.750320  0.621281  0.679731   58484.000000   
+22          accuracy   0.707270  0.707270  0.707270       0.707270   
+23         macro avg   0.713588  0.707270  0.705090  116968.000000   
+24      weighted avg   0.713588  0.707270  0.705090  116968.000000   
+
+                        model       auc dummy  
+0        Logistic Regression   0.753574  None  
+1        Logistic Regression   0.753574  None  
+2        Logistic Regression   0.753574  None  
+3        Logistic Regression   0.753574  None  
+4        Logistic Regression   0.753574  None  
+5   Gradient Boost Classifier  0.757130  None  
+6   Gradient Boost Classifier  0.757130  None  
+7   Gradient Boost Classifier  0.757130  None  
+8   Gradient Boost Classifier  0.757130  None  
+9   Gradient Boost Classifier  0.757130  None  
+10   Decision Tree Classifier  0.663216  None  
+11   Decision Tree Classifier  0.663216  None  
+12   Decision Tree Classifier  0.663216  None  
+13   Decision Tree Classifier  0.663216  None  
+14   Decision Tree Classifier  0.663216  None  
+15   Random Forest Classifier  0.669559  None  
+16   Random Forest Classifier  0.669559  None  
+17   Random Forest Classifier  0.669559  None  
+18   Random Forest Classifier  0.669559  None  
+19   Random Forest Classifier  0.669559  None  
+20                Naive Bayes  0.707270  None  
+21                Naive Bayes  0.707270  None  
+22                Naive Bayes  0.707270  None  
+23                Naive Bayes  0.707270  None  
+24                Naive Bayes  0.707270  None  
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+Our filter method results in a marginal decrease in the evaluation metrics tracked when compared to with just the oversampling method applied. Although, we do achieve a slight increase in the all scores when compared to our PCA analysis method.
+
 
 \section{Hyperparameter finetuning}
 \label{\detokenize{Model_evaluation:hyperparameter-finetuning}}
 \sphinxAtStartPar
-Our best algorithm was
+Our best setting was the gradient booting classifier method with the random oversampling method applied. We will now try to improve the performance of the model by finetuning the hyperparameters of the model. We use cross validation on the trainig data to fine tune our model, focusing on the accuracy metric.
 
-\sphinxAtStartPar
-Our final step is to fine\sphinxhyphen{}tune our model. We will use GridSearch to achieve this.
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled} \PYG{o}{=} \PYG{n}{oversampler\PYGZus{}dict}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{random}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{fit\PYGZus{}resample}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{gbc} \PYG{o}{=} \PYG{n}{GradientBoostingClassifier}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{parameters} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{n\PYGZus{}estimators}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}\PYG{p}{[}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{50}\PYG{p}{,}\PYG{l+m+mi}{250}\PYG{p}{,}\PYG{l+m+mi}{500}\PYG{p}{]}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{max\PYGZus{}depth}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{l+m+mi}{7}\PYG{p}{,}\PYG{l+m+mi}{9}\PYG{p}{]}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{learning\PYGZus{}rate}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:}\PYG{p}{[}\PYG{l+m+mf}{0.01}\PYG{p}{,}\PYG{l+m+mf}{0.1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{l+m+mi}{100}\PYG{p}{]}
+\PYG{p}{\PYGZcb{}}
+\PYG{n}{cv} \PYG{o}{=} \PYG{n}{GridSearchCV}\PYG{p}{(}\PYG{n}{gbc}\PYG{p}{,}\PYG{n}{parameters}\PYG{p}{,}\PYG{n}{cv}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{n}{scoring}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{accuracy}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{cv}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,}\PYG{n}{y\PYGZus{}resampled}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{display}\PYG{p}{(}\PYG{n}{results}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Best parameters are: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{results}\PYG{o}{.}\PYG{n}{best\PYGZus{}params\PYGZus{}}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{n}{mean\PYGZus{}score} \PYG{o}{=} \PYG{n}{results}\PYG{o}{.}\PYG{n}{cv\PYGZus{}results\PYGZus{}}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{mean\PYGZus{}test\PYGZus{}score}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{std\PYGZus{}score} \PYG{o}{=} \PYG{n}{results}\PYG{o}{.}\PYG{n}{cv\PYGZus{}results\PYGZus{}}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{std\PYGZus{}test\PYGZus{}score}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+    \PYG{n}{params} \PYG{o}{=} \PYG{n}{results}\PYG{o}{.}\PYG{n}{cv\PYGZus{}results\PYGZus{}}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{params}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+    \PYG{k}{for} \PYG{n}{mean}\PYG{p}{,}\PYG{n}{std}\PYG{p}{,}\PYG{n}{params} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{n}{mean\PYGZus{}score}\PYG{p}{,}\PYG{n}{std\PYGZus{}score}\PYG{p}{,}\PYG{n}{params}\PYG{p}{)}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{mean}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ + or \PYGZhy{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{std}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ for the }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{params}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{display}\PYG{p}{(}\PYG{n}{cv}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
 
 \section{Pickle Model}
 \label{\detokenize{Model_evaluation:pickle-model}}
@@ -3166,7 +3943,7 @@ Later we will load this file to deserialize your model and use it to make new pr
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{model}  \PYG{o}{=}  \PYG{n}{GaussianNB}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{model}  \PYG{o}{=}  \PYG{n}{GradientBoostingClassifier}\PYG{p}{(}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3176,7 +3953,7 @@ Later we will load this file to deserialize your model and use it to make new pr
 
 \begin{sphinxuseclass}{cell_input}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{p}{,} \PYG{n}{y\PYGZus{}train}\PYG{p}{)}
+\PYG{n}{model}\PYG{o}{.}\PYG{n}{fit}\PYG{p}{(}\PYG{n}{X\PYGZus{}resampled}\PYG{p}{,} \PYG{n}{y\PYGZus{}resampled}\PYG{p}{)}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -3185,49 +3962,6 @@ Later we will load this file to deserialize your model and use it to make new pr
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
 GaussianNB()
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimOutput}
-
-\end{sphinxuseclass}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{X\PYGZus{}train}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
-
-\begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYGZob{}\PYGZsq{}AgeCategory\PYGZsq{},
- \PYGZsq{}AlcoholDrinking\PYGZsq{},
- \PYGZsq{}American Indian/Alaskan Native\PYGZsq{},
- \PYGZsq{}Asian\PYGZsq{},
- \PYGZsq{}Asthma\PYGZsq{},
- \PYGZsq{}BMI\PYGZsq{},
- \PYGZsq{}BMI\PYGZus{}Bin\PYGZsq{},
- \PYGZsq{}Black\PYGZsq{},
- \PYGZsq{}Diabetic\PYGZsq{},
- \PYGZsq{}DiffWalking\PYGZsq{},
- \PYGZsq{}Female\PYGZsq{},
- \PYGZsq{}GenHealth\PYGZsq{},
- \PYGZsq{}Hispanic\PYGZsq{},
- \PYGZsq{}KidneyDisease\PYGZsq{},
- \PYGZsq{}LOG\PYGZus{}BMI\PYGZsq{},
- \PYGZsq{}Male\PYGZsq{},
- \PYGZsq{}MentalHealth\PYGZsq{},
- \PYGZsq{}Other\PYGZsq{},
- \PYGZsq{}PhysicalActivity\PYGZsq{},
- \PYGZsq{}PhysicalHealth\PYGZsq{},
- \PYGZsq{}Race\PYGZus{}freq\PYGZsq{},
- \PYGZsq{}SkinCancer\PYGZsq{},
- \PYGZsq{}SleepTime\PYGZsq{},
- \PYGZsq{}Smoking\PYGZsq{},
- \PYGZsq{}Stroke\PYGZsq{},
- \PYGZsq{}White\PYGZsq{}\PYGZcb{}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
@@ -3248,10 +3982,6 @@ GaussianNB()
 
 \chapter{Conclusion}
 \label{\detokenize{Conclusion:conclusion}}\label{\detokenize{Conclusion::doc}}
-
-\bigskip\hrule\bigskip
-
-
 \sphinxAtStartPar
 In this investigation, we investigate the predictability of patients who have or did not have heart disease. Engineered features included a log transformed BMI variable to offset the effect of outliers in our model, a substance abuse binary variable (whether they were a heavy smoker or drinker) and two principal components of the dataset, in an attempt to reduce the dimensionality.  In addition, we augment the existing data by adding participants general BMI classification (underweight, normal weight, overweight obese). This enables us, to examine not only the the risk factors for heart disease but also the risk factors for heart disease in the context of a patient’s BMI.  Furthermore, our method of using K\sphinxhyphen{}means clustering to segment patients into groups with similar risk factors for heart disease is a our approach to understanding the risk factors for heart disease. We propose that this method of segmenting patients into groups with similar risk factors for heart disease can be used to identify patients that are at higher risk of developing heart disease and thus, we added this feature into our final model
 
@@ -3273,7 +4003,7 @@ Similarity, our findings suggest that patients who are obese and have a substanc
 
 \item {} 
 \sphinxAtStartPar
-Out of all the undersupplying and oversampling techniques we investigated to overcome the class imbalance problem in our dataset,  seemed to be most fruitful. This is because it oversampled the minority class (patients who have heart disease) to the same number of samples as the majority class (patients who do not have heart disease). This is important because it ensures that the model is not biased towards the majority class.
+Out of all the undersupplying and oversampling techniques we investigated to overcome the class imbalance problem in our dataset, random oversampling seemed to be most fruitful. This is because it oversampled the minority class (patients who have heart disease) to the same number of samples as the majority class (patients who do not have heart disease). This is important because it ensures that the model is not biased towards the majority class.
 
 \item {} 
 \sphinxAtStartPar
@@ -3286,17 +4016,13 @@ Our final model was serialized using the  pickle library. This allowed us to cre
 \label{\detokenize{Conclusion:future-work}}
 \sphinxAtStartPar
 As an extension to this work, and some sort of limitation to the work performed here,
-different types of classifiers can be included in the analysis and more in depth sensitivity analysis can be performed on these classifiers, also an extension can be made by applying same analysis to other bioinformatics diseases’ datasets, and see the performance of these classifiers to classify and predict these diseases. In addition, we would like to investigate the use of deeper models. Similar endeavours have shown to be fruitful, albeit often decreasing the interoperability of results.  Finally, we are interested in incorporating other features about the subjects such as socio\sphinxhyphen{}economic status,  heart disease prevalence in their family (measured on some continuum), their blood pressure and  cholesterol levels, and their dietary habitats. We hope such features might uncover specific genetic components  patterns or behavioural aspects that might increase or decrease the likehood of heart disease.
+different types of classifiers can be included in the analysis and more in depth sensitivity analysis can be performed on these classifiers, also an extension can be made by applying same analysis to other bioinformatics diseases’ datasets, and see the performance of these classifiers to classify and predict these diseases. In addition, we would like to investigate the use of deeper models. Similar endeavors have shown to be fruitful, albeit often decreasing the interoperability of results.  Finally, we are interested in incorporating other features about the subjects such as socio\sphinxhyphen{}economic status,  heart disease prevalence in their family (measured on some continuum), their blood pressure and  cholesterol levels, and their dietary habitats. We hope such features might uncover specific genetic components  patterns or behavioural aspects that might increase or decrease the likehood of heart disease.
 
 \sphinxstepscope
 
 
 \chapter{References}
 \label{\detokenize{References:references}}\label{\detokenize{References::doc}}
-
-\bigskip\hrule\bigskip
-
-
 \sphinxAtStartPar
 @misc\{laya\_healthcare,
 title=\{Worrying statistics about heart disease\}, url=\{\sphinxurl{https://www.layahealthcare.ie/pressandmedia/pressreleases/worrying-stats-highlight-heart-disease-risk-among-irish-adults-.html\#\_ftn3}\},
@@ -3304,7 +4030,10 @@ year=\{2020\},
 journal=\{Laya Healthcare\}\}
 
 \begin{sphinxthebibliography}{1}
-\bibitem[1]{References:id7}
+\bibitem[1]{References:id3}
+\sphinxAtStartPar
+Worrying statistics about heart disease. 2020. URL: \sphinxurl{https://www.layahealthcare.ie/pressandmedia/pressreleases/worrying-stats-highlight-heart-disease-risk-among-irish-adults-.html\#\_ftn3}.
+\bibitem[2]{References:id8}
 \sphinxAtStartPar
 Amit Banerjee and Rajesh N Dave. Validating clusters using the hopkins statistic. In \sphinxstyleemphasis{2004 IEEE International conference on fuzzy systems (IEEE Cat. No. 04CH37542)}, volume 1, 149–153. IEEE, 2004.
 \end{sphinxthebibliography}
