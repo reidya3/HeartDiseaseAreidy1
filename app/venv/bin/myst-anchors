@@ -1,0 +1,10 @@
+#!/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/app/venv/bin/python
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from myst_parser.cli import print_anchors
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(print_anchors())

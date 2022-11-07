@@ -1,0 +1,65 @@
+source,target,value
+18-24,AlcoholDrinking,1521
+18-24,No Alcohol or Tobacco consumption,4318
+18-24,Smoking,3284
+25-29,AlcoholDrinking,1571
+25-29,No Alcohol or Tobacco consumption,3551
+25-29,Smoking,5154
+30-34,AlcoholDrinking,1578
+30-34,No Alcohol or Tobacco consumption,4077
+30-34,Smoking,7172
+35-39,AlcoholDrinking,1825
+35-39,No Alcohol or Tobacco consumption,4788
+35-39,Smoking,8642
+40-44,AlcoholDrinking,1806
+40-44,No Alcohol or Tobacco consumption,5791
+40-44,Smoking,9081
+45-49,AlcoholDrinking,1684
+45-49,No Alcohol or Tobacco consumption,7058
+45-49,Smoking,8725
+50-54,AlcoholDrinking,1959
+50-54,No Alcohol or Tobacco consumption,9450
+50-54,Smoking,9973
+55-59,AlcoholDrinking,2218
+55-59,No Alcohol or Tobacco consumption,12839
+55-59,Smoking,12672
+60-64,AlcoholDrinking,2334
+60-64,No Alcohol or Tobacco consumption,16555
+60-64,Smoking,15436
+65-69,AlcoholDrinking,2101
+65-69,No Alcohol or Tobacco consumption,18815
+65-69,Smoking,15563
+70-74,AlcoholDrinking,1597
+70-74,No Alcohol or Tobacco consumption,19968
+70-74,Smoking,14925
+75-79,AlcoholDrinking,901
+75-79,No Alcohol or Tobacco consumption,15411
+75-79,Smoking,10754
+80 or older,AlcoholDrinking,682
+80 or older,No Alcohol or Tobacco consumption,17279
+80 or older,Smoking,10527
+AlcoholDrinking,Asthma,2859
+AlcoholDrinking,Diabetic,1359
+AlcoholDrinking,KidneyDisease,373
+AlcoholDrinking,SkinCancer,1897
+AlcoholDrinking,Stroke,517
+Asthma,No,37939
+Asthma,Yes,4933
+Diabetic,No,34296
+Diabetic,Yes,9065
+KidneyDisease,No,8324
+KidneyDisease,Yes,3455
+No Alcohol or Tobacco consumption,Asthma,42872
+No Alcohol or Tobacco consumption,Diabetic,43361
+No Alcohol or Tobacco consumption,KidneyDisease,11779
+No Alcohol or Tobacco consumption,SkinCancer,29819
+No Alcohol or Tobacco consumption,Stroke,12069
+SkinCancer,No,24839
+SkinCancer,Yes,4980
+Smoking,Asthma,18979
+Smoking,Diabetic,20879
+Smoking,KidneyDisease,5894
+Smoking,SkinCancer,13855
+Smoking,Stroke,6815
+Stroke,No,7680
+Stroke,Yes,4389

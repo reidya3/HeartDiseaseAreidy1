@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Cluster Analysis &#8212; Heart Disease Prediction Task</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Model Building, Evaluation &amp; Sensitivity Analysis" href="Model_evaluation.html" />
+    <link rel="prev" title="Initial Data Exploration" href="Initial_Data_Exploration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/heart_disease.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Heart Disease Prediction Task</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Initial_Data_Exploration.html">
+   Initial Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Cluster Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Model_evaluation.html">
+   Model Building, Evaluation &amp; Sensitivity Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="References.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task/issues/new?title=Issue%20on%20page%20%2FClustering_Analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Clustering_Analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libaries">
+   Import libaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scientific-computing">
+     Scientific computing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualisation">
+     Data Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measure-cluster-tendency">
+   Measure Cluster Tendency
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hopkins-statistics">
+     Hopkins statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means">
+   K-Means
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elbow-method">
+     Elbow method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sillhoute-method">
+   Sillhoute method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findings">
+   Findings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-2-principal-component-dataset">
+     Top 2 principal component dataset
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Cluster Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libaries">
+   Import libaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scientific-computing">
+     Scientific computing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clustering">
+     Clustering
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualisation">
+     Data Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#measure-cluster-tendency">
+   Measure Cluster Tendency
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hopkins-statistics">
+     Hopkins statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means">
+   K-Means
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#elbow-method">
+     Elbow method
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sillhoute-method">
+   Sillhoute method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#findings">
+   Findings
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#top-2-principal-component-dataset">
+     Top 2 principal component dataset
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="cluster-analysis">
+<h1>Cluster Analysis<a class="headerlink" href="#cluster-analysis" title="Permalink to this headline">#</a></h1>
+<p>The purpose of our cluster analysis is to:</p>
+<ul class="simple">
+<li><p>Measure clustering &amp; central tendency.</p></li>
+<li><p>Perform k-means</p></li>
+<li><p>Evaluate the clusters, <strong>particularly</strong>:</p>
+<ul>
+<li><p>does the dataset naturally cluster into people who do and do not have heart disease?</p></li>
+<li><p>people with alchol abuse issues</p></li>
+<li><p>underweight vs normal weight vs overweight vs obese</p></li>
+</ul>
+</li>
+</ul>
+<section id="import-libaries">
+<h2>Import libaries<a class="headerlink" href="#import-libaries" title="Permalink to this headline">#</a></h2>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scientific-computing">
+<h3>Scientific computing<a class="headerlink" href="#scientific-computing" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">NearestNeighbors</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">sample</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">uniform</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">isnan</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="clustering">
+<h3>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">MiniBatchKMeans</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span>
+<span class="kn">from</span> <span class="nn">pyclustertend</span> <span class="kn">import</span> <span class="n">ivat</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-visualisation">
+<h3>Data Visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">from</span> <span class="nn">yellowbrick.cluster</span> <span class="kn">import</span> <span class="n">SilhouetteVisualizer</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="measure-cluster-tendency">
+<h2>Measure Cluster Tendency<a class="headerlink" href="#measure-cluster-tendency" title="Permalink to this headline">#</a></h2>
+<p>Clustering algorithms such as k-means are used to determine the structure of multi-dimensional data. Clusters are disjoint natural groups. However, K-means will find clusters in data even if none “actually” exist. Therefore, a fundamental question before applying any clustering algorithms is: Are clusters present at all?
+We will measure the clustering tendency of both datasets before subjecting it to k-means. These datasets contain the top <strong>two principal components (2D)</strong>. To do this, we employ</p>
+<ul class="simple">
+<li><p>Hopkins’s statistic  of randomness</p></li>
+</ul>
+<section id="hopkins-statistics">
+<h3>Hopkins statistics<a class="headerlink" href="#hopkins-statistics" title="Permalink to this headline">#</a></h3>
+<p>Hopkins statistics <span id="id1">[<a class="reference internal" href="References.html#id7" title="Amit Banerjee and Rajesh N Dave. Validating clusters using the hopkins statistic. In 2004 IEEE International conference on fuzzy systems (IEEE Cat. No. 04CH37542), volume 1, 149–153. IEEE, 2004.">Banerjee and Dave, 2004</a>]</span> tests the spatial randomness of a dataset i.e. it measures the probability that a given dataset aligns with a uniform distribution. It is based on the difference between the distance from a real point to its nearest neighbour, U, and the distance from a uniformly generated point within the data space to the nearest real data point, W.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(H_{0}\)</span>: The dataset <strong>is</strong> uniformly distributed</p></li>
+<li><p><span class="math notranslate nohighlight">\(H_{1}\)</span>: The dataset <strong>is not</strong> uniformly distributed</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+H = \frac{\sum_{i=1}^{m} u_{i}^{d}}{\sum_{i=1}^{m} u_{i}^{d} + \sum_{i=1}^{m} w_{i}^{d}}
+\]</div>
+<p>If the value of the Hopkins statistic(H) is close to 1 (above 0.5), we reject <span class="math notranslate nohighlight">\(H_{0}\)</span> and can conclude that the dataset is considered significantly clusterable.  Otherwise, we fail to reject <span class="math notranslate nohighlight">\(H_{0}\)</span> and can conclude that the dataset is considered significantly uniformly distributed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hopkins</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Hopkins statistic. Code snippet:</span>
+<span class="sd">        https://matevzkunaver.wordpress.com/2017/06/20/hopkins-test-for-cluster-tendency/</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+    <span class="n">m</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> 
+    <span class="n">nbrs</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+ 
+    <span class="n">rand_X</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">m</span><span class="p">)</span>
+ 
+    <span class="n">ujd</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">wjd</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+        <span class="n">u_dist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nbrs</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">uniform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ujd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u_dist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">w_dist</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">nbrs</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">rand_X</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">wjd</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_dist</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+ 
+    <span class="n">H</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ujd</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ujd</span><span class="p">)</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">wjd</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">isnan</span><span class="p">(</span><span class="n">H</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ujd</span><span class="p">,</span> <span class="n">wjd</span><span class="p">)</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="mi">0</span>
+ 
+    <span class="k">return</span> <span class="n">H</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_reduced_2d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dim_reduced_2d.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Get labels as defined in the markdown cell above to compare how k-means cluster patients</span>
+<span class="n">original_heart_disease</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/heart_2020_cleaned.csv&#39;</span><span class="p">)</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">18.5</span><span class="p">,</span> <span class="mf">24.9</span><span class="p">,</span> <span class="mf">29.9</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;UnderWeught&quot;</span><span class="p">,</span> <span class="s2">&quot;NormalWeight&quot;</span><span class="p">,</span> <span class="s2">&quot;Overweight&quot;</span><span class="p">,</span> <span class="s2">&quot;Obese&quot;</span><span class="p">]</span>
+<span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s1">&#39;BMI_Bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">original_heart_disease</span><span class="p">[</span><span class="s1">&#39;BMI&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s1">&#39;AlcoholDrinking&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_heart_disease</span><span class="p">[</span><span class="s1">&#39;AlcoholDrinking&#39;</span><span class="p">]</span>
+<span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s1">&#39;BMI_Bin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_heart_disease</span><span class="p">[</span><span class="s1">&#39;Smoking&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For both datasets, we reject <span class="math notranslate nohighlight">\(H_{0}\)</span> and can conclude that the dataset has a significant tendency to cluster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2D&#39;s hopkins statistic </span><span class="si">{</span><span class="n">hopkins</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2D&#39;s hopkins statistic 0.9912240712158042
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="k-means">
+<h2>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">#</a></h2>
+<p>K-means is a common clustering algorithm. Although a simple clustering algorithm, it has vast application areas, including customer segmentation and image compression. K-means is a centroid based algorithm that aims to minimize the sum of distances between the points and their respective cluster centroid.  The main steps of this algorithm are:</p>
+<ul class="simple">
+<li><p><strong>Step 1</strong>: Choose the number (k) of clusters</p></li>
+<li><p><strong>Step 2</strong>: Select k random points, which will become the initial centroids</p></li>
+<li><p><strong>Step 3</strong>: Assign all data points to the nearest centroid.</p></li>
+<li><p><strong>Step 4</strong>: Compute the centroid of the newly formed clusters by taking the
+mean of data instances currently associated with that cluster.</p></li>
+<li><p><strong>Step 5</strong>: Repeat steps 3 and 4 until either:</p>
+<ul>
+<li><p>Centroids of newly formed clusters do not change</p></li>
+<li><p>Points remain in the same cluster</p></li>
+<li><p>Maximum number of iterations are reached</p></li>
+</ul>
+</li>
+</ul>
+<p>We utlise the <code class="docutils literal notranslate"><span class="pre">MiniBatchKMeans()</span></code> from the sckit-learn package, given the largness of this dataset.</p>
+<p>But how do we find the optimal number of clusters?</p>
+<ul class="simple">
+<li><p>Elbow method</p></li>
+<li><p>Silhouette coefficient</p></li>
+</ul>
+<section id="elbow-method">
+<h3>Elbow method<a class="headerlink" href="#elbow-method" title="Permalink to this headline">#</a></h3>
+<p>The Elbow method calculates the error or ‘distortion’ between the data points (<span class="math notranslate nohighlight">\(y_{i}\)</span>) and their corresponding centroid (<span class="math notranslate nohighlight">\(ŷ_{i}\)</span>) of N data points for k clusters where k ⋹ {1…10}. The error metric used is the Sum of Squared Error (SSE):</p>
+<div class="math notranslate nohighlight">
+\[
+SSE = \sum_{i=1}^{N} {(y_i - ŷ_i)^2}
+\]</div>
+<p>We plot these values in an attempt to find an ‘elbow’ within the curve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Sum_of_squared_distances</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">km_2d</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">km_2d</span> <span class="o">=</span> <span class="n">km_2d</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">Sum_of_squared_distances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km_2d</span><span class="o">.</span><span class="n">inertia_</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">Sum_of_squared_distances</span><span class="p">,</span> <span class="s1">&#39;bx-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;No of Clusters&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sum_of_squared_distances&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Elbow Method For Optimal k for 2D dataset&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clustering_Analysis_15_0.png" src="_images/Clustering_Analysis_15_0.png" />
+</div>
+</div>
+<p>We can see that the optimal number of clusters occur at k=2. A more suitable dip is noted at k-4.</p>
+</section>
+</section>
+<section id="sillhoute-method">
+<h2>Sillhoute method<a class="headerlink" href="#sillhoute-method" title="Permalink to this headline">#</a></h2>
+<p>This method is another method of finding the correct number of clusters(k). Silhouette coefficient for a particular data point (<span class="math notranslate nohighlight">\(i\)</span>) is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+s_{i} = \frac{b_{i} - a_{i}}{max(b_{i}, a_{i})}
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(s_{i}\)</span>: the silhouette coefficient, ranging from -1 to 1. A score of 1 (the best) means that data point <span class="math notranslate nohighlight">\(i\)</span> is compact in its cluster and far away from other clusters. Conversely, the worst value is -1, while values near 0 denote overlapping clusters.</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_{i}\)</span>: average distance between <span class="math notranslate nohighlight">\(i\)</span> and all the other data points in its cluster.</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{i}\)</span>: minimum average distance from <span class="math notranslate nohighlight">\(i\)</span> to all clusters to which <span class="math notranslate nohighlight">\(i\)</span> does not belong to</p></li>
+</ul>
+<p>We evaluate using silhouette plots. These plots display how close each point in one cluster is to points in the neighbouring clusters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yellowbrick.cluster</span> <span class="kn">import</span> <span class="n">SilhouetteVisualizer</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span>  <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">km</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">visualizer</span> <span class="o">=</span> <span class="n">SilhouetteVisualizer</span><span class="p">(</span><span class="n">km</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;yellowbrick&#39;</span><span class="p">)</span>
+    <span class="n">visualizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">visualizer</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">0</span><span class="n">f</span><span class="o">/</span><span class="n">wgt07yjn5gnfhmk719tfc2gm1vjz80</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_96385</span><span class="o">/</span><span class="mf">2150740179.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">km</span> <span class="o">=</span> <span class="n">MiniBatchKMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">visualizer</span> <span class="o">=</span> <span class="n">SilhouetteVisualizer</span><span class="p">(</span><span class="n">km</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;yellowbrick&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">visualizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">visualizer</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/yellowbrick/cluster/silhouette.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>         <span class="c1"># Compute the scores of the cluster</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">146</span>         <span class="bp">self</span><span class="o">.</span><span class="n">silhouette_score_</span> <span class="o">=</span> <span class="n">silhouette_score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span>         <span class="bp">self</span><span class="o">.</span><span class="n">silhouette_samples_</span> <span class="o">=</span> <span class="n">silhouette_samples</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/metrics/cluster/_unsupervised.py</span> in <span class="ni">silhouette_score</span><span class="nt">(X, labels, metric, sample_size, random_state, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>             <span class="n">X</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">indices</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">117</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">silhouette_samples</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> 
+<span class="g g-Whitespace">    </span><span class="mi">119</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/metrics/cluster/_unsupervised.py</span> in <span class="ni">silhouette_samples</span><span class="nt">(X, labels, metric, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span>         <span class="n">_silhouette_reduce</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">label_freqs</span><span class="o">=</span><span class="n">label_freqs</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">233</span>     <span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">pairwise_distances_chunked</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">reduce_func</span><span class="o">=</span><span class="n">reduce_func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">intra_clust_dists</span><span class="p">,</span> <span class="n">inter_clust_dists</span> <span class="o">=</span> <span class="n">results</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>     <span class="n">intra_clust_dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">intra_clust_dists</span><span class="p">)</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">pairwise_distances_chunked</span><span class="nt">(X, Y, reduce_func, metric, n_jobs, working_memory, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span>         <span class="k">if</span> <span class="n">reduce_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span>             <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">D_chunk</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">1726</span>             <span class="n">D_chunk</span> <span class="o">=</span> <span class="n">reduce_func</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1727</span>             <span class="n">_check_chunk_size</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1728</span>         <span class="k">yield</span> <span class="n">D_chunk</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/metrics/cluster/_unsupervised.py</span> in <span class="ni">_silhouette_reduce</span><span class="nt">(D_chunk, start, labels, label_freqs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">)):</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="n">clust_dists</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span>
+<span class="ne">--&gt; </span><span class="mi">138</span>             <span class="n">labels</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">D_chunk</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">minlength</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">label_freqs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">139</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span> 
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">bincount</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>The results of the silhoute analysis are more ambiguous.  K=2 seem to be sub-optimal due to wide fluctuations in size of the silhouette plot.  However, the fluctuation at k=4 seems to be more uniform compared to 2. Thus, we select the optimal number of clusters as 4.</p>
+</section>
+<section id="findings">
+<h2>Findings<a class="headerlink" href="#findings" title="Permalink to this headline">#</a></h2>
+<p>As mentioned previously, clusters can be considered as disjoint groups. In this context, these clusters seek to represent people with similar latent physiological processes and/or possible health statuses. We attempt to relate the groupings to the health disease status of individual pateints.</p>
+<section id="top-2-principal-component-dataset">
+<h3>Top 2 principal component dataset<a class="headerlink" href="#top-2-principal-component-dataset" title="Permalink to this headline">#</a></h3>
+<p>Healthy vs Unhealthy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">km_2d</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">km_2d</span><span class="o">.</span><span class="n">labels_</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;component_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;component_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dim_reduced_2d</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;clusters&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;component_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;component_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dim_reduced_2d</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">dim_reduced_2d</span><span class="p">[[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span> <span class="s1">&#39;clusters&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HeartDisease&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">results_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>HeartDisease</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>116237.0</td>
+      <td>37359.0</td>
+      <td>22403.0</td>
+      <td>116423.0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>16315.0</td>
+      <td>1832.0</td>
+      <td>7538.0</td>
+      <td>1688.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="_images/Clustering_Analysis_22_1.png" src="_images/Clustering_Analysis_22_1.png" />
+</div>
+</div>
+<p>The majority of people with heart disease fall in cluster 1. Although a significant proportion also fall in cluster 2. This lines with our hypothesis that people who suffer from herat disease exhibit similar risk factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;component_1&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;component_2&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dim_reduced_2d</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;BMI_Bin&#39;</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">dim_reduced_2d</span><span class="p">[[</span><span class="s1">&#39;BMI_Bin&#39;</span><span class="p">,</span> <span class="s1">&#39;clusters&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;BMI_Bin&#39;</span><span class="p">)</span>
+<span class="n">results_df</span> <span class="o">=</span> <span class="n">results_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;BMI_Bin&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">results_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>BMI_Bin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>UnderWeught</td>
+      <td>1805.0</td>
+      <td>816.0</td>
+      <td>803.0</td>
+      <td>1690.0</td>
+    </tr>
+    <tr>
+      <td>NormalWeight</td>
+      <td>36996.0</td>
+      <td>10932.0</td>
+      <td>6614.0</td>
+      <td>40592.0</td>
+    </tr>
+    <tr>
+      <td>Overweight</td>
+      <td>50829.0</td>
+      <td>11545.0</td>
+      <td>8885.0</td>
+      <td>43493.0</td>
+    </tr>
+    <tr>
+      <td>Obese</td>
+      <td>42922.0</td>
+      <td>15898.0</td>
+      <td>13639.0</td>
+      <td>32336.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="_images/Clustering_Analysis_24_1.png" src="_images/Clustering_Analysis_24_1.png" />
+</div>
+</div>
+<p>Besides the majority of overweight and obese patients falling in clusters 1 and 4, participants in each BMI group seem to be equally distributed among the clusters. If patients  could be accurately clustered by study, this would suggest that BMI would be a strong indicator of heart disease. However, this is not the case. It is possible that the clustering is not accurate enough to make such a conclusion, or that BMI has a mild influence on heart disease outcome.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">visualise_cluster_heat_map</span><span class="p">(</span><span class="n">focus_feature</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualizes the clusters as heat maps , where the squares represents </span>
+<span class="sd">        the number of particpants in k clusters grouped by the focus feature </span>
+<span class="sd">    </span>
+<span class="sd">    :param focus_feature: focus_feature respresents the feature we want to</span>
+<span class="sd">        drill down by i.e. health status or study</span>
+<span class="sd">    :param k: Number of desired clusters</span>
+<span class="sd">    :param df: Dataframe containing study, health status and the top 3 principal</span>
+<span class="sd">        components</span>
+<span class="sd">    :param cmap: matplotlib colormap name or object, or list of colors, optional</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+
+    <span class="n">km_3d</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="p">[[</span><span class="s2">&quot;component_1&quot;</span><span class="p">,</span> <span class="s2">&quot;component_2&quot;</span><span class="p">]])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">km_3d</span><span class="o">.</span><span class="n">labels_</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="n">focus_feature</span><span class="p">,</span> <span class="s1">&#39;clusters&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">focus_feature</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">focus_feature</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">akws</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ha&quot;</span><span class="p">:</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="s2">&quot;va&quot;</span><span class="p">:</span> <span class="s1">&#39;top&#39;</span><span class="p">}</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">annot_kws</span><span class="o">=</span><span class="n">akws</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">texts</span><span class="p">:</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">get_transform</span><span class="p">()</span>
+        <span class="n">offs</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">ScaledTranslation</span><span class="p">(</span><span class="o">-</span><span class="mf">0.34</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">,</span>
+                        <span class="n">matplotlib</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">IdentityTransform</span><span class="p">())</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">set_transform</span><span class="p">(</span> <span class="n">offs</span> <span class="o">+</span> <span class="n">trans</span> <span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;clusters&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualise_cluster_heat_map</span><span class="p">(</span><span class="s1">&#39;AlcoholDrinking&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">dim_reduced_2d</span><span class="p">,</span> <span class="s1">&#39;Blues&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Clustering_Analysis_27_0.png" src="_images/Clustering_Analysis_27_0.png" />
+</div>
+</div>
+<p>The healthy participants seem to be evenly spread among the two clusters. Unhealthy participants have a tendency to appear in cluster 1 and 4. K-means seems to be reasonable able to cluster alcoholic  patients.</p>
+<p>Finally, we decide to append the clusters to our standardized dataset. Our feature selection method later on, will tell us if they were of use or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">standradised_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/standardised_heart_disease.csv&#39;</span><span class="p">)</span>
+<span class="n">standradised_dataset</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span><span class="o">-</span><span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">standradised_dataset</span><span class="p">[</span><span class="s2">&quot;clusters&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data/standardised_heart_disease.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: FutureWarning: The signature of `Series.to_csv` was aligned to that of `DataFrame.to_csv`, and argument &#39;header&#39; will change its default value from False to True: please pass an explicit value to suppress this warning.
+  This is separate from the ipykernel package so we can avoid doing imports until
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Initial_Data_Exploration.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Initial Data Exploration</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Model_evaluation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Model Building, Evaluation &amp; Sensitivity Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Anthony Reidy<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+Traceback (most recent call last):
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/anaconda3/lib/python3.7/asyncio/base_events.py", line 579, in run_until_complete
+    return future.result()
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/areidy1/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(f"2D's hopkins statistic {hopkins(dim_reduced_2d.iloc[:,1:-1])}")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+[0;32m/var/folders/0f/wgt07yjn5gnfhmk719tfc2gm1vjz80/T/ipykernel_81731/103584931.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0mprint[0m[0;34m([0m[0;34mf"2D's hopkins statistic {hopkins(dim_reduced_2d.iloc[:,1:-1])}"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/var/folders/0f/wgt07yjn5gnfhmk719tfc2gm1vjz80/T/ipykernel_81731/1089192470.py[0m in [0;36mhopkins[0;34m(X)[0m
+[1;32m      7[0m     [0mn[0m [0;34m=[0m [0mlen[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      8[0m     [0mm[0m [0;34m=[0m [0mint[0m[0;34m([0m[0;36m0.1[0m [0;34m*[0m [0mn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 9[0;31m     [0mnbrs[0m [0;34m=[0m [0mNearestNeighbors[0m[0;34m([0m[0mn_neighbors[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m.[0m[0mfit[0m[0;34m([0m[0mX[0m[0;34m.[0m[0mvalues[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     10[0m [0;34m[0m[0m
+[1;32m     11[0m     [0mrand_X[0m [0;34m=[0m [0msample[0m[0;34m([0m[0mrange[0m[0;34m([0m[0;36m0[0m[0;34m,[0m [0mn[0m[0;34m,[0m [0;36m1[0m[0;34m)[0m[0;34m,[0m [0mm[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/neighbors/_unsupervised.py[0m in [0;36mfit[0;34m(self, X, y)[0m
+[1;32m    164[0m             [0mThe[0m [0mfitted[0m [0mnearest[0m [0mneighbors[0m [0mestimator[0m[0;34m.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    165[0m         """
+[0;32m--> 166[0;31m         [0;32mreturn[0m [0mself[0m[0;34m.[0m[0m_fit[0m[0;34m([0m[0mX[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/neighbors/_base.py[0m in [0;36m_fit[0;34m(self, X, y)[0m
+[1;32m    433[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    434[0m             [0;32mif[0m [0;32mnot[0m [0misinstance[0m[0;34m([0m[0mX[0m[0;34m,[0m [0;34m([0m[0mKDTree[0m[0;34m,[0m [0mBallTree[0m[0;34m,[0m [0mNeighborsBase[0m[0;34m)[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 435[0;31m                 [0mX[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_validate_data[0m[0;34m([0m[0mX[0m[0;34m,[0m [0maccept_sparse[0m[0;34m=[0m[0;34m"csr"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    436[0m [0;34m[0m[0m
+[1;32m    437[0m         [0mself[0m[0;34m.[0m[0m_check_algorithm_metric[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/base.py[0m in [0;36m_validate_data[0;34m(self, X, y, reset, validate_separately, **check_params)[0m
+[1;32m    564[0m             [0;32mraise[0m [0mValueError[0m[0;34m([0m[0;34m"Validation should be done on X, y or both."[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    565[0m         [0;32melif[0m [0;32mnot[0m [0mno_val_X[0m [0;32mand[0m [0mno_val_y[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 566[0;31m             [0mX[0m [0;34m=[0m [0mcheck_array[0m[0;34m([0m[0mX[0m[0;34m,[0m [0;34m**[0m[0mcheck_params[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    567[0m             [0mout[0m [0;34m=[0m [0mX[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    568[0m         [0;32melif[0m [0mno_val_X[0m [0;32mand[0m [0;32mnot[0m [0mno_val_y[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/utils/validation.py[0m in [0;36mcheck_array[0;34m(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator)[0m
+[1;32m    744[0m                     [0marray[0m [0;34m=[0m [0marray[0m[0;34m.[0m[0mastype[0m[0;34m([0m[0mdtype[0m[0;34m,[0m [0mcasting[0m[0;34m=[0m[0;34m"unsafe"[0m[0;34m,[0m [0mcopy[0m[0;34m=[0m[0;32mFalse[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    745[0m                 [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 746[0;31m                     [0marray[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0masarray[0m[0;34m([0m[0marray[0m[0;34m,[0m [0morder[0m[0;34m=[0m[0morder[0m[0;34m,[0m [0mdtype[0m[0;34m=[0m[0mdtype[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    747[0m             [0;32mexcept[0m [0mComplexWarning[0m [0;32mas[0m [0mcomplex_warning[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    748[0m                 raise ValueError(
+
+[0;31mValueError[0m: could not convert string to float: 'Yes'
+ValueError: could not convert string to float: 'Yes'
+

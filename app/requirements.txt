@@ -1,0 +1,5 @@
+sklearn
+seaborn
+streamlit
+streamlit_pandas_profiling
+plotly

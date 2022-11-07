@@ -1,0 +1,11 @@
+jupyter-book
+matplotlib
+pyppeteer
+pandas
+sklearn
+seaborn
+pyclustertend
+yellowbrick
+squarify
+plotly
+imbalanced-learn==0.8.1

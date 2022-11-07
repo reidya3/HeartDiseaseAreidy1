@@ -1,0 +1,1815 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Model Building, Evaluation &amp; Sensitivity Analysis &#8212; Heart Disease Prediction Task</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conclusion" href="Conclusion.html" />
+    <link rel="prev" title="Cluster Analysis" href="Clustering_Analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/heart_disease.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Heart Disease Prediction Task</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Initial_Data_Exploration.html">
+   Initial Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering_Analysis.html">
+   Cluster Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Model Building, Evaluation &amp; Sensitivity Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="References.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task/issues/new?title=Issue%20on%20page%20%2FModel_evaluation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Model_evaluation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-metrics">
+   Evaluation metrics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libaries">
+   Import libaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-building-and-evaluation">
+     Model building and evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-serialisation">
+     Model Serialisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualisation">
+     Data Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imbalanced-data">
+   Imbalanced data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#undersampling">
+   Undersampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oversampling">
+   Oversampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-selection">
+   Feature Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca">
+     PCA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-methods">
+     Filter Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-finetuning">
+   Hyperparameter finetuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pickle-model">
+   Pickle Model
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Model Building, Evaluation & Sensitivity Analysis</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-metrics">
+   Evaluation metrics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libaries">
+   Import libaries
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-building-and-evaluation">
+     Model building and evaluation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-serialisation">
+     Model Serialisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-visualisation">
+     Data Visualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imbalanced-data">
+   Imbalanced data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#undersampling">
+   Undersampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#oversampling">
+   Oversampling
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-selection">
+   Feature Selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pca">
+     PCA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filter-methods">
+     Filter Methods
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hyperparameter-finetuning">
+   Hyperparameter finetuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pickle-model">
+   Pickle Model
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="model-building-evaluation-sensitivity-analysis">
+<h1>Model Building, Evaluation &amp; Sensitivity Analysis<a class="headerlink" href="#model-building-evaluation-sensitivity-analysis" title="Permalink to this headline">#</a></h1>
+<p>In this section, we will present a comparative analysis of the heart disease classification problem using different classification algorithms. We use the 80:20 train-test split rule to evaluate our models.
+<strong>Note</strong>, a small amount of patients were used as  as hold-out set for hyper-parameter sensitivity analysis.</p>
+<section id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">#</a></h2>
+<p>We choose numerous shallow predictive methods to predict heart disease.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic Regression</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_boosting">Gradient Boost Classifier</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Decision_tree_learning">Decision Tree Classifier</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Random_forest">Random Forest Classifier</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes</a></p></li>
+</ul>
+<p>For more information on these algorithms, please click on the relevant links</p>
+</section>
+<section id="evaluation-metrics">
+<h2>Evaluation metrics<a class="headerlink" href="#evaluation-metrics" title="Permalink to this headline">#</a></h2>
+<p>One of the key requirements in developing any algorithm is to measure it’s effectiveness. Accuracy is the most simple measure. It tells us the he number of correctly classified examples over the total number of examples. More formally,
+$<span class="math notranslate nohighlight">\(
+ Accuracy = \frac{TruePositive + TrueNegative}{TruePositive + TrueNegative + FalsePositive + FalseNegative  }
+\)</span>$
+But is accuracy telling the whole picture ?
+Well, let’s consider those two examples:</p>
+<ul class="simple">
+<li><p>A classifier which, if a person has the heart disease, will always correctly diagnose it, but gets half of the healthy people wrong. You can see that announcing to a healthy person that he or she has the disease could lead to adverse consequences.</p></li>
+<li><p>A classifier that gets the diagnose right for every healthy person, but also miss half of the disease cases. That wouldn’t be a very good algorithm would it?</p></li>
+</ul>
+<p>Depending on the distribution of sick to healthy patients those two classifiers could have high accuracy while not being considered very good. Therefore, we decide to employ three further metrics</p>
+<ul class="simple">
+<li><p><em>Precision:</em> dertimnes what proportion of the negative class got correctly classified.
+$<span class="math notranslate nohighlight">\(
+\frac{TruePositive}{TruePositive +   FalsePositive    }
+\)</span>$</p></li>
+<li><p><em>Recall</em>: determine what proportion of the actual sick people were correctly detected by the model.
+$<span class="math notranslate nohighlight">\(
+\frac{TruePositive}{TruePositive +    FalseNegative   }
+\)</span>$</p></li>
+</ul>
+</section>
+<section id="import-libaries">
+<h2>Import libaries<a class="headerlink" href="#import-libaries" title="Permalink to this headline">#</a></h2>
+<section id="data-processing">
+<h3>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>  <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_regression</span><span class="p">,</span> <span class="n">mutual_info_classif</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-building-and-evaluation">
+<h3>Model building and evaluation<a class="headerlink" href="#model-building-and-evaluation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span><span class="p">,</span> <span class="n">GradientBoostingClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">mutual_info_regression</span><span class="p">,</span> <span class="n">mutual_info_classif</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">roc_curve</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+
+
+<span class="kn">from</span> <span class="nn">imblearn.under_sampling</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RandomUnderSampler</span><span class="p">,</span>
+    <span class="n">CondensedNearestNeighbour</span><span class="p">,</span>
+    <span class="n">TomekLinks</span><span class="p">,</span>
+    <span class="n">OneSidedSelection</span><span class="p">,</span>
+    <span class="n">EditedNearestNeighbours</span><span class="p">,</span>
+    <span class="n">RepeatedEditedNearestNeighbours</span><span class="p">,</span>
+    <span class="n">AllKNN</span><span class="p">,</span>
+    <span class="n">NeighbourhoodCleaningRule</span><span class="p">,</span>
+    <span class="n">NearMiss</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">imblearn.over_sampling</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">RandomOverSampler</span><span class="p">,</span>
+    <span class="n">SMOTE</span><span class="p">,</span>
+    <span class="n">ADASYN</span><span class="p">,</span>
+    <span class="n">BorderlineSMOTE</span><span class="p">,</span>
+    <span class="n">SVMSMOTE</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-serialisation">
+<h3>Model Serialisation<a class="headerlink" href="#model-serialisation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pickle</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="data-visualisation">
+<h3>Data Visualisation<a class="headerlink" href="#data-visualisation" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_classifiers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Logistic Regression &quot;</span><span class="p">:</span> <span class="n">LogisticRegression</span><span class="p">(),</span>
+    <span class="s2">&quot;Gradient Boost Classifier&quot;</span><span class="p">:</span> <span class="n">GradientBoostingClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;Decision Tree Classifier&quot;</span><span class="p">:</span> <span class="n">DecisionTreeClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;Random Forest Classifier&quot;</span><span class="p">:</span> <span class="n">RandomForestClassifier</span><span class="p">(),</span>
+    <span class="s2">&quot;Naive Bayes&quot;</span><span class="p">:</span> <span class="n">GaussianNB</span><span class="p">(),</span>
+<span class="p">}</span>
+
+<span class="n">heart_disease_dataset_standardized</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/standardised_heart_disease.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Initial Attempt</span>
+<span class="n">train_heart_disease_df</span> <span class="o">=</span> <span class="n">heart_disease_dataset_standardized</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">test_heart_diease_df</span> <span class="o">=</span> <span class="n">heart_disease_dataset_standardized</span><span class="o">.</span><span class="n">HeartDisease</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">train_heart_disease_df</span><span class="p">,</span> <span class="n">test_heart_diease_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">test_heart_diease_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ratio of classes in training set:</span><span class="se">\n</span><span class="si">{</span><span class="n">y_train</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ratio of classes in test set:</span><span class="se">\n</span><span class="si">{</span><span class="n">y_test</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ratio of classes in training set:
+0.0    0.914406
+1.0    0.085594
+Name: HeartDisease, dtype: float64
+
+Ratio of classes in test set:
+0.0    0.914398
+1.0    0.085602
+Name: HeartDisease, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We balance the test dataset, to ensure accuracy is a fair measure of model performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_df</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_test</span>
+<span class="n">class_0</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">class_1</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">class_1</span> <span class="o">=</span> <span class="n">class_1</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_0</span><span class="p">),</span><span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">class_0</span><span class="p">,</span> <span class="n">class_1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Data in Test:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;HeartDisease&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">test_df</span><span class="o">.</span><span class="n">HeartDisease</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data in Test:
+0.0    58484
+1.0    58484
+Name: HeartDisease, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_exps</span><span class="p">(</span>
+             <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Lightweight script to test many models and find winners</span>
+<span class="sd">    :param X_train: training split</span>
+<span class="sd">    :param y_train: training target vector</span>
+<span class="sd">    :param X_test: test split</span>
+<span class="sd">    :param y_test: test target vector</span>
+<span class="sd">    :return: None</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">dict_classifiers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+        <span class="n">class_report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No Heart Disease&#39;</span><span class="p">,</span> <span class="s1">&#39;Heart Disease&#39;</span><span class="p">],</span><span class="n">output_dict</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">class_report</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">model_name</span><span class="p">]</span> <span class="o">*</span> <span class="n">class_report</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">class_report</span><span class="p">[</span><span class="s1">&#39;auc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)]</span> <span class="o">*</span> <span class="n">class_report</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">class_report</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">class_report</span><span class="p">],</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Model&#39;</span><span class="p">],</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Firstlevel&#39;</span><span class="p">])</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">results</span><span class="p">,</span> <span class="n">class_report</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">results</span><span class="p">[</span><span class="s1">&#39;dummy&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dict_classifiers</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+        <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> 
+                            <span class="n">X_test</span><span class="p">,</span> 
+                            <span class="n">y_test</span><span class="p">,</span> 
+                            <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> 
+                            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
+                            <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;No Heart Disease&#39;</span><span class="p">,</span> <span class="s1">&#39;Heart Disease&#39;</span><span class="p">])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_text</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>  
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Algorithm with the highest accuracy: </span><span class="si">{</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+            <span class="p">[</span><span class="s1">&#39;support&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;support&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Algorithm with the highest macro recall:</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;macro avg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+            <span class="p">[</span><span class="s1">&#39;recall&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Algorithm with the highest macro precision:</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;macro avg&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+            <span class="p">[</span><span class="s1">&#39;precision&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)[[</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;Algorithm with the highest AUC:</span>
+<span class="s2">        </span><span class="si">{</span><span class="n">results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;auc&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span>
+            <span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;auc&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;&quot;&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;precision&#39;</span><span class="p">,</span> <span class="s1">&#39;recall&#39;</span><span class="p">,</span> <span class="s1">&#39;f1-score&#39;</span><span class="p">,</span> <span class="s1">&#39;support&#39;</span><span class="p">,</span>  <span class="s1">&#39;auc&#39;</span><span class="p">]</span>
+        <span class="p">)[</span><span class="s1">&#39;dummy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+    
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="imbalanced-data">
+<h2>Imbalanced data<a class="headerlink" href="#imbalanced-data" title="Permalink to this headline">#</a></h2>
+<p>As you can see above, our data is extremely imbalanced. Imbalanced datasets are those where there is a severe skew in the class distribution, such as 1:100 or 1:1000 examples in the minority class to the majority class.</p>
+<p>This bias in the training dataset can influence many machine learning algorithms, leading some to ignore the minority class entirely. This is a problem as it is typically the minority class on which predictions are most important (i.e. predicting heart disease in our case).</p>
+<p>One approach to addressing the problem of class imbalance is to randomly resample the training dataset. The two main approaches to randomly resampling an imbalanced dataset are to delete examples from the majority class, called undersampling, and to duplicate examples from the minority class, called oversampling.</p>
+</section>
+<section id="undersampling">
+<h2>Undersampling<a class="headerlink" href="#undersampling" title="Permalink to this headline">#</a></h2>
+<p>The follwoing undersampling methods were choosen:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">RandomUnderSampler</span></code>: Random undersampling consists in extracting at random samples from the majority class, until they reach a certain proportion compared to the minority class, typically 50:50.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CondensedNearestNeighbour</span></code>: The algorithms works as follows:</p>
+<ul class="simple">
+<li><p>Put all minority class observations in a group, typically group O</p></li>
+<li><p>Add 1 sample (at random) from the majority class to group O</p></li>
+<li><p>Train a KNN with group O</p></li>
+<li><p>Take a sample of the majority class that is not in group O yet</p></li>
+<li><p>Predict its class with the KNN from point 3</p></li>
+<li><p>If the prediction was correct, go to 4 and repeat</p></li>
+<li><p>If the prediction was incorrect, add that sample to group O, go to 3 and repeat</p></li>
+<li><p>Continue until all samples of the majority class were either assigned to O or left out</p></li>
+<li><p>Final version of Group O is our undersampled dataset</p></li>
+</ul>
+<p>This algorithm tends to pick points near the fuzzy boundary between the classes, and transfer those to the group O, in our example. If the classes are similar, group O will contain a fair amount of both classes. If the classes are very different, group O would contain mostly 1 class, the minority class.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TomekLinks</span></code>: Tomek links are 2 samples from a different class, which are nearest neighbours to each other. In other words, if 2 observations are nearest neighbours, and from a different class, they are Tomek Links. This procedures removes either the sample from the majority class if it is a Tomek Link, or alternatively, both observations, the one from the majority and the one from the minority class.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OneSidedSelection</span></code>: First finds the hardest instances to classify correctly from the majority class. Then removes noisy observations with Tomek Links.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EditedNearestNeighbours</span></code>: Train a KNN algorithm on the data (user defines number of neighbours, typically 3)</p>
+<ul class="simple">
+<li><p>Find the 3 nearest neighbour to each observation (or the number defined by the user in 1)</p></li>
+<li><p>Find the label of each of the neighbours (we know it, is the target in the dataset)</p></li>
+<li><p>if the majority of the neighbours show the same label as the observation, then we keep the observation</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RepeatedEditedNearestNeighbours</span></code>: Extends Edited Nearest neighbours in that it repeats the procedure over an over, until no further observation is removed from the dataset, or alternatively until a maximum number of iterations is reached.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AllKNN</span></code>: Adapts the functionality of Edited Nearest Neighbours in that, at each round, it increases the number of neighbours utilised to exclude or retain the observations.
+It starts by looking at the 1 closest neighbour.
+It finishes at a maximum number of neighbours to examine, determined by the user
+it stops prematurely if the majority class becomes the minority</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NeighbourhoodCleaningRule</span></code>: The Neighbourhood Cleaning Rule works as follows:</p>
+<ol class="simple">
+<li><p>Remove noisy observations from the majority class with ENN:</p></li>
+</ol>
+<ul class="simple">
+<li><p>explores the 3 closest neighbours\n</p></li>
+<li><p>uses majority vote of neighbours to retain observations</p></li>
+</ul>
+<ol class="simple">
+<li><p>Remove observations from the majority class if:,</p></li>
+</ol>
+<ul class="simple">
+<li><p>they are 1 of the 3 closest neighbours to a minority sample, and,</p></li>
+<li><p>most / all of those 3 closest neighbours are not minority, and,</p></li>
+<li><p>the majority class has at least half as many observations as those in the minority (this can be regulated)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NearMiss</span></code>: This procedures aims to select samples that are somewhat similar to the minority class, using 1 of three alternative procedures:</p>
+<ul class="simple">
+<li><p>Select observations closer to the closest minority class</p></li>
+<li><p>Select observations closer to the farthest minority class</p></li>
+<li><p>Select observations furthest from their nearest neighbours</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We train the models on a portion of the data that is under-sampled
+We evaluate the model performance on another portion of the data that was not resampled, and thus contains the original class distribution.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In addition a verbose output of the models performance will be generated.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">undersampler_dict</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="n">RandomUnderSampler</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">replacement</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+
+    <span class="c1"># &#39;cnn&#39;: CondensedNearestNeighbour(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,</span>
+    <span class="c1">#     random_state=0,</span>
+    <span class="c1">#     n_neighbors=1,</span>
+    <span class="c1">#     n_jobs=4),</span>
+
+    <span class="s1">&#39;tomek&#39;</span><span class="p">:</span> <span class="n">TomekLinks</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="s1">&#39;oss&#39;</span><span class="p">:</span> <span class="n">OneSidedSelection</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="c1"># &#39;enn&#39;: EditedNearestNeighbours(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,</span>
+    <span class="c1">#     n_neighbors=3,</span>
+    <span class="c1">#     kind_sel=&#39;all&#39;,</span>
+    <span class="c1">#     n_jobs=4),</span>
+
+    <span class="c1"># &#39;renn&#39;: RepeatedEditedNearestNeighbours(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,</span>
+    <span class="c1">#     n_neighbors=3,</span>
+    <span class="c1">#     kind_sel=&#39;all&#39;,</span>
+    <span class="c1">#     n_jobs=4,</span>
+    <span class="c1">#     max_iter=100),</span>
+
+    <span class="c1"># &#39;allknn&#39;: AllKNN(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,</span>
+    <span class="c1">#     n_neighbors=3,</span>
+    <span class="c1">#     kind_sel=&#39;all&#39;,</span>
+    <span class="c1">#     n_jobs=4),</span>
+
+    <span class="c1"># &#39;ncr&#39;: NeighbourhoodCleaningRule(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,</span>
+    <span class="c1">#     n_neighbors=3,</span>
+    <span class="c1">#     kind_sel=&#39;all&#39;,</span>
+    <span class="c1">#     n_jobs=4,</span>
+    <span class="c1">#     threshold_cleaning=0.5),</span>
+
+    <span class="s1">&#39;nm1&#39;</span><span class="p">:</span> <span class="n">NearMiss</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="s1">&#39;nm2&#39;</span><span class="p">:</span> <span class="n">NearMiss</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">version</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train a model on the original data without under-sampling</span>
+<span class="c1"># and determine model performance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No UnderSampling&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+<span class="n">run_exps</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;UnderSampling Methods&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># now, we test the different under-samplers, 1 at a time</span>
+<span class="k">for</span> <span class="n">undersampler</span> <span class="ow">in</span> <span class="n">undersampler_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">undersampler</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># resample the train set only</span>
+    <span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">undersampler_dict</span><span class="p">[</span><span class="n">undersampler</span><span class="p">]</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="c1"># train model and evaluate performance</span>
+    
+    <span class="c1"># Note the performance returned is using the</span>
+    <span class="c1"># test set, which was not under-sampled</span>
+    
+    <span class="n">run_exps</span><span class="p">(</span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_resampled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No UnderSampling
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_18_1.png" src="_images/Model_evaluation_18_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Naive Bayes&#39;, 0.6835801244784898]
+Algorithm with the highest macro recall:
+        [&#39;Naive Bayes&#39;, 0.6835801244784898]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.7257328221941888]
+Algorithm with the highest AUC:
+        [&#39;Naive Bayes&#39;, 0.6835801244784898]
+model                      index             precision  recall    f1-score  support        auc     
+Decision Tree Classifier   Heart Disease     0.750907   0.237159  0.360470  58484.000000   0.579244    0
+                           No Heart Disease  0.547052   0.921329  0.686491  58484.000000   0.579244    0
+                           accuracy          0.579244   0.579244  0.579244  0.579244       0.579244    0
+                           macro avg         0.648980   0.579244  0.523481  116968.000000  0.579244    0
+                           weighted avg      0.648980   0.579244  0.523481  116968.000000  0.579244    0
+Gradient Boost Classifier  Heart Disease     0.929928   0.088725  0.161994  58484.000000   0.541020    0
+                           No Heart Disease  0.521537   0.993314  0.683962  58484.000000   0.541020    0
+                           accuracy          0.541020   0.541020  0.541020  0.541020       0.541020    0
+                           macro avg         0.725733   0.541020  0.422978  116968.000000  0.541020    0
+                           weighted avg      0.725733   0.541020  0.422978  116968.000000  0.541020    0
+Logistic Regression        Heart Disease     0.924417   0.109791  0.196271  58484.000000   0.550407    0
+                           No Heart Disease  0.526795   0.991023  0.687916  58484.000000   0.550407    0
+                           accuracy          0.550407   0.550407  0.550407  0.550407       0.550407    0
+                           macro avg         0.725606   0.550407  0.442093  116968.000000  0.550407    0
+                           weighted avg      0.725606   0.550407  0.442093  116968.000000  0.550407    0
+Naive Bayes                Heart Disease     0.786834   0.503591  0.614127  58484.000000   0.683580    0
+                           No Heart Disease  0.634987   0.863570  0.731845  58484.000000   0.683580    0
+                           accuracy          0.683580   0.683580  0.683580  0.683580       0.683580    0
+                           macro avg         0.710911   0.683580  0.672986  116968.000000  0.683580    0
+                           weighted avg      0.710911   0.683580  0.672986  116968.000000  0.683580    0
+Random Forest Classifier   Heart Disease     0.868798   0.103601  0.185126  58484.000000   0.543978    0
+                           No Heart Disease  0.523383   0.984355  0.683401  58484.000000   0.543978    0
+                           accuracy          0.543978   0.543978  0.543978  0.543978       0.543978    0
+                           macro avg         0.696091   0.543978  0.434264  116968.000000  0.543978    0
+                           weighted avg      0.696091   0.543978  0.434264  116968.000000  0.543978    0
+Name: dummy, dtype: int64
+UnderSampling Methods
+-------------------
+
+random
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_18_3.png" src="_images/Model_evaluation_18_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Gradient Boost Classifier&#39;, 0.763815744477122]
+Algorithm with the highest macro recall:
+        [&#39;Gradient Boost Classifier&#39;, 0.763815744477122]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.7649472760785837]
+Algorithm with the highest AUC:
+        [&#39;Gradient Boost Classifier&#39;, 0.7638157444771219]
+model                      index             precision  recall    f1-score  support        auc     
+Decision Tree Classifier   Heart Disease     0.676236   0.673056  0.674642  58484.000000   0.675407    0
+                           No Heart Disease  0.674586   0.677758  0.676168  58484.000000   0.675407    0
+                           accuracy          0.675407   0.675407  0.675407  0.675407       0.675407    0
+                           macro avg         0.675411   0.675407  0.675405  116968.000000  0.675407    0
+                           weighted avg      0.675411   0.675407  0.675405  116968.000000  0.675407    0
+Gradient Boost Classifier  Heart Disease     0.747633   0.796491  0.771289  58484.000000   0.763816    0
+                           No Heart Disease  0.782262   0.731140  0.755838  58484.000000   0.763816    0
+                           accuracy          0.763816   0.763816  0.763816  0.763816       0.763816    0
+                           macro avg         0.764947   0.763816  0.763563  116968.000000  0.763816    0
+                           weighted avg      0.764947   0.763816  0.763563  116968.000000  0.763816    0
+Logistic Regression        Heart Disease     0.755748   0.776708  0.766085  58484.000000   0.762841    0
+                           No Heart Disease  0.770339   0.748974  0.759506  58484.000000   0.762841    0
+                           accuracy          0.762841   0.762841  0.762841  0.762841       0.762841    0
+                           macro avg         0.763043   0.762841  0.762796  116968.000000  0.762841    0
+                           weighted avg      0.763043   0.762841  0.762796  116968.000000  0.762841    0
+Naive Bayes                Heart Disease     0.753887   0.641714  0.693292  58484.000000   0.716110    0
+                           No Heart Disease  0.688120   0.790507  0.735768  58484.000000   0.716110    0
+                           accuracy          0.716110   0.716110  0.716110  0.716110       0.716110    0
+                           macro avg         0.721003   0.716110  0.714530  116968.000000  0.716110    0
+                           weighted avg      0.721003   0.716110  0.714530  116968.000000  0.716110    0
+Random Forest Classifier   Heart Disease     0.733233   0.775032  0.753554  58484.000000   0.746529    0
+                           No Heart Disease  0.761432   0.718025  0.739092  58484.000000   0.746529    0
+                           accuracy          0.746529   0.746529  0.746529  0.746529       0.746529    0
+                           macro avg         0.747333   0.746529  0.746323  116968.000000  0.746529    0
+                           weighted avg      0.747333   0.746529  0.746323  116968.000000  0.746529    0
+Name: dummy, dtype: int64
+
+tomek
+-------------------
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">0</span><span class="n">f</span><span class="o">/</span><span class="n">wgt07yjn5gnfhmk719tfc2gm1vjz80</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_3585</span><span class="o">/</span><span class="mf">219296026.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span>     <span class="c1"># resample the train set only</span>
+<span class="ne">---&gt; </span><span class="mi">18</span>     <span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">undersampler_dict</span><span class="p">[</span><span class="n">undersampler</span><span class="p">]</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="c1"># train model and evaluate performance</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/imblearn/base.py</span> in <span class="ni">fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span> 
+<span class="ne">---&gt; </span><span class="mi">83</span>         <span class="n">output</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fit_resample</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> 
+<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="n">y_</span> <span class="o">=</span> <span class="p">(</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/imblearn/under_sampling/_prototype_selection/_tomek_links.py</span> in <span class="ni">_fit_resample</span><span class="nt">(self, X, y)</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>         <span class="n">nn</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_jobs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span>         <span class="n">nn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">129</span>         <span class="n">nns</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">return_distance</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span> 
+<span class="g g-Whitespace">    </span><span class="mi">131</span>         <span class="n">links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_tomek</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">nns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sampling_strategy_</span><span class="p">)</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/neighbors/_base.py</span> in <span class="ni">kneighbors</span><span class="nt">(self, X, n_neighbors, return_distance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">757</span>                     <span class="n">metric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">effective_metric_</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">758</span>                     <span class="n">n_jobs</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">759</span>                     <span class="o">**</span><span class="n">kwds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">760</span>                 <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">761</span>             <span class="p">)</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/metrics/pairwise.py</span> in <span class="ni">pairwise_distances_chunked</span><span class="nt">(X, Y, reduce_func, metric, n_jobs, working_memory, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span>         <span class="k">if</span> <span class="n">reduce_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1725</span>             <span class="n">chunk_size</span> <span class="o">=</span> <span class="n">D_chunk</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">-&gt; </span><span class="mi">1726</span>             <span class="n">D_chunk</span> <span class="o">=</span> <span class="n">reduce_func</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">sl</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1727</span>             <span class="n">_check_chunk_size</span><span class="p">(</span><span class="n">D_chunk</span><span class="p">,</span> <span class="n">chunk_size</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1728</span>         <span class="k">yield</span> <span class="n">D_chunk</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/sklearn/neighbors/_base.py</span> in <span class="ni">_kneighbors_reduce_func</span><span class="nt">(self, dist, start, n_neighbors, return_distance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span>         <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span><span class="sd">         sample_range = np.arange(dist.shape[0])[:, None]</span>
+<span class="ne">--&gt; </span><span class="mi">634</span><span class="sd">         neigh_ind = np.argpartition(dist, n_neighbors - 1, axis=1)</span>
+<span class="g g-Whitespace">    </span><span class="mi">635</span><span class="sd">         neigh_ind = neigh_ind[:, :n_neighbors]</span>
+<span class="g g-Whitespace">    </span><span class="mi">636</span><span class="sd">         # argpartition doesn&#39;t guarantee sorted order, so we sort again</span>
+
+<span class="nn">&lt;__array_function__ internals&gt;</span> in <span class="ni">argpartition</span><span class="nt">(*args, **kwargs)</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">argpartition</span><span class="nt">(a, kth, axis, kind, order)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">839</span>     <span class="k">return</span> <span class="n">_wrapfunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;argpartition&#39;</span><span class="p">,</span> <span class="n">kth</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span> 
+<span class="g g-Whitespace">    </span><span class="mi">841</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/learn-hub/Anthony/heart_disease_task/venv/lib/python3.7/site-packages/numpy/core/fromnumeric.py</span> in <span class="ni">_wrapfunc</span><span class="nt">(obj, method, *args, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> 
+<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">57</span>         <span class="k">return</span> <span class="n">bound</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>         <span class="c1"># A TypeError occurs if the object does have such a method in its</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #No Undersamping </span>
+<span class="c1"># Algorithm with the highest accuracy: [&#39;Gradient Boost Classifier&#39;, 0.9157898028424459]</span>
+<span class="c1"># Algorithm with the highest macro recall:</span>
+<span class="c1">#         [&#39;Naive Bayes&#39;, 0.6833829351601921]</span>
+<span class="c1"># Algorithm with the highest macro precision:</span>
+<span class="c1">#         [&#39;Gradient Boost Classifier&#39;, 0.7359577899388909]</span>
+<span class="c1"># Algorithm with the highest AUC:</span>
+<span class="c1">#         [&#39;Naive Bayes&#39;, 0.6833829351601921]</span>
+<span class="c1"># # Random </span>
+<span class="c1"># Algorithm with the highest accuracy: [&#39;Naive Bayes&#39;, 0.777842055066527]</span>
+<span class="c1"># Algorithm with the highest macro recall:</span>
+<span class="c1">#         [&#39;Gradient Boost Classifier&#39;, 0.7636522622274398]</span>
+<span class="c1"># Algorithm with the highest macro precision:</span>
+<span class="c1">#         [&#39;Logistic Regression &#39;, 0.5987409474695906]</span>
+<span class="c1"># Algorithm with the highest AUC:</span>
+<span class="c1">#         [&#39;Gradient Boost Classifier&#39;, 0.7636522622274399]</span>
+<span class="c1"># # Tomek</span>
+<span class="c1"># Algorithm with the highest accuracy: [&#39;Gradient Boost Classifier&#39;, 0.9158679779233572]</span>
+<span class="c1"># Algorithm with the highest macro recall:</span>
+<span class="c1">#         [&#39;Naive Bayes&#39;, 0.6871222195884508]</span>
+<span class="c1"># Algorithm with the highest macro precision:</span>
+<span class="c1">#         [&#39;Gradient Boost Classifier&#39;, 0.7313563006184678]</span>
+
+<span class="c1"># # OSS </span>
+<span class="c1"># Algorithm with the highest accuracy: [&#39;Gradient Boost Classifier&#39;, 0.9157428977938992]</span>
+<span class="c1"># Algorithm with the highest macro recall:</span>
+<span class="c1">#         [&#39;Naive Bayes&#39;, 0.687578840593017]</span>
+<span class="c1"># Algorithm with the highest macro precision:</span>
+<span class="c1">#         [&#39;Gradient Boost Classifier&#39;, 0.7293058306944802]</span>
+<span class="c1"># Algorithm with the highest AUC:</span>
+<span class="c1">#         [&#39;Naive Bayes&#39;, 0.6875788405930171]</span>
+        
+<span class="c1"># # NM2     </span>
+<span class="c1"># Algorithm with the highest accuracy: [&#39;Naive Bayes&#39;, 0.45100767679294546]</span>
+<span class="c1"># Algorithm with the highest macro recall:</span>
+<span class="c1">#         [&#39;Logistic Regression &#39;, 0.5912552564819664]</span>
+<span class="c1"># Algorithm with the highest macro precision:</span>
+<span class="c1">#         [&#39;Logistic Regression &#39;, 0.5313939861738548]</span>
+<span class="c1"># Algorithm with the highest AUC:</span>
+<span class="c1">#         [&#39;Logistic Regression &#39;, 0.5912552564819664]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see in the verbose model output, we achieved the F1 score of 0.88 for the Random Forest Classifier. This is a very good score, and it is the highest score we achieved so far.</p>
+</section>
+<section id="oversampling">
+<h2>Oversampling<a class="headerlink" href="#oversampling" title="Permalink to this headline">#</a></h2>
+<p>The following undersampling methods were choosen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Random</span> <span class="pre">Oversampling:</span></code> Random over-sampling consists in extracting at random samples from the minority class, until they reach a certain proportion compared to the majority class, typically 50:50, or in other words, a balancing ratio of 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SMOTE</span></code>: Creates new samples by interpolation of samples of the minority class and any of its k nearest neighbours (also from the minority class). K is typically 5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ADASYN</span></code>: Creates new samples by interpolation of samples of the minority class and its closest neighbours. It creates more samples from samples that are harder to classify.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Borderline</span> <span class="pre">SMOTE</span></code>: Creates new samples by interpolation between samples of the minority class and their closest neighbours.</p>
+<ul>
+<li><p>It does not use all observations from the minority class as templates, unllike SMOTE.</p></li>
+<li><p>It selects those observations (from the minority) for which, most of their neighbours belong to a different class (DANGER group)</p>
+<ul>
+<li><p>Variant 1 creates new examples, as SMOTE, between samples in the Danger group and their closest neighbours from the minority</p></li>
+<li><p>Variant 2 creates new examples between samples in the Danger group and neighbours from minority and majority class</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SVM</span> <span class="pre">SMOTE</span></code>: Creates new samples by interpolation of samples of the support vectors from minority class and its closest neighbours.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We train the models on a portion of the data that is over-sampled
+We evaluate the model performance on another portion of the data that was not resampled, and thus contains the original class distribution.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oversampler_dict</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="s1">&#39;random&#39;</span><span class="p">:</span> <span class="n">RandomOverSampler</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+
+    <span class="s1">&#39;smote&#39;</span><span class="p">:</span> <span class="n">SMOTE</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  <span class="c1"># samples only the minority class</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># for reproducibility</span>
+        <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="s1">&#39;adasyn&#39;</span><span class="p">:</span> <span class="n">ADASYN</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  <span class="c1"># samples only the minority class</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># for reproducibility</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="s1">&#39;border1&#39;</span><span class="p">:</span> <span class="n">BorderlineSMOTE</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  <span class="c1"># samples only the minority class</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># for reproducibility</span>
+        <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">m_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;borderline-1&#39;</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="s1">&#39;border2&#39;</span><span class="p">:</span> <span class="n">BorderlineSMOTE</span><span class="p">(</span>
+        <span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  <span class="c1"># samples only the minority class</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>  <span class="c1"># for reproducibility</span>
+        <span class="n">k_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">m_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;borderline-2&#39;</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span>
+
+    <span class="c1"># &#39;svm&#39;: SVMSMOTE(</span>
+    <span class="c1">#     sampling_strategy=&#39;auto&#39;,  # samples only the minority class</span>
+    <span class="c1">#     random_state=0,  # for reproducibility</span>
+    <span class="c1">#     k_neighbors=5,</span>
+    <span class="c1">#     m_neighbors=10,</span>
+    <span class="c1">#     n_jobs=4,</span>
+    <span class="c1">#     svm_estimator=SVC(kernel=&#39;linear&#39;)),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># train a model on the original data without under-sampling</span>
+<span class="c1"># and determine model performance</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No OverSampling&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+<span class="n">run_exps</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;OverSampling Methods&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+
+<span class="c1"># now, we test the different under-samplers, 1 at a time</span>
+<span class="k">for</span> <span class="n">oversampler</span> <span class="ow">in</span> <span class="n">oversampler_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">oversampler</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-------------------&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># resample the train set only</span>
+    <span class="n">X_resampled</span><span class="p">,</span> <span class="n">y_resampled</span> <span class="o">=</span> <span class="n">oversampler_dict</span><span class="p">[</span><span class="n">oversampler</span><span class="p">]</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    
+    <span class="c1"># train model and evaluate performance</span>
+    
+    <span class="c1"># Note the performance returned is using the</span>
+    <span class="c1"># test set, which was not under-sampled</span>
+    
+    <span class="n">run_exps</span><span class="p">(</span><span class="n">X_resampled</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_resampled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">()</span>
+    
+<span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No OverSampling
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_1.png" src="_images/Model_evaluation_23_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Gradient Boost Classifier&#39;, 0.9157898028424459]
+Algorithm with the highest macro recall:
+        [&#39;Naive Bayes&#39;, 0.6833829351601921]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.7359577899388909]
+Algorithm with the highest AUC:
+        [&#39;Naive Bayes&#39;, 0.6833829351601921]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.223938   0.243653  0.233380  5475.000000   0.582303    0
+                           No Heart Disease  0.928606   0.920953  0.924763  58484.000000  0.582303    0
+                           accuracy          0.862975   0.862975  0.862975  0.862975      0.582303    0
+                           macro avg         0.576272   0.582303  0.579072  63959.000000  0.582303    0
+                           weighted avg      0.868285   0.862975  0.865580  63959.000000  0.582303    0
+Gradient Boost Classifier  Heart Disease     0.551091   0.087671  0.151276  5475.000000   0.540493    0
+                           No Heart Disease  0.920825   0.993314  0.955697  58484.000000  0.540493    0
+                           accuracy          0.915790   0.915790  0.915790  0.915790      0.540493    0
+                           macro avg         0.735958   0.540493  0.553487  63959.000000  0.540493    0
+                           weighted avg      0.889175   0.915790  0.886837  63959.000000  0.540493    0
+Logistic Regression        Heart Disease     0.532860   0.109589  0.181791  5475.000000   0.550298    0
+                           No Heart Disease  0.922413   0.991006  0.955480  58484.000000  0.550298    0
+                           accuracy          0.915555   0.915555  0.915555  0.915555      0.550298    0
+                           macro avg         0.727637   0.550298  0.568635  63959.000000  0.550298    0
+                           weighted avg      0.889067   0.915555  0.889251  63959.000000  0.550298    0
+Naive Bayes                Heart Disease     0.256661   0.503196  0.339935  5475.000000   0.683383    0
+                           No Heart Disease  0.948896   0.863570  0.904224  58484.000000  0.683383    0
+                           accuracy          0.832721   0.832721  0.832721  0.832721      0.683383    0
+                           macro avg         0.602779   0.683383  0.622079  63959.000000  0.683383    0
+                           weighted avg      0.889640   0.832721  0.855920  63959.000000  0.683383    0
+Random Forest Classifier   Heart Disease     0.375333   0.102831  0.161434  5475.000000   0.543405    0
+                           No Heart Disease  0.921356   0.983979  0.951638  58484.000000  0.543405    0
+                           accuracy          0.908551   0.908551  0.908551  0.908551      0.543405    0
+                           macro avg         0.648345   0.543405  0.556536  63959.000000  0.543405    0
+                           weighted avg      0.874616   0.908551  0.883996  63959.000000  0.543405    0
+Name: dummy, dtype: int64
+
+OverSampling Methods
+-------------------
+random
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_3.png" src="_images/Model_evaluation_23_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Random Forest Classifier&#39;, 0.8951203114495223]
+Algorithm with the highest macro recall:
+        [&#39;Gradient Boost Classifier&#39;, 0.7644372640341237]
+Algorithm with the highest macro precision:
+        [&#39;Random Forest Classifier&#39;, 0.625360074756374]
+Algorithm with the highest AUC:
+        [&#39;Gradient Boost Classifier&#39;, 0.7644372640341237]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.218871   0.227945  0.223316  5475.000000   0.575894    0
+                           No Heart Disease  0.927442   0.923842  0.925639  58484.000000  0.575894    0
+                           accuracy          0.864272   0.864272  0.864272  0.864272      0.575894    0
+                           macro avg         0.573156   0.575894  0.574477  63959.000000  0.575894    0
+                           weighted avg      0.866787   0.864272  0.865519  63959.000000  0.575894    0
+Gradient Boost Classifier  Heart Disease     0.217277   0.797991  0.341555  5475.000000   0.764437    0
+                           No Heart Disease  0.974778   0.730884  0.835394  58484.000000  0.764437    0
+                           accuracy          0.736628   0.736628  0.736628  0.736628      0.764437    0
+                           macro avg         0.596027   0.764437  0.588474  63959.000000  0.764437    0
+                           weighted avg      0.909935   0.736628  0.793120  63959.000000  0.764437    0
+Logistic Regression        Heart Disease     0.224819   0.776621  0.348696  5475.000000   0.762969    0
+                           No Heart Disease  0.972850   0.749316  0.846576  58484.000000  0.762969    0
+                           accuracy          0.751653   0.751653  0.751653  0.751653      0.762969    0
+                           macro avg         0.598834   0.762969  0.597636  63959.000000  0.762969    0
+                           weighted avg      0.908817   0.751653  0.803957  63959.000000  0.762969    0
+Naive Bayes                Heart Disease     0.223181   0.647489  0.331944  5475.000000   0.718254    0
+                           No Heart Disease  0.959854   0.789019  0.866093  58484.000000  0.718254    0
+                           accuracy          0.776904   0.776904  0.776904  0.776904      0.718254    0
+                           macro avg         0.591517   0.718254  0.599019  63959.000000  0.718254    0
+                           weighted avg      0.896794   0.776904  0.820369  63959.000000  0.718254    0
+Random Forest Classifier   Heart Disease     0.322692   0.204932  0.250670  5475.000000   0.582332    0
+                           No Heart Disease  0.928028   0.959733  0.943614  58484.000000  0.582332    0
+                           accuracy          0.895120   0.895120  0.895120  0.895120      0.582332    0
+                           macro avg         0.625360   0.582332  0.597142  63959.000000  0.582332    0
+                           weighted avg      0.876210   0.895120  0.884297  63959.000000  0.582332    0
+Name: dummy, dtype: int64
+
+smote
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_5.png" src="_images/Model_evaluation_23_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Random Forest Classifier&#39;, 0.8920245782454385]
+Algorithm with the highest macro recall:
+        [&#39;Logistic Regression &#39;, 0.7382036799511805]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.6204770738858411]
+Algorithm with the highest AUC:
+        [&#39;Logistic Regression &#39;, 0.7382036799511805]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.220809   0.260091  0.238846  5475.000000   0.587085    0
+                           No Heart Disease  0.929560   0.914079  0.921755  58484.000000  0.587085    0
+                           accuracy          0.858097   0.858097  0.858097  0.858097      0.587085    0
+                           macro avg         0.575185   0.587085  0.580300  63959.000000  0.587085    0
+                           weighted avg      0.868890   0.858097  0.863296  63959.000000  0.587085    0
+Gradient Boost Classifier  Heart Disease     0.292123   0.487671  0.365378  5475.000000   0.688521    0
+                           No Heart Disease  0.948832   0.889371  0.918140  58484.000000  0.688521    0
+                           accuracy          0.854985   0.854985  0.854985  0.854985      0.688521    0
+                           macro avg         0.620477   0.688521  0.641759  63959.000000  0.688521    0
+                           weighted avg      0.892616   0.854985  0.870822  63959.000000  0.688521    0
+Logistic Regression        Heart Disease     0.216397   0.720731  0.332855  5475.000000   0.738204    0
+                           No Heart Disease  0.966560   0.755677  0.848207  58484.000000  0.738204    0
+                           accuracy          0.752685   0.752685  0.752685  0.752685      0.738204    0
+                           macro avg         0.591479   0.738204  0.590531  63959.000000  0.738204    0
+                           weighted avg      0.902345   0.752685  0.804092  63959.000000  0.738204    0
+Naive Bayes                Heart Disease     0.153681   0.798721  0.257766  5475.000000   0.693475    0
+                           No Heart Disease  0.968961   0.588229  0.732051  58484.000000  0.693475    0
+                           accuracy          0.606248   0.606248  0.606248  0.606248      0.693475    0
+                           macro avg         0.561321   0.693475  0.494908  63959.000000  0.693475    0
+                           weighted avg      0.899172   0.606248  0.691451  63959.000000  0.693475    0
+Random Forest Classifier   Heart Disease     0.301526   0.198539  0.239427  5475.000000   0.577742    0
+                           No Heart Disease  0.927296   0.956945  0.941887  58484.000000  0.577742    0
+                           accuracy          0.892025   0.892025  0.892025  0.892025      0.577742    0
+                           macro avg         0.614411   0.577742  0.590657  63959.000000  0.577742    0
+                           weighted avg      0.873729   0.892025  0.881755  63959.000000  0.577742    0
+Name: dummy, dtype: int64
+
+adasyn
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_7.png" src="_images/Model_evaluation_23_7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Random Forest Classifier&#39;, 0.8920089432292563]
+Algorithm with the highest macro recall:
+        [&#39;Logistic Regression &#39;, 0.7313252830497449]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.6193063466262022]
+Algorithm with the highest AUC:
+        [&#39;Logistic Regression &#39;, 0.7313252830497449]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.223033   0.262466  0.241148  5475.000000   0.588435    0
+                           No Heart Disease  0.929793   0.914404  0.922034  58484.000000  0.588435    0
+                           accuracy          0.858597   0.858597  0.858597  0.858597      0.588435    0
+                           macro avg         0.576413   0.588435  0.581591  63959.000000  0.588435    0
+                           weighted avg      0.869294   0.858597  0.863749  63959.000000  0.588435    0
+Gradient Boost Classifier  Heart Disease     0.291242   0.470137  0.359673  5475.000000   0.681515    0
+                           No Heart Disease  0.947370   0.892894  0.919326  58484.000000  0.681515    0
+                           accuracy          0.856705   0.856705  0.856705  0.856705      0.681515    0
+                           macro avg         0.619306   0.681515  0.639499  63959.000000  0.681515    0
+                           weighted avg      0.891205   0.856705  0.871419  63959.000000  0.681515    0
+Logistic Regression        Heart Disease     0.210001   0.714155  0.324562  5475.000000   0.731325    0
+                           No Heart Disease  0.965483   0.748495  0.843254  58484.000000  0.731325    0
+                           accuracy          0.745556   0.745556  0.745556  0.745556      0.731325    0
+                           macro avg         0.587742   0.731325  0.583908  63959.000000  0.731325    0
+                           weighted avg      0.900812   0.745556  0.798853  63959.000000  0.731325    0
+Naive Bayes                Heart Disease     0.145136   0.809132  0.246125  5475.000000   0.681488    0
+                           No Heart Disease  0.968746   0.553844  0.704765  58484.000000  0.681488    0
+                           accuracy          0.575697   0.575697  0.575697  0.575697      0.681488    0
+                           macro avg         0.556941   0.681488  0.475445  63959.000000  0.681488    0
+                           weighted avg      0.898244   0.575697  0.665505  63959.000000  0.681488    0
+Random Forest Classifier   Heart Disease     0.297626   0.192329  0.233662  5475.000000   0.574919    0
+                           No Heart Disease  0.926814   0.957510  0.941912  58484.000000  0.574919    0
+                           accuracy          0.892009   0.892009  0.892009  0.892009      0.574919    0
+                           macro avg         0.612220   0.574919  0.587787  63959.000000  0.574919    0
+                           weighted avg      0.872954   0.892009  0.881284  63959.000000  0.574919    0
+Name: dummy, dtype: int64
+
+border1
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_9.png" src="_images/Model_evaluation_23_9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Random Forest Classifier&#39;, 0.8934786347503869]
+Algorithm with the highest macro recall:
+        [&#39;Logistic Regression &#39;, 0.7351688039252979]
+Algorithm with the highest macro precision:
+        [&#39;Random Forest Classifier&#39;, 0.6200922423261308]
+Algorithm with the highest AUC:
+        [&#39;Logistic Regression &#39;, 0.7351688039252979]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.217154   0.254795  0.234473  5475.000000   0.584403    0
+                           No Heart Disease  0.929087   0.914011  0.921487  58484.000000  0.584403    0
+                           accuracy          0.857581   0.857581  0.857581  0.857581      0.584403    0
+                           macro avg         0.573121   0.584403  0.577980  63959.000000  0.584403    0
+                           weighted avg      0.868144   0.857581  0.862677  63959.000000  0.584403    0
+Gradient Boost Classifier  Heart Disease     0.287149   0.522374  0.370586  5475.000000   0.700487    0
+                           No Heart Disease  0.951573   0.878599  0.913631  58484.000000  0.700487    0
+                           accuracy          0.848106   0.848106  0.848106  0.848106      0.700487    0
+                           macro avg         0.619361   0.700487  0.642109  63959.000000  0.700487    0
+                           weighted avg      0.894697   0.848106  0.867146  63959.000000  0.700487    0
+Logistic Regression        Heart Disease     0.225544   0.693151  0.340343  5475.000000   0.735169    0
+                           No Heart Disease  0.964356   0.777187  0.860714  58484.000000  0.735169    0
+                           accuracy          0.769993   0.769993  0.769993  0.769993      0.735169    0
+                           macro avg         0.594950   0.735169  0.600529  63959.000000  0.735169    0
+                           weighted avg      0.901113   0.769993  0.816169  63959.000000  0.735169    0
+Naive Bayes                Heart Disease     0.164702   0.781005  0.272036  5475.000000   0.705101    0
+                           No Heart Disease  0.968445   0.629198  0.762803  58484.000000  0.705101    0
+                           accuracy          0.642193   0.642193  0.642193  0.642193      0.705101    0
+                           macro avg         0.566574   0.705101  0.517420  63959.000000  0.705101    0
+                           weighted avg      0.899643   0.642193  0.720793  63959.000000  0.705101    0
+Random Forest Classifier   Heart Disease     0.312395   0.203470  0.246433  5475.000000   0.580772    0
+                           No Heart Disease  0.927790   0.958074  0.942689  58484.000000  0.580772    0
+                           accuracy          0.893479   0.893479  0.893479  0.893479      0.580772    0
+                           macro avg         0.620092   0.580772  0.594561  63959.000000  0.580772    0
+                           weighted avg      0.875111   0.893479  0.883088  63959.000000  0.580772    0
+Name: dummy, dtype: int64
+
+border2
+-------------------
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_23_11.png" src="_images/Model_evaluation_23_11.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Algorithm with the highest accuracy: [&#39;Random Forest Classifier&#39;, 0.8956362669835364]
+Algorithm with the highest macro recall:
+        [&#39;Logistic Regression &#39;, 0.7133874620198195]
+Algorithm with the highest macro precision:
+        [&#39;Gradient Boost Classifier&#39;, 0.6324596168451473]
+Algorithm with the highest AUC:
+        [&#39;Logistic Regression &#39;, 0.7133874620198194]
+model                      index             precision  recall    f1-score  support       auc     
+Decision Tree Classifier   Heart Disease     0.210330   0.246941  0.227170  5475.000000   0.580074    0
+                           No Heart Disease  0.928334   0.913207  0.920709  58484.000000  0.580074    0
+                           accuracy          0.856173   0.856173  0.856173  0.856173      0.580074    0
+                           macro avg         0.569332   0.580074  0.573939  63959.000000  0.580074    0
+                           weighted avg      0.866872   0.856173  0.861340  63959.000000  0.580074    0
+Gradient Boost Classifier  Heart Disease     0.321763   0.408037  0.359800  5475.000000   0.663759    0
+                           No Heart Disease  0.943156   0.919482  0.931169  58484.000000  0.663759    0
+                           accuracy          0.875702   0.875702  0.875702  0.875702      0.663759    0
+                           macro avg         0.632460   0.663759  0.645485  63959.000000  0.663759    0
+                           weighted avg      0.889964   0.875702  0.882259  63959.000000  0.663759    0
+Logistic Regression        Heart Disease     0.235463   0.613151  0.340259  5475.000000   0.713387    0
+                           No Heart Disease  0.957386   0.813624  0.879670  58484.000000  0.713387    0
+                           accuracy          0.796463   0.796463  0.796463  0.796463      0.713387    0
+                           macro avg         0.596425   0.713387  0.609965  63959.000000  0.713387    0
+                           weighted avg      0.895588   0.796463  0.833496  63959.000000  0.713387    0
+Naive Bayes                Heart Disease     0.131047   0.788676  0.224750  5475.000000   0.649553    0
+                           No Heart Disease  0.962688   0.510430  0.667136  58484.000000  0.649553    0
+                           accuracy          0.534249   0.534249  0.534249  0.534249      0.649553    0
+                           macro avg         0.546868   0.649553  0.445943  63959.000000  0.649553    0
+                           weighted avg      0.891498   0.534249  0.629267  63959.000000  0.649553    0
+Random Forest Classifier   Heart Disease     0.319059   0.193242  0.240701  5475.000000   0.577317    0
+                           No Heart Disease  0.927164   0.961391  0.943967  58484.000000  0.577317    0
+                           accuracy          0.895636   0.895636  0.895636  0.895636      0.577317    0
+                           macro avg         0.623112   0.577317  0.592334  63959.000000  0.577317    0
+                           weighted avg      0.875109   0.895636  0.883767  63959.000000  0.577317    0
+Name: dummy, dtype: int64
+
+svm
+-------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No oversampling </span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="feature-selection">
+<h2>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">#</a></h2>
+<p>The idea of feature selection and extraction is to avoid the curse of
+dimensionality. This refers to the fact that as we move to higher
+dimension input feature spaces the volume of the space grows rapidly
+and we end up with very few instances per unit volume, i.e. we have
+very sparse sampling of the space of possible instances making
+modelling difficult.</p>
+<p>Feature Selection: It is clear from what we have seen that a good feature engineering
+idea might be to choose a subset of the features available to reduce
+the dimension of the feature space. This act is called feature
+selection. One way of doing this is to try out different permutations of
+features increasing the numbers of features involved as you proceed
+and calculate machine learning performance. This is rarely practical
+though. More efficient approaches include wrapper, filter and
+embedded methods.</p>
+<p>We decide to explore the following methods:</p>
+<ul class="simple">
+<li><p>Perform PCA anaylsis and idenitify the variables that most contribute to the</p></li>
+<li><p>A simple filter method:</p>
+<ul>
+<li><p>Identify input features having high correlation with target variable.</p></li>
+<li><p>Identify input features that have a low correlation with other independent variables</p></li>
+<li><p>Find the information gain or mutual information of the independent variable with respect to a target variable</p></li>
+</ul>
+</li>
+<li><p>Permutation Based Feature Importance: ill randomly shuffle each feature and compute the change in the model’s performance</p></li>
+</ul>
+<section id="pca">
+<h3>PCA<a class="headerlink" href="#pca" title="Permalink to this headline">#</a></h3>
+<p>PCA is mathematically defined as an orthogonal linear transformation that transforms the data to a new coordinate system such that the greatest variance by some projection of the data comes to lie on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.</p>
+<p>We decide to get the top 5 features that contribute most to the first principal component and the top 5 features that contribute most to the second principal compoenent.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pca_most_important_features</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Dataframe</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve the top 10 features that contribute most </span>
+<span class="sd">        variation to the top 2 principal components</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+    <span class="c1"># number of components</span>
+    <span class="n">n_pcs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">most_important_features_indicies</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_pcs</span><span class="p">):</span>
+        <span class="n">top_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="o">-</span><span class="mi">5</span><span class="p">)[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">most_important_features_indicies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">top_5</span><span class="p">)</span>
+        
+    <span class="n">most_important_features_indicies</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">most_important_features_indicies</span><span class="p">))</span>
+    <span class="n">initial_feature_names</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+    <span class="n">most_important_names</span>  <span class="o">=</span> <span class="p">[</span><span class="n">initial_feature_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">most_important_features_indicies</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">most_important_names</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca_df</span> <span class="o">=</span> <span class="n">pca_most_important_features</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="filter-methods">
+<h3>Filter Methods<a class="headerlink" href="#filter-methods" title="Permalink to this headline">#</a></h3>
+<p>A simple filter method:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Identify</span> <span class="pre">input</span> <span class="pre">features</span> <span class="pre">having</span> <span class="pre">high</span> <span class="pre">correlation</span> <span class="pre">with</span> <span class="pre">target</span> <span class="pre">variable</span></code>: We want to keep features with only a high correlation with the target variable. This implies that the input feature has a high influence in predicting the target variable. We set the threshold to the absolute value of 0.2. We keep input features only if the correlation of the input feature with the target variable is greater than 0.2. Our analysis reveled most variables have little if all correlation to our target variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Find</span> <span class="pre">the</span> <span class="pre">information</span> <span class="pre">gain</span> <span class="pre">or</span> <span class="pre">mutual</span> <span class="pre">information</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">independent</span> <span class="pre">variable</span> <span class="pre">with</span> <span class="pre">respect</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">target</span> <span class="pre">variable</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">idenity_high_corr_features</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="n">importances</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+        <span class="s2">&quot;HeartDisease&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">HeartDisease</span><span class="p">))</span>
+    
+    <span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">importances</span><span class="p">)</span>
+    <span class="n">important_feature_names</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">indices</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">importances</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">:</span>
+            <span class="n">important_feature_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">important_feature_names</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">149</span><span class="o">-</span><span class="mi">1</span><span class="n">df01e1de439</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">idenity_high_corr_features</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">importances</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="s2">&quot;HeartDisease&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>             <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">HeartDisease</span><span class="p">))</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">NameError</span>: name &#39;List&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi</span> <span class="o">=</span> <span class="n">mutual_info_classif</span><span class="p">(</span><span class="n">heart_disease_dataset_standardized</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;HeartDisease&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+                         <span class="n">heart_disease_dataset_standardized</span><span class="p">[</span><span class="s2">&quot;HeartDisease&quot;</span><span class="p">])</span>
+<span class="n">mi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">mi</span><span class="p">)</span>
+<span class="n">mi</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">heart_disease_dataset_standardized</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;HeartDisease&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">mi</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7faf3596b710&gt;
+</pre></div>
+</div>
+<img alt="_images/Model_evaluation_32_1.png" src="_images/Model_evaluation_32_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="hyperparameter-finetuning">
+<h2>Hyperparameter finetuning<a class="headerlink" href="#hyperparameter-finetuning" title="Permalink to this headline">#</a></h2>
+<p>Our best algorithm was</p>
+<p>Our final step is to fine-tune our model. We will use GridSearch to achieve this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> 
+    <span class="s1">&#39;n_estimators&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
+    <span class="s1">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="n">scorers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;precision_score&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">precision_score</span><span class="p">),</span>
+    <span class="s1">&#39;recall_score&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">recall_score</span><span class="p">),</span>
+    <span class="s1">&#39;accuracy_score&#39;</span><span class="p">:</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">grid_search_wrapper</span><span class="p">(</span><span class="n">refit_score</span><span class="o">=</span><span class="s1">&#39;accuracy_score&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    fits a GridSearchCV classifier using refit_score for optimization</span>
+<span class="sd">    prints classifier performance metrics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">scorers</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="n">refit_score</span><span class="p">,</span>
+                           <span class="n">cv</span><span class="o">=</span><span class="n">skf</span><span class="p">,</span> <span class="n">return_train_score</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="c1"># make the predictions</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best params for </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">refit_score</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+
+    <span class="c1"># confusion matrix on the test data.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Confusion matrix of our final model optimized for </span><span class="si">{}</span><span class="s1"> on the test data:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">refit_score</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span>
+                 <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pred_neg&#39;</span><span class="p">,</span> <span class="s1">&#39;pred_pos&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;neg&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="n">grid_search</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pickle-model">
+<h2>Pickle Model<a class="headerlink" href="#pickle-model" title="Permalink to this headline">#</a></h2>
+<p>Pickle is the standard way of serializing objects in Python.</p>
+<p>You can use the pickle operation to serialize your machine learning algorithms and save the serialized format to a file.</p>
+<p>Later we will load this file to deserialize your model and use it to make new predictions in our web app.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span>  <span class="o">=</span>  <span class="n">GaussianNB</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GaussianNB()
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;AgeCategory&#39;,
+ &#39;AlcoholDrinking&#39;,
+ &#39;American Indian/Alaskan Native&#39;,
+ &#39;Asian&#39;,
+ &#39;Asthma&#39;,
+ &#39;BMI&#39;,
+ &#39;BMI_Bin&#39;,
+ &#39;Black&#39;,
+ &#39;Diabetic&#39;,
+ &#39;DiffWalking&#39;,
+ &#39;Female&#39;,
+ &#39;GenHealth&#39;,
+ &#39;Hispanic&#39;,
+ &#39;KidneyDisease&#39;,
+ &#39;LOG_BMI&#39;,
+ &#39;Male&#39;,
+ &#39;MentalHealth&#39;,
+ &#39;Other&#39;,
+ &#39;PhysicalActivity&#39;,
+ &#39;PhysicalHealth&#39;,
+ &#39;Race_freq&#39;,
+ &#39;SkinCancer&#39;,
+ &#39;SleepTime&#39;,
+ &#39;Smoking&#39;,
+ &#39;Stroke&#39;,
+ &#39;White&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;../app/model/finalized_model.sav&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Clustering_Analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Cluster Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Conclusion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conclusion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Anthony Reidy<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

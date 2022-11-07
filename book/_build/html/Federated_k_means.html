@@ -1,0 +1,797 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Federated K-Means &#8212; Heart Disease Prediction Task</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Conclusion" href="Conclusion.html" />
+    <link rel="prev" title="Cluster Analysis" href="Clustering_Analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/IGT-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Heart Disease Prediction Task</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Introduction.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Initial_Data_Exploration.html">
+   Initial Data Exploration
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Clustering_Analysis.html">
+   Cluster Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Federated K-Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="References.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.optum.com/areidy1/learn-hub/tree/main/Anthony/heart_disease_task/issues/new?title=Issue%20on%20page%20%2FFederated_k_means.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Federated_k_means.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#child-server-study">
+   Child Server (Study):
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#base-k-means">
+     1. Base k-means:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update">
+     2. Update:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parent-server">
+   Parent Server:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregate-compute-k-means-run">
+     3. Aggregate &amp; Compute K-means run:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#child-k-means-class">
+     Child K-means class
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parent-k-means-class">
+     Parent K-means class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Federated K-Means</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#child-server-study">
+   Child Server (Study):
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#base-k-means">
+     1. Base k-means:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#update">
+     2. Update:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parent-server">
+   Parent Server:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggregate-compute-k-means-run">
+     3. Aggregate &amp; Compute K-means run:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#child-k-means-class">
+     Child K-means class
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parent-k-means-class">
+     Parent K-means class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation">
+   Evaluation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="federated-k-means">
+<h1>Federated K-Means<a class="headerlink" href="#federated-k-means" title="Permalink to this headline">#</a></h1>
+<p>In this section, we attempt to form a federated k-means algorithm to preserve the privacy of the individual labs.</p>
+<p><strong>Federated learning:</strong>  First introduced by Google, federated learning trains an algorithm across multiple decentralized servers/devices with local data samples. There is <strong>no</strong> data sharing between servers. This is in contrast to the standard way of training a machine learning algorithm where all of the training dataset is uploaded to one server. This technique address critical issues relating to data privacy and security</p>
+<figure class="align-default" id="workflow-fkm">
+<img alt="_images/Federated_K-Means.png" src="_images/Federated_K-Means.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Workflow of Federated K-means <em>Note: child servers 2 to 7 are obscured</em></span><a class="headerlink" href="#workflow-fkm" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="child-server-study">
+<h2>Child Server (Study):<a class="headerlink" href="#child-server-study" title="Permalink to this headline">#</a></h2>
+<section id="base-k-means">
+<h3>1. Base k-means:<a class="headerlink" href="#base-k-means" title="Permalink to this headline">#</a></h3>
+<p>The original K-Means algorithm is only trained on a given dataset once. There is no update method. In this approach, we split a study’s dataset 75:25. 75% of a study’s data is trained using normal K-means as part of step 1. It is important to note that all child servers are independent of one another.</p>
+</section>
+<section id="update">
+<h3>2. Update:<a class="headerlink" href="#update" title="Permalink to this headline">#</a></h3>
+<p>In an attempt to resemble real-world federated learning where a new data point is generated on a device, we add an update step to base K-means. Rather than recompute k-means, we iterate through the remaining 25% of data and perform the following steps</p>
+<ol class="simple">
+<li><p>Convert new data point to NumPy array</p></li>
+<li><p>Find the minimum Euclidean distance between that new point <span class="math notranslate nohighlight">\(X_{i}\)</span>  and the cluster centres (T) to find the closest cluster centre (<span class="math notranslate nohighlight">\(C_{i}\)</span>).
+<span class="math notranslate nohighlight">\(
+Minimum Distance = min((X_{i} - C_{1})^2.............(X_{i} - C_{T})^2)
+\)</span></p></li>
+<li><p>Transform the cluster centre <span class="math notranslate nohighlight">\(C_{i}\)</span> by doing the operation below. N equals the number of participants assigned to that cluster thus far i.e. before the new data point :
+<span class="math notranslate nohighlight">\(
+TransformedClusterCentre = \frac{((C_{i} * N) + X_{i})}{N+1}
+\)</span></p></li>
+<li><p>Then, the new data point is added to the cluster, and the transformed cluster centre is the new cluster centre.</p></li>
+</ol>
+</section>
+</section>
+<section id="parent-server">
+<h2>Parent Server:<a class="headerlink" href="#parent-server" title="Permalink to this headline">#</a></h2>
+<section id="aggregate-compute-k-means-run">
+<h3>3. Aggregate &amp; Compute K-means run:<a class="headerlink" href="#aggregate-compute-k-means-run" title="Permalink to this headline">#</a></h3>
+<p>Once all child devices have completed their update phase, their cluster centres are added to the parent server. Then, we compute another K-means run to find the optimal number of k centroids.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_reduced_2d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dim_reduced_2d.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">dim_reduced_3d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dim_reduced_3d.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">0</span><span class="n">f</span><span class="o">/</span><span class="n">wgt07yjn5gnfhmk719tfc2gm1vjz80</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_70991</span><span class="o">/</span><span class="mf">2448898660.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dim_reduced_2d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dim_reduced_2d.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">dim_reduced_3d</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/dim_reduced_3d.tsv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>                 <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> 
+<span class="g g-Whitespace">    </span><span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, error_bad_lines, warn_bad_lines, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span> 
+<span class="ne">--&gt; </span><span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> 
+<span class="g g-Whitespace">    </span><span class="mi">588</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">480</span> 
+<span class="g g-Whitespace">    </span><span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span> 
+<span class="g g-Whitespace">    </span><span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">810</span> 
+<span class="ne">--&gt; </span><span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">812</span> 
+<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/readers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span> 
+<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="ne">---&gt; </span><span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/parsers/base_parser.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">227</span>             <span class="n">memory_map</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">228</span>             <span class="n">storage_options</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="ne">--&gt; </span><span class="mi">229</span>             <span class="n">errors</span><span class="o">=</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">230</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">231</span> 
+
+<span class="nn">~/Library/CloudStorage/OneDrive-UHG/repos/aoc-2020/day_1/venv/lib/python3.7/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span>                 <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>                 <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
+<span class="ne">--&gt; </span><span class="mi">707</span>                 <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">708</span>             <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">709</span>         <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;data/dim_reduced_2d.tsv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we are just creating variables to hold the data from each study.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">studies_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Horstmann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kjome&#39;</span><span class="p">,</span> <span class="s1">&#39;Maia&#39;</span><span class="p">,</span> <span class="s1">&#39;SteingroverInPrep&#39;</span><span class="p">,</span> <span class="s1">&#39;Premkumar&#39;</span><span class="p">,</span><span class="s1">&#39;Wood&#39;</span><span class="p">,</span> <span class="s1">&#39;Worthy&#39;</span><span class="p">,</span> <span class="s1">&#39;Ahn&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">study</span> <span class="ow">in</span> <span class="n">studies_list</span><span class="p">:</span>
+    <span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">study</span><span class="si">}</span><span class="s1">_study&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dim_reduced_2d</span><span class="p">[</span><span class="n">dim_reduced_2d</span><span class="p">[</span><span class="s1">&#39;study&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">study</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="child-k-means-class">
+<h3>Child K-means class<a class="headerlink" href="#child-k-means-class" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">child_kmeans</span><span class="p">(</span><span class="n">KMeans</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A python class that executes the original k-means algorithm on 75% of the available data </span>
+<span class="sd">        from a study. Leftover data is used to update the cluster centres</span>
+<span class="sd">        as described above. Inherits from scikit-learn&#39;s K-means class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                <span class="n">df</span><span class="p">,</span>
+                <span class="n">n_clusters</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_df</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">base_df</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="mf">.25</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))])</span>
+        <span class="c1"># map cluster index to number of particpants e.g. &lt;0:77&gt; </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_index_num</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="c1"># map cluster index to number of particpants e.g. &lt;0:array([-0.96292967,  1.03276864])&gt; </span>
+        <span class="c1"># Necessary as numpy array is unhashable </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index_cluster_centre</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+    
+    <span class="k">def</span> <span class="nf">find_closest_cluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_data_point</span><span class="p">):</span>
+        <span class="n">min_dist</span> <span class="o">=</span>  <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+        <span class="n">min_cluster_centre</span><span class="o">=</span> <span class="kc">None</span>
+        <span class="n">cluster_index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">current_key</span><span class="p">,</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_cluster_centre</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">current_dist</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">new_data_point</span> <span class="o">-</span> <span class="n">cluster</span><span class="p">)))</span>
+            <span class="k">if</span> <span class="n">current_dist</span> <span class="o">&lt;</span> <span class="n">min_dist</span><span class="p">:</span>
+                <span class="n">min_cluster_centre</span> <span class="o">=</span> <span class="n">cluster</span>
+                <span class="n">min_dist</span> <span class="o">=</span> <span class="n">current_dist</span>
+                <span class="n">cluster_index</span> <span class="o">=</span> <span class="n">current_key</span>
+        <span class="k">return</span> <span class="n">cluster_index</span><span class="p">,</span> <span class="n">min_cluster_centre</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">update_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+            <span class="n">new_data_point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            <span class="n">cluster_index</span><span class="p">,</span> <span class="n">closest_cluster</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_closest_cluster</span><span class="p">(</span><span class="n">new_data_point</span><span class="p">)</span>
+            <span class="n">num_subjects</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_index_num</span><span class="p">[</span><span class="n">cluster_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">index_cluster_centre</span><span class="p">[</span><span class="n">cluster_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">divide</span><span class="p">(((</span><span class="n">closest_cluster</span> <span class="o">*</span> <span class="n">num_subjects</span><span class="p">)</span> <span class="o">+</span> <span class="n">new_data_point</span><span class="p">),</span> <span class="n">num_subjects</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cluster_index_num</span><span class="p">[</span><span class="n">cluster_index</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+
+    <span class="k">def</span> <span class="nf">create_maps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">cluster_indexes</span><span class="p">,</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_index_num</span> <span class="o">=</span> <span class="p">{</span><span class="n">cluster_index</span><span class="p">:</span><span class="n">count</span> <span class="k">for</span> <span class="n">cluster_index</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cluster_indexes</span><span class="p">,</span> <span class="n">counts</span><span class="p">)</span> <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index_cluster_centre</span> <span class="o">=</span> <span class="p">{</span><span class="n">cluster_index</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[</span><span class="n">cluster_index</span><span class="p">]</span> <span class="k">for</span> <span class="n">cluster_index</span> <span class="ow">in</span> <span class="n">cluster_indexes</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_df</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">create_maps</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">()</span> 
+        <span class="n">updated_cluster_centres</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cluster_centre</span><span class="p">)</span> <span class="k">for</span> <span class="n">cluster_centre</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_cluster_centre</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span> 
+        <span class="k">return</span> <span class="n">updated_cluster_centres</span> 
+   
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parent-k-means-class">
+<h3>Parent K-means class<a class="headerlink" href="#parent-k-means-class" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">parent_kmeans</span><span class="p">(</span><span class="n">KMeans</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A python class that retrieves cluster centres from</span>
+<span class="sd">        each study, and then computes another k-means algorithim </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n_clusters</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_centres_studies</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">federated_cluster_centres</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster_centre</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cluster_centres_studies</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">cluster_centre</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_cluster_centre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cluster_centres_studies</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">get_new_centres</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parent_server</span> <span class="o">=</span> <span class="n">parent_kmeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">study</span> <span class="ow">in</span> <span class="n">studies_list</span><span class="p">:</span>
+    <span class="c1"># First retrieving the cluster centres from a study</span>
+    <span class="n">study_cluster_centres</span> <span class="o">=</span> <span class="n">child_kmeans</span><span class="p">(</span><span class="nb">globals</span><span class="p">()[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">study</span><span class="si">}</span><span class="s1">_study&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:],</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="c1"># Adding that information to the parent server </span>
+    <span class="n">parent_server</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">cluster_centre</span><span class="o">=</span><span class="n">study_cluster_centres</span><span class="p">)</span>
+
+<span class="c1"># Calculating the new federated cluster centres</span>
+<span class="n">parent_server</span><span class="o">.</span><span class="n">update_cluster_centre</span><span class="p">()</span>
+<span class="c1"># Retrieving the cluster centres from Federated K-means and normal K-means    </span>
+<span class="n">fkm_cluster_centres</span> <span class="o">=</span> <span class="n">parent_server</span><span class="o">.</span><span class="n">get_new_centres</span><span class="p">()</span>
+<span class="n">km_clusters_centres</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:])</span><span class="o">.</span><span class="n">cluster_centers_</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="evaluation">
+<h2>Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">#</a></h2>
+<p>Before evaluating the results, an important consideration should be noted. As with any K-Means algorithm, results may vary with each run or input seed of the algorithm as the algorithm’s performance is heavily dependent on the initial clusters chosen. We evaluate our algorithm on the 2d dataset with k=3 and seed=42.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calulate_SSE</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fkm_cluster_centres</span><span class="p">,</span> <span class="n">km_clusters_centres</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculates k-mean&#39;s objective function (Sum Square Error) for both federared K-means</span>
+<span class="sd">        algorithm and the original K-means algorithm </span>
+<span class="sd">    </span>
+<span class="sd">    :param df: Dataframe containing data from the many labs paper</span>
+<span class="sd">    :param fkm_cluster_centres: Cluster centres of the Federated K-means Algo.</span>
+<span class="sd">    :param km_clusters_centres: Cluster centres of the original K-means Algo.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;fkm_SSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;km_SSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">subject</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">subject_dim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">subject</span><span class="p">[[</span><span class="s2">&quot;component_1&quot;</span><span class="p">,</span><span class="s2">&quot;component_2&quot;</span><span class="p">]])</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">subject_dim</span> <span class="o">-</span> <span class="n">cluster</span><span class="p">)))</span> <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">fkm_cluster_centres</span><span class="p">])</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">index</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span>  <span class="nb">min</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">subject_dim</span> <span class="o">-</span> <span class="n">cluster</span><span class="p">))</span> <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">km_clusters_centres</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evaluate_2d_df</span> <span class="o">=</span> <span class="n">calulate_SSE</span><span class="p">(</span><span class="n">dim_reduced_2d</span><span class="p">,</span> <span class="n">fkm_cluster_centres</span><span class="p">,</span> <span class="n">km_clusters_centres</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Federated K-mean SSE: </span><span class="si">{</span><span class="n">evaluate_2d_df</span><span class="p">[</span><span class="s2">&quot;fkm_SSE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;K-mean SSE: </span><span class="si">{</span><span class="n">evaluate_2d_df</span><span class="p">[</span><span class="s2">&quot;km_SSE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Federated K-mean SSE: 1498.2800508864195
+K-mean SSE: 1362.1960103577228
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our chosen approach only results in a approximate 10% increase in SSE compared to the original centralized K-means algorithm.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Clustering_Analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Cluster Analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Conclusion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Conclusion</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Anthony Reidy<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
